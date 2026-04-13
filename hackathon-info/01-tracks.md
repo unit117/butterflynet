@@ -44,3 +44,100 @@ Hands-on hackathon featuring OpenArm 7 DoF humanoid robot arm. Teams of 3-5 appl
 
 ### GOSIM Agentic Hackathon
 The main hackathon: design autonomous AI agents for real-world scenarios. €200k prize pool, 8,000+ participants (hybrid).
+
+## GOSIM Agentic Hackathon - Seven Themes
+
+Saved from user-provided theme copy on 2026-04-14 so the repo preserves the fuller wording beyond the earlier summary.
+
+### Shared Model Context
+
+Participants will use industry-leading open-source LLMs, including:
+
+- MiniMax
+- Moonshot Kimi
+- Zhipu GLM
+
+The stated goal is to let participants experience strong capabilities across text, voice, music, video, presentation generation, and more, and to build confidence in the future of open AI.
+
+### 1. Agents Meet Apps
+
+Reimagine a mainstream app for the agentic era. The theme argues that today's apps are static tools waiting for human input, while tomorrow's apps become living systems that anticipate needs, coordinate with other agents, and evolve alongside users.
+
+Example app directions:
+
+- Agentic X (Twitter) with autonomous posting and content curation
+- Agentic WeChat with intelligent message management
+- Agentic Spotify playlist agent with taste awareness
+- Any app you want to "agentify"
+
+### 2. Claws and Octos
+
+This theme focuses on ecosystem co-creation around OpenClaw and Octos.
+
+- OpenClaw: open-source paradigm for personal AI assistants, self-hosted and user-owned
+- Octos: OS layer for OpenClaw, aimed at family and team agent experiences
+
+The framing emphasizes upstream contribution: skills and plugins created during the hackathon can flow back into the open-source ecosystem.
+
+Possible directions:
+
+- Practical skills for families and teams
+- Cross-platform agent capabilities portable across frameworks
+- Security and permission management skills with boundaries and audit
+- Creative skills for games, music generation, data visualization, and generative art
+
+### 3. Human-Agent Interaction
+
+This track positions the next HCI shift as moving beyond chat windows toward interfaces where agents understand intent, perceive context, and act proactively.
+
+Possible directions:
+
+- Beyond-chat interaction paradigms such as gestures, spatial interaction, and ambient awareness
+- Adaptive interfaces that adjust presentation based on user state
+- Multi-agent collaborative interfaces
+- Zero-UI agents that run silently and surface only at critical moments
+
+### 4. Education
+
+This theme frames agents as a way to rethink learning through questioning, adaptation, and guided discovery rather than simple answer delivery.
+
+Possible directions:
+
+- Socratic AI tutor for deep thinking through questioning
+- Feynman learning partner where students learn by teaching the AI
+- Adaptive learning system with real-time difficulty and path adjustment
+- Immersive history/science exploration agents such as historical dialogue or virtual labs
+
+### 5. Content Remixing
+
+This theme focuses on cross-modal creation rather than isolated single-modality generation. The key idea is that text, visuals, music, narration, and simulation should be orchestrated together.
+
+Possible directions:
+
+- Cross-modal content creation pipeline from one idea to a complete short film
+- AI-driven interactive narrative with real-time branching text, visuals, and music
+- Intelligent presentation generation from oral description to complete presentation
+- Scientific visualization remix console for multimedia science narratives
+
+### 6. Productivity
+
+This theme focuses on agents moving from assistance to autonomy in knowledge work, especially where work is repetitive, rule-driven, and distributed across systems.
+
+Possible directions:
+
+- Intelligent business process automation from approvals to customer follow-ups
+- Knowledge management agent for organizing, linking, and retrieving internal knowledge
+- Meeting agent for notes, task assignment, and progress tracking
+- Multi-system orchestration agent spanning email, calendar, project management, and CRM
+
+### 7. Agents with Voices
+
+This theme focuses on voice as the most natural interaction layer and highlights smart hardware / IoT integration. It explicitly references EchoKit, described as a full-stack open-source voice AI agent toolkit built on Rust with native MCP support and the ability to connect to any AI model.
+
+Possible directions:
+
+- Voice-driven personal assistant
+- Multi-language real-time translation agent
+- Voice-controlled tool orchestration agent
+- AI characters with distinct personalities
+- Voice agents linked with IoT devices such as smart home, wearables, and in-vehicle systems
