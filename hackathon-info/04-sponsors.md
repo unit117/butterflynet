@@ -3,10 +3,10 @@
 ## Organizer
 - **GOSIM Foundation** — gosim.org
 
-## Co-organizers (per sponsors page / Medium article)
+## Co-organizers
 - **CSDN** — csdn.net
 - **1MS AI** — 1ms.ai
-- **Probabl** — probabl.ai (may be supporting partner rather than co-organizer)
+- **Probabl** — probabl.ai
 
 ## Sponsors
 - Huawei

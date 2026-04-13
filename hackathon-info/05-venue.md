@@ -26,7 +26,15 @@
 - **Place d'Italie:** Major hub with shops, cinemas, restaurants; Metro Lines 5, 6, 7
 - **Chinatown:** Authentic Asian restaurants and markets around Avenue de Choisy and Avenue d'Ivry
 
-## Hotels (nearby, €350+/night)
-15 nearby hotels ranging from 3-4 stars by Accor, Marriott, and independent boutique properties. Distance: 350m to 1.5 km from venue.
+## Nearby Hotels
+| Hotel | Stars | Distance |
+|-------|-------|----------|
+| Hôtel Le Richemont | ★★★ | ~350m |
+| Mercure Paris Bercy Bibliothèque | ★★★★ | ~500m |
+| ibis Styles Paris Tolbiac Bibliothèque | ★★★ | ~650m |
+| Hôtel Sanso by HappyCulture | ★★★ | ~650m |
+| Citadines Austerlitz Paris | ★★★ | ~900m |
+| Urban Bivouac Hôtel | ★★★ | ~1 km |
+| Novotel Paris Centre Bercy | ★★★★ | ~1 km |
 
 Full venue details: https://paris2026.gosim.org/venue/
