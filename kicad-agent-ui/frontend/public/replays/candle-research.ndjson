@@ -12,7 +12,7 @@
 {"t":7800,"phase":"research","type":"source_fetched","payload":{"source":"Manual cover art (high-res scan)","url":"manual p.1","icon":"📷"}}
 {"t":8600,"phase":"research","type":"fact_added","payload":{"tag":"photo-derived","claim":"LED field is rectangular 8×16 array per face (128 LEDs each side)"}}
 {"t":9400,"phase":"research","type":"fact_added","payload":{"tag":"photo-derived","claim":"Four dark rectangular features on PCB edge → concealed socket/contacts"}}
-{"t":10200,"phase":"research","type":"source_fetched","payload":{"source":"IS31FL3733 datasheet (ISSI)","url":"issi.com","icon":"📋"}}
+{"t":10200,"phase":"research","type":"source_fetched","payload":{"source":"IS31FL3731/3733 datasheets (ISSI)","url":"issi.com","icon":"📋"}}
 {"t":11000,"phase":"research","type":"source_fetched","payload":{"source":"ATtiny1616 datasheet (Microchip)","url":"microchip.com","icon":"📋"}}
 {"t":11800,"phase":"research","type":"fact_added","payload":{"tag":"reconstruction","claim":"Charger likely uses boost/SEPIC topology for 4S NiMH from 5V"}}
 {"t":12600,"phase":"research","type":"fact_added","payload":{"tag":"reconstruction","claim":"Stem/base interface: 4-feature edge pads (PWR, PWR, GND, GND hypothesis)"}}

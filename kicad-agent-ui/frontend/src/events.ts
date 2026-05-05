@@ -23,7 +23,7 @@ export const PHASE1_EVENTS: DemoEvent[] = [
   { t: 7800, phase: "research", type: "source_fetched", payload: { source: "Manual cover art (high-res scan)", url: "manual p.1", icon: "📷" } },
   { t: 8600, phase: "research", type: "fact_added", payload: { tag: "photo-derived", claim: "LED field is rectangular 8×16 array per face (128 LEDs each side)" } },
   { t: 9400, phase: "research", type: "fact_added", payload: { tag: "photo-derived", claim: "Four dark rectangular features on PCB edge → concealed socket/contacts" } },
-  { t: 10200, phase: "research", type: "source_fetched", payload: { source: "IS31FL3733 datasheet (ISSI)", url: "issi.com", icon: "📋" } },
+  { t: 10200, phase: "research", type: "source_fetched", payload: { source: "IS31FL3731/3733 datasheets (ISSI)", url: "issi.com", icon: "📋" } },
   { t: 11000, phase: "research", type: "source_fetched", payload: { source: "ATtiny1616 datasheet (Microchip)", url: "microchip.com", icon: "📋" } },
   { t: 11800, phase: "research", type: "fact_added", payload: { tag: "reconstruction", claim: "Charger likely uses boost/SEPIC topology for 4S NiMH from 5V" } },
   { t: 12600, phase: "research", type: "fact_added", payload: { tag: "reconstruction", claim: "Stem/base interface: 4-feature edge pads (PWR, PWR, GND, GND hypothesis)" } },
@@ -60,22 +60,22 @@ export const PHASE2_EVENTS: DemoEvent[] = [
   }},
   { t: 13500, phase: "design", type: "branch_decision", payload: {
     faithful_path: "Charger/contact unresolved — STOP at architecture",
-    derivative_path: "Swap to ESP32 + charlieplex matrix driver — proceed to build",
+    derivative_path: "Modernized 1S Li-ion base + ATtiny1616 + dual charlieplex drivers — proceed to build",
     chosen: "derivative",
-    rationale: "Faithful path blocked on charger unknowns. Derivative path (v5_modernized) uses ATtiny1616 + IS31FL3733 — all specs resolved, buildable today."
+    rationale: "Faithful path blocked on charger unknowns. Derivative path (v5_modernized) uses ATtiny1616 + 2× IS31FL3731-QF — all specs resolved, buildable today."
   }},
-  { t: 16000, phase: "design", type: "version_created", payload: { version: "v5_modernized", summary: "Active build target: ATtiny1616, 2× IS31FL3733, 4-layer 430×30mm, all specs resolved", status: "active" } },
+  { t: 16000, phase: "design", type: "version_created", payload: { version: "v5_modernized", summary: "Active build target: ATtiny1616, 2× IS31FL3731-QF, 4-layer 430×30mm, all specs resolved", status: "active" } },
   { t: 17500, phase: "design", type: "phase_complete", payload: { versions: 5, errors_caught: 2, branches: 1, build_target: "v5_modernized" } },
 ];
 
 // Phase 3: Build — generator events
 export const PHASE3_EVENTS: DemoEvent[] = [
   { t: 0, phase: "build", type: "phase_start", payload: { target: "generate candle.kicad_pcb from v5_modernized spec" } },
-  { t: 500, phase: "build", type: "gen_step", payload: { step: "Board outline", detail: "430×30×1.6mm 4-layer stackup defined" } },
-  { t: 1500, phase: "build", type: "gen_step", payload: { step: "LED field (left)", detail: "8×16 charlieplex matrix, 128 LEDs at 2mm pitch" } },
+  { t: 500, phase: "build", type: "gen_step", payload: { step: "Board outline", detail: "430×30×3mm 4-layer stackup defined" } },
+  { t: 1500, phase: "build", type: "gen_step", payload: { step: "LED field (left)", detail: "8×16 charlieplex matrix, 128 LEDs at 2.9mm pitch" } },
   { t: 2500, phase: "build", type: "gen_step", payload: { step: "LED field (right)", detail: "Mirror population on B.Cu face" } },
   { t: 3500, phase: "build", type: "gen_step", payload: { step: "MCU placement", detail: "ATtiny1616 QFN-20 at y=236, I2C + UPDI escape" } },
-  { t: 4500, phase: "build", type: "gen_step", payload: { step: "Driver ICs", detail: "2× IS31FL3733 QFN-28 (0.4mm pitch) at y=328" } },
+  { t: 4500, phase: "build", type: "gen_step", payload: { step: "Driver ICs", detail: "2× IS31FL3731-QF QFN-28 (0.4mm pitch) at y=328" } },
   { t: 5500, phase: "build", type: "gen_step", payload: { step: "Passive placement", detail: "Decoupling caps, pull-ups, current-set resistors" } },
   { t: 6500, phase: "build", type: "gen_step", payload: { step: "Routing", detail: "Charlieplex columns, I2C bus, power rails, microvias" } },
   { t: 7500, phase: "build", type: "gen_step", payload: { step: "Copper zones", detail: "GND fill on all 4 layers" } },

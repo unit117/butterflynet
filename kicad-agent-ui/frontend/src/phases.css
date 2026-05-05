@@ -550,20 +550,562 @@
 }
 
 /* ─── Phase 3: Build ─── */
+.phase-body.build-phase-body {
+  overflow: hidden;
+  padding: 20px 24px 18px;
+}
+
 .build-view {
-  max-width: 600px;
+  width: min(100%, 1180px);
+  max-width: 1180px;
+  height: 100%;
+  display: grid;
+  grid-template-columns: minmax(300px, 0.75fr) minmax(0, 1.55fr);
+  gap: 20px;
+  min-height: 0;
+}
+
+.build-board-panel,
+.build-manifest-panel,
+.build-table-panel,
+.build-output-panel,
+.build-progress {
+  min-height: 0;
+}
+
+.build-board-panel {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.build-board-meta {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.build-board-meta > div {
+  display: grid;
+  grid-template-columns: 72px 1fr;
+  gap: 10px;
+  align-items: baseline;
+  padding: 8px 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.build-meta-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+}
+
+.build-meta-value {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  color: var(--text-primary);
+}
+
+.pcb-map-shell {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 10px;
+}
+
+.pcb-map {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 72px minmax(0, 1fr);
+  gap: 14px;
+  overflow: visible;
+}
+
+.pcb-overview,
+.pcb-detail-pane {
+  min-height: 0;
+}
+
+.pcb-overview {
+  height: 100%;
+}
+
+.pcb-detail-stack {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: 1.1fr 0.85fr 0.85fr;
+  gap: 10px;
+}
+
+.pcb-detail-pane {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(64, 85, 124, 0.8);
+  border-radius: 7px;
+  background: rgba(13, 17, 23, 0.32);
+}
+
+.pcb-detail-label {
+  position: absolute;
+  z-index: 2;
+  top: 6px;
+  left: 8px;
+  right: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #8b949e;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.pcb-map-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  overflow: visible;
+  filter: drop-shadow(0 12px 30px rgba(0, 0, 0, 0.32));
+}
+
+.pcb-map-svg.compact {
+  min-height: 0;
+  filter: none;
+}
+
+.pcb-outline-fill {
+  fill: url(#pcbCopper);
+}
+
+.pcb-outline-stroke {
+  fill: none;
+  stroke: #3f7f48;
+  stroke-width: 1;
+}
+
+.pcb-grid-line {
+  stroke: rgba(88, 166, 255, 0.14);
+  stroke-width: 0.35;
+}
+
+.pcb-led-layer,
+.pcb-part-layer,
+.pcb-part {
+  opacity: 0.24;
+  transition: opacity 0.25s;
+}
+
+.pcb-led-layer.active,
+.pcb-part-layer.active,
+.pcb-part.active {
+  opacity: 1;
+}
+
+.pcb-led {
+  stroke-width: 0.15;
+}
+
+.pcb-led.top-side {
+  fill: #f0a33a;
+  stroke: #ffd08a;
+}
+
+.pcb-led.bottom-side {
+  fill: rgba(88, 166, 255, 0.08);
+  stroke: #58a6ff;
+  stroke-dasharray: 0.5 0.35;
+}
+
+.pcb-part-body,
+.pcb-pad {
+  stroke-width: 0.28;
+}
+
+.pcb-part-body.top-side,
+.pcb-pad.top-side {
+  fill: rgba(36, 93, 142, 0.82);
+  stroke: #58a6ff;
+}
+
+.pcb-part-body.bottom-side,
+.pcb-pad.bottom-side {
+  fill: rgba(88, 166, 255, 0.08);
+  stroke: #8bbcff;
+  stroke-dasharray: 0.65 0.45;
+}
+
+.pcb-part-body.passive {
+  fill: rgba(99, 68, 31, 0.85);
+  stroke: #ffa726;
+}
+
+.pcb-part-body.switch {
+  fill: rgba(38, 90, 129, 0.9);
+}
+
+.pcb-pad.socket-pad {
+  fill: rgba(71, 117, 91, 0.74);
+  stroke: #66bb6a;
+}
+
+.pcb-pad.service-pad {
+  fill: rgba(77, 137, 166, 0.72);
+}
+
+.pcb-ref-label {
+  fill: #d7e1ec;
+  font-size: 2.7px;
+  font-weight: 800;
+  text-anchor: middle;
+  dominant-baseline: middle;
+  paint-order: stroke;
+  stroke: rgba(13, 17, 23, 0.88);
+  stroke-width: 0.65px;
+  stroke-linejoin: round;
+}
+
+.pcb-ref-label.small {
+  font-size: 2.1px;
+}
+
+.pcb-ref-label.bottom-label {
+  fill: #8bbcff;
+  transform: translateY(3.6px);
+}
+
+.pcb-axis-label {
+  fill: rgba(139, 148, 158, 0.82);
+  font-size: 1.8px;
+  letter-spacing: 0.04em;
+}
+
+.pcb-map-legend {
+  display: grid;
+  gap: 4px;
+  font-size: 10px;
+  line-height: 1.4;
+  color: var(--text-secondary);
+}
+
+.build-manifest-panel {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) minmax(112px, 0.34fr);
+  gap: 14px;
+  overflow: hidden;
+}
+
+.build-stats {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.build-stat {
+  padding: 12px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.build-stat-value {
+  display: block;
+  font-size: 24px;
+  line-height: 1;
+  font-weight: 800;
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.build-stat-label {
+  display: block;
+  margin-top: 6px;
+  font-size: 10px;
+  line-height: 1.3;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.45px;
+}
+
+.build-main-grid {
+  min-height: 0;
+  display: grid;
+  grid-template-columns: minmax(300px, 1fr) minmax(310px, 1fr);
+  gap: 16px;
+  overflow: hidden;
+}
+
+.build-table-panel,
+.build-side-panels,
+.build-output-panel,
+.build-progress {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.build-side-panels {
+  gap: 10px;
+}
+
+.build-output-panel {
+  min-height: 0;
+  flex: 1;
+}
+
+.build-agents-panel {
+  flex: 1;
+}
+
+.build-component-list,
+.build-output-list,
+.build-agent-list,
+.build-step-list {
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: #40557c transparent;
+}
+
+.build-component-list::-webkit-scrollbar,
+.build-output-list::-webkit-scrollbar,
+.build-agent-list::-webkit-scrollbar,
+.build-step-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.build-component-list::-webkit-scrollbar-thumb,
+.build-output-list::-webkit-scrollbar-thumb,
+.build-agent-list::-webkit-scrollbar-thumb,
+.build-step-list::-webkit-scrollbar-thumb {
+  background: #40557c;
+  border-radius: 999px;
+}
+
+.build-agent-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 6px;
+  align-content: start;
+}
+
+.build-component-row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr) minmax(0, 0.95fr) 38px;
+  gap: 10px;
+  align-items: center;
+  padding: 8px 10px;
+  margin-bottom: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid #40557c;
+  border-radius: 6px;
+  opacity: 0.55;
+}
+
+.build-component-row > * {
+  min-width: 0;
+}
+
+.build-component-row.done {
+  opacity: 1;
+  border-left-color: var(--success);
+}
+
+.build-component-primary {
+  min-width: 0;
+  display: grid;
+  gap: 2px;
+}
+
+.build-component-refs {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.build-component-value,
+.build-component-role,
+.build-component-footprint,
+.build-component-qty,
+.build-output-detail {
+  font-size: 11px;
+  line-height: 1.35;
+  color: var(--text-secondary);
+}
+
+.build-component-value,
+.build-component-footprint {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.build-component-role {
+  color: var(--text-primary);
+  overflow-wrap: anywhere;
+}
+
+.build-component-qty {
+  min-width: 34px;
+  justify-self: end;
+  text-align: right;
+  color: var(--accent);
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+
+.build-output-row {
+  display: grid;
+  gap: 3px;
+  padding: 7px 9px;
+  margin-bottom: 5px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  opacity: 0.5;
+}
+
+.build-output-row.done {
+  opacity: 1;
+  border-color: rgba(88, 166, 255, 0.35);
+}
+
+.build-output-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: "SF Mono", "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace;
+  font-size: 11px;
+  color: var(--text-primary);
+}
+
+.build-agent-row {
+  display: grid;
+  gap: 3px;
+  padding: 7px 8px;
+  margin-bottom: 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-left: 3px solid #40557c;
+  border-radius: 6px;
+  opacity: 0.52;
+}
+
+.build-agent-row.called {
+  opacity: 1;
+  border-left-color: var(--accent);
+}
+
+.build-agent-row.active {
+  border-left-color: var(--warning);
+  background: #e6510018;
+}
+
+.build-agent-header {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.build-agent-name,
+.build-agent-call {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: "SF Mono", "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace;
+}
+
+.build-agent-name {
+  font-size: 11px;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.build-agent-status {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border-radius: 50%;
+  background: rgba(88, 166, 255, 0.16);
+  color: transparent;
+  font-size: 0;
+  box-shadow: 0 0 0 1px rgba(88, 166, 255, 0.42), 0 0 8px rgba(88, 166, 255, 0.28);
+}
+
+.build-agent-row.active .build-agent-status {
+  background: rgba(255, 167, 38, 0.18);
+  box-shadow: 0 0 0 1px rgba(255, 167, 38, 0.52), 0 0 8px rgba(255, 167, 38, 0.32);
+}
+
+.build-agent-call {
+  font-size: 10px;
+  color: #8b949e;
+}
+
+.build-agent-role,
+.build-agent-result {
+  font-size: 9px;
+  line-height: 1.35;
+}
+
+.build-agent-role {
+  color: var(--text-primary);
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.build-agent-result {
+  color: var(--success);
+  font-family: "SF Mono", "JetBrains Mono", "Fira Code", Menlo, Consolas, monospace;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .build-step {
-  padding: 10px 14px;
+  padding: 8px 10px;
   margin-bottom: 6px;
   background: var(--bg-card);
   border-radius: 6px;
   border-left: 3px solid var(--accent-dim);
 }
 
+.build-step.complete {
+  border-left-color: var(--success);
+}
+
 .build-step-name {
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   color: var(--text-primary);
   margin-bottom: 2px;
@@ -578,7 +1120,7 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 13px;
+  font-size: 12px;
   color: var(--success);
   font-weight: 600;
 }
@@ -997,5 +1539,70 @@
 
   .research-sources {
     grid-row: auto;
+  }
+}
+
+@media (max-width: 920px) {
+  .phase-body.build-phase-body {
+    overflow-y: auto;
+  }
+
+  .build-view {
+    height: auto;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .build-board-panel,
+  .build-manifest-panel,
+  .build-main-grid,
+  .build-side-panels,
+  .build-output-panel,
+  .build-progress {
+    overflow: visible;
+  }
+
+  .pcb-map {
+    height: 520px;
+    min-height: 520px;
+  }
+
+  .build-manifest-panel,
+  .build-main-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: none;
+  }
+
+  .build-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .build-component-list,
+  .build-output-list,
+  .build-agent-list,
+  .build-step-list {
+    max-height: none;
+    overflow: visible;
+  }
+
+  .build-agent-list {
+    grid-template-columns: 1fr;
+  }
+
+  .build-component-row {
+    grid-template-columns: minmax(0, 1fr) 44px;
+    gap: 4px 10px;
+  }
+
+  .build-component-primary,
+  .build-component-role,
+  .build-component-footprint {
+    grid-column: 1;
+  }
+
+  .build-component-qty {
+    grid-column: 2;
+    grid-row: 1;
   }
 }
