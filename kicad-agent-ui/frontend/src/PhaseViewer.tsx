@@ -50,41 +50,56 @@ function ResearchView({ events }: { events: DemoEvent[] }) {
   const sources = events.filter((e) => e.type === "source_fetched");
   const facts = events.filter((e) => e.type === "fact_added");
   const questions = events.filter((e) => e.type === "question_added");
+  const sourceListRef = useRef<HTMLDivElement>(null);
+  const factListRef = useRef<HTMLDivElement>(null);
+  const questionListRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    [sourceListRef.current, factListRef.current, questionListRef.current].forEach((list) => {
+      if (list) list.scrollTop = list.scrollHeight;
+    });
+  }, [sources.length, facts.length, questions.length]);
 
   return (
     <div className="phase-content research-view">
       <div className="research-sources">
         <div className="section-label">Sources Consulted ({sources.length})</div>
-        {sources.map((e, i) => (
-          <div key={i} className="source-row fade-in">
-            <span className="source-icon">{e.payload.icon as string}</span>
-            <span className="source-name">{e.payload.source as string}</span>
-          </div>
-        ))}
+        <div className="research-list" ref={sourceListRef}>
+          {sources.map((e) => (
+            <div key={e.t} className="source-row fade-in">
+              <span className="source-icon">{e.payload.icon as string}</span>
+              <span className="source-name">{e.payload.source as string}</span>
+            </div>
+          ))}
+        </div>
       </div>
       <div className="research-facts">
         <div className="section-label">Fact Ledger ({facts.length})</div>
-        {facts.map((e, i) => {
-          const tag = e.payload.tag as string;
-          const colors = TAG_COLORS[tag] || TAG_COLORS.reconstruction;
-          return (
-            <div key={i} className="fact-row fade-in">
-              <span className="fact-tag" style={{ background: colors.bg, color: colors.fg }}>
-                {tag}
-              </span>
-              <span className="fact-claim">{e.payload.claim as string}</span>
-            </div>
-          );
-        })}
+        <div className="research-list" ref={factListRef}>
+          {facts.map((e) => {
+            const tag = e.payload.tag as string;
+            const colors = TAG_COLORS[tag] || TAG_COLORS.reconstruction;
+            return (
+              <div key={e.t} className="fact-row fade-in">
+                <span className="fact-tag" style={{ background: colors.bg, color: colors.fg }}>
+                  {tag}
+                </span>
+                <span className="fact-claim">{e.payload.claim as string}</span>
+              </div>
+            );
+          })}
+        </div>
       </div>
       <div className="research-questions">
         <div className="section-label">Unresolved Questions ({questions.length})</div>
-        {questions.map((e, i) => (
-          <div key={i} className="question-row fade-in">
-            <span className="question-icon">?</span>
-            <span>{e.payload.question as string}</span>
-          </div>
-        ))}
+        <div className="research-list" ref={questionListRef}>
+          {questions.map((e) => (
+            <div key={e.t} className="question-row fade-in">
+              <span className="question-icon">?</span>
+              <span className="question-text">{e.payload.question as string}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -288,7 +303,8 @@ export function PhaseViewer() {
     if (phase === "validate") {
       const nextBeat = beats[drcBeat + 1];
       if (!nextBeat) {
-        setTimeout(() => { resetPhase("export"); phaseStartRef.current = performance.now(); }, 1500 / speed);
+        setPlayState("idle");
+        phaseStartRef.current = 0;
         return;
       }
       const delay = nextBeat.signature ? 3000 / speed : 800 / speed;
@@ -300,11 +316,9 @@ export function PhaseViewer() {
 
     const events = replays[phase].filter((e) => e.type !== "drc_beat");
     if (!events.length) {
-      const nextIdx = ALL_PHASES.indexOf(phase) + 1;
-      if (nextIdx < ALL_PHASES.length) {
-        timerRef.current = window.setTimeout(() => { resetPhase(ALL_PHASES[nextIdx]); phaseStartRef.current = performance.now(); }, 500);
-      }
-      return () => clearTimeout(timerRef.current);
+      setPlayState("idle");
+      phaseStartRef.current = 0;
+      return;
     }
 
     phaseStartRef.current = phaseStartRef.current || performance.now();
@@ -312,16 +326,9 @@ export function PhaseViewer() {
     const nextEvent = events.find((e) => e.t > elapsed && !visibleEvents.includes(e));
 
     if (!nextEvent) {
-      const nextIdx = ALL_PHASES.indexOf(phase) + 1;
-      if (nextIdx < ALL_PHASES.length) {
-        timerRef.current = window.setTimeout(() => {
-          resetPhase(ALL_PHASES[nextIdx]);
-          phaseStartRef.current = performance.now();
-        }, 1500 / speed);
-      } else {
-        setPlayState("idle");
-      }
-      return () => clearTimeout(timerRef.current);
+      setPlayState("idle");
+      phaseStartRef.current = 0;
+      return;
     }
 
     const delay = (nextEvent.t - elapsed) / speed;
@@ -347,8 +354,14 @@ export function PhaseViewer() {
 
   const handlePlay = () => {
     if (playState === "idle") {
-      resetPhase("research");
+      resetPhase(phase);
       phaseStartRef.current = performance.now();
+    } else if (playState === "paused") {
+      const elapsed =
+        phase === "validate"
+          ? 0
+          : Math.max(0, ...visibleEvents.map((e) => e.t));
+      phaseStartRef.current = performance.now() - elapsed / speed;
     }
     setPlayState("playing");
   };
@@ -357,13 +370,14 @@ export function PhaseViewer() {
 
   const handleReset = () => {
     setPlayState("idle");
-    resetPhase("research");
+    resetPhase(phase);
     phaseStartRef.current = 0;
   };
 
   const handlePhaseClick = (p: Phase) => {
     if (!replays) return;
-    setPlayState("paused");
+    setPlayState("idle");
+    phaseStartRef.current = 0;
     setPhase(p);
     if (p !== "validate") {
       setVisibleEvents(replays[p].filter((e) => e.type !== "drc_beat"));
@@ -421,7 +435,7 @@ export function PhaseViewer() {
         })}
       </div>
 
-      <div className="phase-body">
+      <div className={`phase-body ${phase === "research" ? "research-phase-body" : ""}`}>
         {phase === "research" && (
           <>
             <ResearchView events={visibleEvents} />

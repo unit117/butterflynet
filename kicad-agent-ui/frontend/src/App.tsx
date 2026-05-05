@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
+import "@google/model-viewer";
 import {
   Project,
   RunResult,
