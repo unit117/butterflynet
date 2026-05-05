@@ -8,4 +8,4 @@
 {"t":6500,"phase":"build","type":"gen_step","payload":{"step":"Routing","detail":"Charlieplex columns, I2C bus, power rails, microvias"}}
 {"t":7500,"phase":"build","type":"gen_step","payload":{"step":"Copper zones","detail":"GND fill on all 4 layers"}}
 {"t":8500,"phase":"build","type":"gen_complete","payload":{"components":272,"nets":45,"file":"candle.kicad_pcb","sha":"972e36534c06a355"}}
-{"t":9000,"phase":"build","type":"phase_complete","payload":{"duration_sec":8.5,"deterministic":true}}
+{"t":9000,"phase":"build","type":"phase_complete","payload":{"duration_sec":8.5,"deterministic":true,"artifact":"candle.kicad_pcb","handoff":"kicad-drc-closure-loop"}}

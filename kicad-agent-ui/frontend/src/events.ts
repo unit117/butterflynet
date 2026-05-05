@@ -31,7 +31,7 @@ export const PHASE1_EVENTS: DemoEvent[] = [
   { t: 14200, phase: "research", type: "question_added", payload: { question: "Charger topology: boost or SEPIC? Which IC?" } },
   { t: 14800, phase: "research", type: "question_added", payload: { question: "Contact geometry: spring pins, pogo pads, or edge connector?" } },
   { t: 15400, phase: "research", type: "question_added", payload: { question: "Exact LED driver IC (IS31FL3733 vs IS31FL3731)?" } },
-  { t: 16000, phase: "research", type: "phase_complete", payload: { facts: 11, sources: 7, unresolved: 3 } },
+  { t: 16000, phase: "research", type: "phase_complete", payload: { facts: 11, sources: 7, unresolved: 3, handoff: "kicad-spec-normalizer" } },
 ];
 
 // Phase 2: Design — spec iteration with self-correction
@@ -65,7 +65,7 @@ export const PHASE2_EVENTS: DemoEvent[] = [
     rationale: "Faithful path blocked on charger unknowns. Derivative path (v5_modernized) uses ATtiny1616 + 2× IS31FL3731-QF — all specs resolved, buildable today."
   }},
   { t: 16000, phase: "design", type: "version_created", payload: { version: "v5_modernized", summary: "Active build target: ATtiny1616, 2× IS31FL3731-QF, 4-layer 430×30mm, all specs resolved", status: "active" } },
-  { t: 17500, phase: "design", type: "phase_complete", payload: { versions: 5, errors_caught: 2, branches: 1, build_target: "v5_modernized" } },
+  { t: 17500, phase: "design", type: "phase_complete", payload: { versions: 5, errors_caught: 2, branches: 1, build_target: "v5_modernized", handoff: "kicad-build-orchestrator" } },
 ];
 
 // Phase 3: Build — generator events
@@ -80,22 +80,24 @@ export const PHASE3_EVENTS: DemoEvent[] = [
   { t: 6500, phase: "build", type: "gen_step", payload: { step: "Routing", detail: "Charlieplex columns, I2C bus, power rails, microvias" } },
   { t: 7500, phase: "build", type: "gen_step", payload: { step: "Copper zones", detail: "GND fill on all 4 layers" } },
   { t: 8500, phase: "build", type: "gen_complete", payload: { components: 272, nets: 45, file: "candle.kicad_pcb", sha: "972e3653" } },
-  { t: 9000, phase: "build", type: "phase_complete", payload: { duration_sec: 8.5, deterministic: true } },
+  { t: 9000, phase: "build", type: "phase_complete", payload: { duration_sec: 8.5, deterministic: true, artifact: "candle.kicad_pcb", handoff: "kicad-drc-closure-loop" } },
 ];
 
 // Phase 5: Export — fab output
 export const PHASE5_EVENTS: DemoEvent[] = [
   { t: 0, phase: "export", type: "phase_start", payload: { target: "JLCPCB fabrication package" } },
-  { t: 500, phase: "export", type: "artifact", payload: { name: "F_Cu.gbr", size: "17.5 KB" } },
-  { t: 800, phase: "export", type: "artifact", payload: { name: "B_Cu.gbr", size: "17.5 KB" } },
-  { t: 1100, phase: "export", type: "artifact", payload: { name: "In1_Cu.gbr", size: "95 KB" } },
-  { t: 1400, phase: "export", type: "artifact", payload: { name: "In2_Cu.gbr", size: "96 KB" } },
-  { t: 1700, phase: "export", type: "artifact", payload: { name: "F_Mask.gbr + B_Mask.gbr", size: "28 KB" } },
-  { t: 2000, phase: "export", type: "artifact", payload: { name: "Edge_Cuts.gbr", size: "1.2 KB" } },
-  { t: 2300, phase: "export", type: "artifact", payload: { name: "candle-PTH.drl + NPTH.drl", size: "4.8 KB" } },
-  { t: 2600, phase: "export", type: "artifact", payload: { name: "candle-assembly-bom.csv", size: "272 components" } },
-  { t: 2900, phase: "export", type: "artifact", payload: { name: "candle-pos.csv", size: "21.5 KB" } },
-  { t: 3200, phase: "export", type: "bundle", payload: { name: "candle-fabrication-bundle.zip", size: "246.8 KB", ready: true } },
+  { t: 500, phase: "export", type: "artifact", payload: { name: "candle-F_Cu.gtl", size: "415 KB", href: "/exports/candle/fabrication/gerbers/candle-F_Cu.gtl" } },
+  { t: 760, phase: "export", type: "artifact", payload: { name: "candle-B_Cu.gbl", size: "411 KB", href: "/exports/candle/fabrication/gerbers/candle-B_Cu.gbl" } },
+  { t: 1020, phase: "export", type: "artifact", payload: { name: "candle-In1_Cu.g1", size: "93 KB", href: "/exports/candle/fabrication/gerbers/candle-In1_Cu.g1" } },
+  { t: 1280, phase: "export", type: "artifact", payload: { name: "candle-In2_Cu.g2", size: "94 KB", href: "/exports/candle/fabrication/gerbers/candle-In2_Cu.g2" } },
+  { t: 1540, phase: "export", type: "artifact", payload: { name: "candle-F_Mask.gts", size: "15 KB", href: "/exports/candle/fabrication/gerbers/candle-F_Mask.gts" } },
+  { t: 1800, phase: "export", type: "artifact", payload: { name: "candle-B_Mask.gbs", size: "11 KB", href: "/exports/candle/fabrication/gerbers/candle-B_Mask.gbs" } },
+  { t: 2060, phase: "export", type: "artifact", payload: { name: "candle-Edge_Cuts.gm1", size: "768 B", href: "/exports/candle/fabrication/gerbers/candle-Edge_Cuts.gm1" } },
+  { t: 2320, phase: "export", type: "artifact", payload: { name: "candle-PTH.drl", size: "457 B", href: "/exports/candle/fabrication/drill/candle-PTH.drl" } },
+  { t: 2580, phase: "export", type: "artifact", payload: { name: "candle-NPTH.drl", size: "264 B", href: "/exports/candle/fabrication/drill/candle-NPTH.drl" } },
+  { t: 2840, phase: "export", type: "artifact", payload: { name: "candle-assembly-bom.csv", size: "272 components", href: "/exports/candle/fabrication/candle-assembly-bom.csv" } },
+  { t: 3100, phase: "export", type: "artifact", payload: { name: "candle-pos.csv", size: "21.5 KB", href: "/exports/candle/fabrication/candle-pos.csv" } },
+  { t: 3200, phase: "export", type: "bundle", payload: { name: "candle-fabrication-bundle.zip", size: "246.8 KB", ready: true, href: "/exports/candle/fabrication/candle-fabrication-bundle.zip" } },
   { t: 3500, phase: "export", type: "phase_complete", payload: { artifacts: 11, bundle: "candle-fabrication-bundle.zip" } },
 ];
 

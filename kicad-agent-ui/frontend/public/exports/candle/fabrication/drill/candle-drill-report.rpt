@@ -1,0 +1,40 @@
+Drill report for candle.kicad_pcb
+Created on 2026-04-29T20:53:33
+
+Copper Layer Stackup:
+    =============================================================
+    L1 :  F.Cu                      front
+    L2 :  In1.Cu                    in1
+    L3 :  In2.Cu                    in2
+    L4 :  B.Cu                      back
+
+
+Drill file 'candle-PTH.drl' contains
+    plated through holes:
+    =============================================================
+    T1  0.200mm  0.0079"  (11 holes))
+
+    Total plated holes count 11
+
+
+Drill file 'candle-front-in1.drl' contains
+    holes connecting layer pair: 'F.Cu and In1.Cu' (blind vias):
+    =============================================================
+    T1  0.075mm  0.0030"  (172 holes))
+
+    Total plated holes count 172
+
+
+Drill file 'candle-back-in2.drl' contains
+    holes connecting layer pair: 'B.Cu and In2.Cu' (buried vias):
+    =============================================================
+    T1  0.075mm  0.0030"  (178 holes))
+
+    Total plated holes count 178
+
+
+Drill file 'candle-NPTH.drl' contains
+    unplated through holes:
+    =============================================================
+
+    Total unplated holes count 0

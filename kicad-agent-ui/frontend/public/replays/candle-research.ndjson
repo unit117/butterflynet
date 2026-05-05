@@ -20,4 +20,4 @@
 {"t":14200,"phase":"research","type":"question_added","payload":{"question":"Charger topology: boost or SEPIC? Which IC?"}}
 {"t":14800,"phase":"research","type":"question_added","payload":{"question":"Contact geometry: spring pins, pogo pads, or edge connector?"}}
 {"t":15400,"phase":"research","type":"question_added","payload":{"question":"Exact LED driver IC (IS31FL3733 vs IS31FL3731)?"}}
-{"t":16000,"phase":"research","type":"phase_complete","payload":{"facts":11,"sources":7,"unresolved":3}}
+{"t":16000,"phase":"research","type":"phase_complete","payload":{"facts":11,"sources":7,"unresolved":3,"handoff":"kicad-spec-normalizer"}}

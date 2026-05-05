@@ -124,7 +124,7 @@ function designTerminalLines(events: DemoEvent[]): TerminalLine[] {
         {
           t: event.t + 160,
           type: "tool_call",
-          content: "spawn_agents([spec-normalizer, design-research, electrical-reviewer, critic])",
+          content: "spawn_agents([kicad-spec-normalizer, kicad-design-research, kicad-electrical-reviewer, kicad-critic])",
         },
       ];
     }
@@ -136,7 +136,7 @@ function designTerminalLines(events: DemoEvent[]): TerminalLine[] {
         {
           t: event.t,
           type: "tool_call",
-          content: `spec-normalizer.propose_spec(version="${version}")`,
+          content: `kicad-spec-normalizer.propose_spec(version="${version}")`,
         },
         {
           t: event.t + 80,
@@ -148,7 +148,7 @@ function designTerminalLines(events: DemoEvent[]): TerminalLine[] {
 
     if (event.type === "error_caught") {
       const claim = event.payload.claim as string;
-      const reviewer = claim.includes("MCP") ? "electrical-reviewer" : "design-research";
+      const reviewer = claim.includes("MCP") ? "kicad-electrical-reviewer" : "kicad-design-research";
       return [
         {
           t: event.t,
@@ -178,7 +178,7 @@ function designTerminalLines(events: DemoEvent[]): TerminalLine[] {
         {
           t: event.t,
           type: "tool_call",
-          content: "critic.build_gate(version=\"v4_faithful\")",
+          content: "kicad-critic.build_gate(version=\"v4_faithful\")",
         },
         {
           t: event.t + 80,
@@ -198,7 +198,7 @@ function designTerminalLines(events: DemoEvent[]): TerminalLine[] {
         {
           t: event.t,
           type: "tool_call",
-          content: "orchestrator.branch_decision(faithful, derivative)",
+          content: "kicad-design-orchestrator.branch_decision(faithful, derivative)",
         },
         {
           t: event.t + 80,
@@ -223,7 +223,7 @@ function designTerminalLines(events: DemoEvent[]): TerminalLine[] {
         {
           t: event.t + 80,
           type: "handoff",
-          content: "Handing off to kicad-spec-to-schematic with v5_modernized as the build target.",
+          content: "Handing off to kicad-build-orchestrator with v5_modernized as the KiCad generation target.",
         },
       ];
     }
@@ -234,69 +234,25 @@ function designTerminalLines(events: DemoEvent[]): TerminalLine[] {
 
 function DesignView({ events }: { events: DemoEvent[] }) {
   const versions = events.filter((e) => e.type === "version_created");
-  const errors = events.filter((e) => e.type === "error_caught");
-  const refused = events.find((e) => e.type === "build_refused");
-  const branch = events.find((e) => e.type === "branch_decision");
   const terminalLines = designTerminalLines(events);
 
   return (
     <div className="phase-content design-review-view">
-      <div className="design-review-summary">
-        <div className="design-timeline compact">
-          <div className="section-label">Spec Evolution</div>
-          <div className="design-summary-list">
-            {versions.map((e, i) => {
-              const status = e.payload.status as string;
-              return (
-                <div key={i} className={`version-card fade-in ${status}`}>
-                  <div className="version-header">
-                    <span className="version-name">{e.payload.version as string}</span>
-                    <span className={`version-status status-${status}`}>{status}</span>
-                  </div>
-                  <div className="version-summary">{e.payload.summary as string}</div>
+      <div className="design-timeline compact">
+        <div className="section-label">Spec Evolution</div>
+        <div className="design-summary-list">
+          {versions.map((e, i) => {
+            const status = e.payload.status as string;
+            return (
+              <div key={i} className={`version-card fade-in ${status}`}>
+                <div className="version-header">
+                  <span className="version-name">{e.payload.version as string}</span>
+                  <span className={`version-status status-${status}`}>{status}</span>
                 </div>
-              );
-            })}
-          </div>
-        </div>
-        <div className="design-events compact">
-          <div className="section-label">Review Pressure</div>
-          <div className="design-summary-list">
-            {errors.map((e, i) => (
-              <div key={i} className="error-card fade-in">
-                <div className="error-header">ERROR CAUGHT</div>
-                <div className="error-claim">
-                  <span className="error-label">Claim:</span> "{e.payload.claim as string}"
-                </div>
-                <div className="error-critic">
-                  <span className="error-label">Critic:</span> {e.payload.critic as string}
-                </div>
-                <div className="error-action">
-                  <span className="error-label">Action:</span> {e.payload.action as string}
-                </div>
+                <div className="version-summary">{e.payload.summary as string}</div>
               </div>
-            ))}
-            {refused && (
-              <div className="refused-card fade-in">
-                <div className="refused-header">BUILD REFUSED</div>
-                <div className="refused-reason">{refused.payload.reason as string}</div>
-                <div className="refused-decision">{refused.payload.decision as string}</div>
-                <div className="refused-insight">"{refused.payload.insight as string}"</div>
-              </div>
-            )}
-            {branch && (
-              <div className="branch-card fade-in">
-                <div className="branch-header">BRANCH POINT</div>
-                <div className="branch-option blocked">
-                  <span className="branch-label">Faithful:</span> {branch.payload.faithful_path as string}
-                </div>
-                <div className="branch-option chosen">
-                  <span className="branch-label">Derivative:</span> {branch.payload.derivative_path as string}
-                </div>
-                <div className="branch-rationale">{branch.payload.rationale as string}</div>
-              </div>
-            )}
-          </div>
+            );
+          })}
         </div>
       </div>
       <div className="phase-content terminal-container design-terminal-container">
@@ -366,7 +322,7 @@ const BUILD_COMPONENT_GROUPS = [
 
 const BUILD_AGENTS = [
   {
-    name: "build-orchestrator",
+    name: "kicad-build-orchestrator",
     call: "handoff(v5_modernized)",
     role: "Locks spec target and starts deterministic KiCad generation.",
     result: "target: candle.kicad_pcb",
@@ -575,9 +531,11 @@ function BuildPcbMap({
 
 function BuildView({ events }: { events: DemoEvent[] }) {
   const steps = events.filter((e) => e.type === "gen_step" || e.type === "gen_complete");
+  const pipelineSteps = events.filter((e) => e.type === "gen_step");
   const complete = events.find((e) => e.type === "gen_complete");
+  const stepListRef = useRef<HTMLDivElement>(null);
   const visibleStepNames = new Set(
-    events.filter((e) => e.type === "gen_step").map((e) => e.payload.step as string)
+    pipelineSteps.map((e) => e.payload.step as string)
   );
   const isStepDone = useCallback(
     (step: string) => Boolean(complete) || visibleStepNames.has(step),
@@ -594,6 +552,12 @@ function BuildView({ events }: { events: DemoEvent[] }) {
     (step: string) => (step === "gen_complete" ? Boolean(complete) : isStepDone(step)),
     [complete, isStepDone]
   );
+
+  useEffect(() => {
+    if (stepListRef.current) {
+      stepListRef.current.scrollTop = stepListRef.current.scrollHeight;
+    }
+  }, [steps.length]);
 
   return (
     <div className="phase-content build-view">
@@ -660,6 +624,29 @@ function BuildView({ events }: { events: DemoEvent[] }) {
           </div>
         </div>
 
+        <div className="build-progress">
+          <div className="section-label">Generator Pipeline ({completedSteps} / 8)</div>
+          <div className="build-step-list" ref={stepListRef}>
+            {pipelineSteps.map((e, i) => (
+              <div key={i} className="build-step fade-in">
+                <div className="build-step-name">{e.payload.step as string}</div>
+                <div className="build-step-detail">{e.payload.detail as string}</div>
+              </div>
+            ))}
+            {complete && (
+              <>
+                <div className="build-complete build-complete-summary fade-in">
+                  <span className="build-check">✓</span>
+                  <span>Board generated: {complete.payload.components as number} components, SHA {complete.payload.sha as string}</span>
+                </div>
+                <div className="build-handoff-summary fade-in">
+                  Handing off to kicad-drc-closure-loop with candle.kicad_pcb for automated validation.
+                </div>
+              </>
+            )}
+          </div>
+        </div>
+
         <div className="build-main-grid">
           <div className="build-table-panel">
             <div className="section-label">Component Manifest</div>
@@ -707,71 +694,174 @@ function BuildView({ events }: { events: DemoEvent[] }) {
             </div>
           </div>
         </div>
-
-        <div className="build-progress">
-          <div className="section-label">Generator Pipeline ({completedSteps} / 8)</div>
-          <div className="build-step-list">
-            {steps.map((e, i) => (
-              <div key={i} className={`build-step ${e.type === "gen_complete" ? "complete" : ""} fade-in`}>
-                {e.type === "gen_complete" ? (
-                  <div className="build-complete">
-                    <span className="build-check">✓</span>
-                    <span>Board generated: {e.payload.components as number} components, SHA {e.payload.sha as string}</span>
-                  </div>
-                ) : (
-                  <>
-                    <div className="build-step-name">{e.payload.step as string}</div>
-                    <div className="build-step-detail">{e.payload.detail as string}</div>
-                  </>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </div>
   );
 }
 
 // ─── Phase 4: Validate (DRC) ───
+const VALIDATE_START_DRC = 451;
+
 function ValidateView({ currentBeat, beats }: { currentBeat: number; beats: Beat[] }) {
+  const visibleBeats = beats.slice(0, Math.max(0, currentBeat + 1));
+  const logRef = useRef<HTMLDivElement>(null);
+  const entryListRef = useRef<HTMLDivElement>(null);
   const animatedDrc = useAnimatedValue(
-    currentBeat < 0 ? 451 : beats[currentBeat].reverted ? beats[currentBeat].drc_before : beats[currentBeat].drc_after
+    currentBeat < 0 ? VALIDATE_START_DRC : beats[currentBeat].reverted ? beats[currentBeat].drc_before : beats[currentBeat].drc_after
   );
   const color = animatedDrc === 0 ? "#66bb6a" : animatedDrc < 50 ? "#4fc3f7" : animatedDrc < 200 ? "#ffa726" : "#ef5350";
-  const pct = ((451 - animatedDrc) / 451) * 100;
+  const pct = ((VALIDATE_START_DRC - animatedDrc) / VALIDATE_START_DRC) * 100;
 
   const activeBeat = currentBeat >= 0 ? beats[currentBeat] : null;
+  const activeDelta = activeBeat ? activeBeat.drc_after - activeBeat.drc_before : 0;
+  const acceptedCount = visibleBeats.filter((beat) => !beat.reverted).length;
+  const revertedCount = visibleBeats.filter((beat) => beat.reverted).length;
+  const agentsCalled = new Set(visibleBeats.map((beat) => beat.agent)).size;
+  const terminalLines = visibleBeats.flatMap((beat) => {
+    const delta = beat.drc_after - beat.drc_before;
+    const verdict = beat.reverted ? "revert_patch()" : delta > 0 ? "accept_tradeoff()" : "accept_patch()";
+    return [
+      { kind: "cmd", text: `kicad-cli pcb drc candle.kicad_pcb -> ${beat.drc_before} violations` },
+      { kind: "agent", text: `${beat.agent} · ${beat.technique} · ${beat.hotspot}` },
+      { kind: "patch", text: `${beat.tool}: ${beat.action}` },
+      {
+        kind: beat.reverted ? "bad" : delta > 0 ? "warn" : "good",
+        text: `${verdict} · DRC ${beat.drc_before} -> ${beat.drc_after} (${delta > 0 ? "+" : ""}${delta})`,
+      },
+    ];
+  });
+
+  useEffect(() => {
+    if (logRef.current) {
+      logRef.current.scrollTop = logRef.current.scrollHeight;
+    }
+    if (entryListRef.current) {
+      entryListRef.current.scrollTop = entryListRef.current.scrollHeight;
+    }
+  }, [visibleBeats.length]);
 
   return (
     <div className="phase-content validate-view">
-      <div className={`drc-hero ${animatedDrc === 0 ? "complete" : ""}`}>
-        <div className="drc-hero-label">DRC VIOLATIONS</div>
-        <div className="drc-hero-value" style={{ color }}>{animatedDrc}</div>
-        <div className="drc-hero-bar">
-          <div className="drc-hero-fill" style={{ width: `${pct}%`, background: color }} />
+      <div className="validate-left">
+        <div className={`drc-hero ${animatedDrc === 0 ? "complete" : ""}`}>
+          <div className="drc-hero-label">DRC CONVERGENCE</div>
+          <div className="drc-hero-row">
+            <span className="drc-hero-start">{VALIDATE_START_DRC}</span>
+            <span className="drc-hero-arrow">{"->"}</span>
+            <span className="drc-hero-value" style={{ color }}>{animatedDrc}</span>
+          </div>
+          <div className="drc-hero-bar">
+            <div className="drc-hero-fill" style={{ width: `${pct}%`, background: color }} />
+          </div>
+        </div>
+
+        <div className="validate-stats">
+          <div>
+            <span className="validate-stat-value">{visibleBeats.length}</span>
+            <span className="validate-stat-label">DRC runs</span>
+          </div>
+          <div>
+            <span className="validate-stat-value">{acceptedCount}</span>
+            <span className="validate-stat-label">accepted</span>
+          </div>
+          <div>
+            <span className="validate-stat-value">{revertedCount}</span>
+            <span className="validate-stat-label">reverted</span>
+          </div>
+          <div>
+            <span className="validate-stat-value">{agentsCalled}</span>
+            <span className="validate-stat-label">agents</span>
+          </div>
+        </div>
+
+        {activeBeat ? (
+          <div className={`validate-beat ${activeBeat.reverted ? "reverted" : ""}`}>
+            <div className="validate-beat-meta">
+              <span>{activeBeat.agent}</span>
+              <span>{activeBeat.tool}</span>
+            </div>
+            <div className="validate-beat-action">{activeBeat.action}</div>
+            <div className="validate-beat-grid">
+              <span>Hotspot</span>
+              <strong>{activeBeat.hotspot}</strong>
+              <span>Patch</span>
+              <strong>{activeBeat.technique}</strong>
+              <span>Result</span>
+              <strong className={activeDelta > 0 ? "validate-result-bad" : "validate-result-good"}>
+                {activeBeat.drc_before} {"->"} {activeBeat.drc_after} ({activeDelta > 0 ? "+" : ""}{activeDelta})
+              </strong>
+            </div>
+            <div className="validate-beat-detail">{activeBeat.detail}</div>
+            {activeBeat.reverted && <div className="validate-revert-badge">REVERTED - trying different approach</div>}
+          </div>
+        ) : (
+          <div className="validate-beat">
+            <div className="validate-beat-action">Automated DRC loop queued</div>
+            <div className="validate-beat-detail">
+              KiCad CLI will run DRC, cluster violations, patch the generator, regenerate the board, and rerun until clean.
+            </div>
+          </div>
+        )}
+
+        <div className="validate-log">
+          <div className="section-label">Iteration Log ({visibleBeats.length} / {beats.length})</div>
+          <div className="validate-entry-list" ref={entryListRef}>
+            {visibleBeats.map((beat, i) => {
+              const delta = beat.drc_after - beat.drc_before;
+              return (
+                <div key={i} className={`validate-entry ${beat.reverted ? "reverted" : ""} ${i === currentBeat ? "active" : ""}`}>
+                  <span className={`validate-delta ${delta > 0 ? "regression" : "improvement"}`}>
+                    {delta > 0 ? "+" : ""}{delta}
+                  </span>
+                  <span className="validate-action">{beat.action.substring(0, 58)}</span>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
-      {activeBeat && (
-        <div className={`validate-beat ${activeBeat.reverted ? "reverted" : ""}`}>
-          <div className="validate-beat-action">{activeBeat.action}</div>
-          <div className="validate-beat-detail">{activeBeat.detail}</div>
-          {activeBeat.reverted && <div className="validate-revert-badge">REVERTED — trying different approach</div>}
-        </div>
-      )}
-      <div className="validate-log">
-        <div className="section-label">Iteration Log ({Math.max(0, currentBeat + 1)} / {beats.length})</div>
-        {beats.slice(0, Math.max(0, currentBeat + 1)).map((beat, i) => {
-          const delta = beat.drc_after - beat.drc_before;
-          return (
-            <div key={i} className={`validate-entry ${beat.reverted ? "reverted" : ""} ${i === currentBeat ? "active" : ""}`}>
-              <span className={`validate-delta ${delta > 0 ? "regression" : "improvement"}`}>
-                {delta > 0 ? "+" : ""}{delta}
-              </span>
-              <span className="validate-action">{beat.action.substring(0, 50)}</span>
+
+      <div className="validate-right">
+        <div className="validate-terminal">
+          <div className="terminal-chrome">
+            <span className="terminal-dot red" />
+            <span className="terminal-dot yellow" />
+            <span className="terminal-dot green" />
+            <span className="terminal-title">claude-code · phase: validate · mode: drc-closure-loop</span>
+          </div>
+          <div className="validate-terminal-body" ref={logRef}>
+            <div className="validate-terminal-line user">
+              <span className="validate-terminal-prefix">USER</span>
+              <span>Close all KiCad DRC errors before export.</span>
             </div>
-          );
-        })}
+            {visibleBeats.length === 0 && (
+              <div className="validate-terminal-line muted">
+                <span className="validate-terminal-prefix">$</span>
+                <span>awaiting first kicad-cli pcb drc run...</span>
+              </div>
+            )}
+            {terminalLines.map((line, i) => (
+              <div key={i} className={`validate-terminal-line ${line.kind}`}>
+                <span className="validate-terminal-prefix">
+                  {line.kind === "cmd" ? "$" : line.kind === "agent" ? ">" : line.kind === "patch" ? "+" : line.kind === "bad" ? "!" : line.kind === "warn" ? "~" : "✓"}
+                </span>
+                <span>{line.text}</span>
+              </div>
+            ))}
+            {animatedDrc === 0 && (
+              <>
+                <div className="validate-terminal-line good">
+                  <span className="validate-terminal-prefix">✓</span>
+                  <span>DRC clean. Board validated for fabrication export.</span>
+                </div>
+                <div className="validate-terminal-line patch">
+                  <span className="validate-terminal-prefix">→</span>
+                  <span>Handing off to kicad-fabrication-exporter to emit Gerbers, drills, BOM, and position data.</span>
+                </div>
+              </>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -782,23 +872,56 @@ function ExportView({ events }: { events: DemoEvent[] }) {
   const artifacts = events.filter((e) => e.type === "artifact");
   const bundle = events.find((e) => e.type === "bundle");
 
+  useEffect(() => {
+    void import("@google/model-viewer");
+  }, []);
+
   return (
     <div className="phase-content export-view">
-      <div className="export-list">
+      <div className="export-list-panel">
         <div className="section-label">Fabrication Artifacts</div>
-        {artifacts.map((e, i) => (
-          <div key={i} className="export-item fade-in">
-            <span className="export-name">{e.payload.name as string}</span>
-            <span className="export-size">{e.payload.size as string}</span>
-          </div>
-        ))}
+        <div className="export-list">
+          {artifacts.map((e, i) => {
+            const href = e.payload.href as string | undefined;
+            return (
+              <a key={i} className="export-item fade-in" href={href} download>
+                <span className="export-name">{e.payload.name as string}</span>
+                <span className="export-size">{e.payload.size as string}</span>
+              </a>
+            );
+          })}
+        </div>
         {bundle && (
-          <div className="export-bundle fade-in">
+          <a className="export-bundle fade-in" href={bundle.payload.href as string | undefined} download>
             <div className="export-bundle-name">{bundle.payload.name as string}</div>
             <div className="export-bundle-size">{bundle.payload.size as string}</div>
             <div className="export-bundle-ready">Ready for fabrication</div>
-          </div>
+          </a>
         )}
+      </div>
+
+      <div className="export-model-panel">
+        <div className="section-label">3D Board Preview</div>
+        <div className="export-model-shell">
+          {React.createElement("model-viewer", {
+            className: "export-model-viewer",
+            src: "/exports/candle/candle.glb",
+            alt: "Candle PCB assembly",
+            "auto-rotate": true,
+            "camera-controls": true,
+            "rotation-per-second": "18deg",
+            "shadow-intensity": "0.75",
+            "environment-image": "neutral",
+            exposure: "0.9",
+            "camera-target": "0.015m 0.0015m 0.215m",
+            "camera-orbit": "42deg 64deg 0.72m",
+            "field-of-view": "24deg",
+          } as React.HTMLAttributes<HTMLElement> & Record<string, string | boolean>)}
+        </div>
+        <div className="export-model-meta">
+          <span>candle.glb</span>
+          <a href="/exports/candle/candle.glb" download>Download model</a>
+        </div>
       </div>
     </div>
   );
@@ -976,6 +1099,10 @@ export function PhaseViewer() {
           phase === "design" ? "design-phase-body" : ""
         } ${
           phase === "build" ? "build-phase-body" : ""
+        } ${
+          phase === "validate" ? "validate-phase-body" : ""
+        } ${
+          phase === "export" ? "export-phase-body" : ""
         }`}
       >
         {phase === "research" && (

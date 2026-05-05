@@ -68,8 +68,8 @@ export const PHASE1_TERMINAL: TerminalLine[] = [
   { t: 9460, type: "tool_result", content: "Four dark rectangular features on PCB edge → concealed socket/contacts" },
 
   { t: 10000, type: "thinking", content: "Searching driver IC and MCU candidates for downstream reconstruction." },
-  { t: 10100, type: "tool_call", content: "WebFetch(\"issi.com/IS31FL3733-datasheet\")" },
-  { t: 10250, type: "tool_result", content: "16×12 matrix LED driver, I2C, QFN-48" },
+  { t: 10100, type: "tool_call", content: "WebFetch(\"issi.com/IS31FL3731-3733-datasheets\")" },
+  { t: 10250, type: "tool_result", content: "ISSI matrix LED driver family found; exact 3731 vs 3733 device remains unresolved." },
 
   { t: 10800, type: "tool_call", content: "WebFetch(\"microchip.com/ATtiny1616-datasheet\")" },
   { t: 11000, type: "tool_result", content: "20-pin AVR, hardware I2C, UPDI programming" },
@@ -95,5 +95,5 @@ export const PHASE1_TERMINAL: TerminalLine[] = [
   { t: 15460, type: "tool_result", content: "Exact LED driver IC (IS31FL3733 vs IS31FL3731)?" },
 
   { t: 15900, type: "status_ok", content: "Research brief complete · 11 facts · 7 sources · 3 unresolved questions" },
-  { t: 15950, type: "handoff", content: "Handing off to kicad-spec-normalizer to consolidate the brief into a canonical spec." },
+  { t: 15950, type: "handoff", content: "Handing off to kicad-spec-normalizer for Phase 2 design review and canonical spec consolidation." },
 ];
