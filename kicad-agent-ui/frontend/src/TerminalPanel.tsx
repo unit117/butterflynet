@@ -6,9 +6,10 @@ interface Props {
   visibleCount: number;
   agent: string;
   isStreaming: boolean;
+  title?: string;
 }
 
-export function TerminalPanel({ lines, visibleCount, agent, isStreaming }: Props) {
+export function TerminalPanel({ lines, visibleCount, agent, isStreaming, title }: Props) {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -26,7 +27,7 @@ export function TerminalPanel({ lines, visibleCount, agent, isStreaming }: Props
         <span className="terminal-dot red" />
         <span className="terminal-dot yellow" />
         <span className="terminal-dot green" />
-        <span className="terminal-title">claude-code · agent: {agent}</span>
+        <span className="terminal-title">{title || `claude-code · agent: ${agent}`}</span>
       </div>
       <div className="terminal-body" ref={scrollRef}>
         {visible.map((line, i) => (

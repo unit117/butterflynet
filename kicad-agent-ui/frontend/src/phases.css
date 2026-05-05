@@ -319,6 +319,64 @@
 }
 
 /* ─── Phase 2: Design ─── */
+.phase-body.design-phase-body {
+  overflow: hidden;
+  padding: 20px 24px 18px;
+}
+
+.design-review-view {
+  height: 100%;
+  width: min(100%, 1180px);
+  max-width: 1180px;
+  display: grid;
+  grid-template-rows: minmax(150px, 0.36fr) minmax(0, 1fr);
+  gap: 18px;
+  min-height: 0;
+}
+
+.design-review-summary {
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(480px, 1.4fr);
+  gap: 24px;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.design-timeline.compact,
+.design-events.compact {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.design-summary-list {
+  min-height: 0;
+  overflow-y: auto;
+  padding-right: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: #40557c transparent;
+}
+
+.design-summary-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.design-summary-list::-webkit-scrollbar-thumb {
+  background: #40557c;
+  border-radius: 999px;
+}
+
+.design-terminal-container {
+  width: min(100%, 1180px);
+  max-width: 1180px;
+  min-height: 0;
+}
+
+.design-terminal-container .terminal-panel {
+  height: 100%;
+}
+
 .design-view {
   display: grid;
   grid-template-columns: 280px 1fr;

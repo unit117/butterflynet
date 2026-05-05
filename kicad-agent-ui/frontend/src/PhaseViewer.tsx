@@ -9,6 +9,7 @@ import {
   loadAllReplays,
 } from "./replay";
 import { PHASE1_TERMINAL, PHASE1_AGENT } from "./terminal_phase1";
+import type { TerminalLine } from "./terminal_phase1";
 import { TerminalPanel } from "./TerminalPanel";
 
 type PlayState = "idle" | "playing" | "paused";
@@ -106,64 +107,206 @@ function ResearchView({ events }: { events: DemoEvent[] }) {
 }
 
 // ─── Phase 2: Design ───
+function designTerminalLines(events: DemoEvent[]): TerminalLine[] {
+  return events.flatMap((event): TerminalLine[] => {
+    if (event.type === "phase_start") {
+      return [
+        {
+          t: event.t,
+          type: "user_prompt",
+          content: "Consolidate the Phase 1 research brief into a buildable KiCad spec. Use separate reviewer agents to fact-check risky claims before build.",
+        },
+        {
+          t: event.t + 80,
+          type: "agent_text",
+          content: `Starting design review. ${event.payload.goal as string}.`,
+        },
+        {
+          t: event.t + 160,
+          type: "tool_call",
+          content: "spawn_agents([spec-normalizer, design-research, electrical-reviewer, critic])",
+        },
+      ];
+    }
+
+    if (event.type === "version_created") {
+      const version = event.payload.version as string;
+      const status = event.payload.status as string;
+      return [
+        {
+          t: event.t,
+          type: "tool_call",
+          content: `spec-normalizer.propose_spec(version="${version}")`,
+        },
+        {
+          t: event.t + 80,
+          type: status === "active" ? "status_ok" : status === "blocked" ? "status_warn" : "tool_result",
+          content: `${status.toUpperCase()} · ${event.payload.summary as string}`,
+        },
+      ];
+    }
+
+    if (event.type === "error_caught") {
+      const claim = event.payload.claim as string;
+      const reviewer = claim.includes("MCP") ? "electrical-reviewer" : "design-research";
+      return [
+        {
+          t: event.t,
+          type: "tool_call",
+          content: `${reviewer}.review_claim("${claim}")`,
+        },
+        {
+          t: event.t + 80,
+          type: "status_warn",
+          content: `CLAIM REJECTED · ${claim}`,
+        },
+        {
+          t: event.t + 160,
+          type: "tool_result",
+          content: `Verdict: ${event.payload.critic as string}\nPatch: ${event.payload.action as string}`,
+        },
+        {
+          t: event.t + 240,
+          type: "tool_result",
+          content: `diff --spec\n- ${claim}\n+ ${event.payload.action as string}`,
+        },
+      ];
+    }
+
+    if (event.type === "build_refused") {
+      return [
+        {
+          t: event.t,
+          type: "tool_call",
+          content: "critic.build_gate(version=\"v4_faithful\")",
+        },
+        {
+          t: event.t + 80,
+          type: "status_warn",
+          content: "BUILD REFUSED · unresolved architecture risk",
+        },
+        {
+          t: event.t + 160,
+          type: "tool_result",
+          content: `Reason: ${event.payload.reason as string}\nDecision: ${event.payload.decision as string}\nInsight: "${event.payload.insight as string}"`,
+        },
+      ];
+    }
+
+    if (event.type === "branch_decision") {
+      return [
+        {
+          t: event.t,
+          type: "tool_call",
+          content: "orchestrator.branch_decision(faithful, derivative)",
+        },
+        {
+          t: event.t + 80,
+          type: "tool_result",
+          content: `faithful: ${event.payload.faithful_path as string}\nderivative: ${event.payload.derivative_path as string}\nselected: ${event.payload.chosen as string}`,
+        },
+        {
+          t: event.t + 160,
+          type: "agent_text",
+          content: event.payload.rationale as string,
+        },
+      ];
+    }
+
+    if (event.type === "phase_complete") {
+      return [
+        {
+          t: event.t,
+          type: "status_ok",
+          content: `Design review complete · ${event.payload.versions as number} versions · ${event.payload.errors_caught as number} errors caught · target ${event.payload.build_target as string}`,
+        },
+        {
+          t: event.t + 80,
+          type: "handoff",
+          content: "Handing off to kicad-spec-to-schematic with v5_modernized as the build target.",
+        },
+      ];
+    }
+
+    return [];
+  });
+}
+
 function DesignView({ events }: { events: DemoEvent[] }) {
   const versions = events.filter((e) => e.type === "version_created");
   const errors = events.filter((e) => e.type === "error_caught");
   const refused = events.find((e) => e.type === "build_refused");
   const branch = events.find((e) => e.type === "branch_decision");
+  const terminalLines = designTerminalLines(events);
 
   return (
-    <div className="phase-content design-view">
-      <div className="design-timeline">
-        <div className="section-label">Spec Evolution</div>
-        {versions.map((e, i) => {
-          const status = e.payload.status as string;
-          return (
-            <div key={i} className={`version-card fade-in ${status}`}>
-              <div className="version-header">
-                <span className="version-name">{e.payload.version as string}</span>
-                <span className={`version-status status-${status}`}>{status}</span>
+    <div className="phase-content design-review-view">
+      <div className="design-review-summary">
+        <div className="design-timeline compact">
+          <div className="section-label">Spec Evolution</div>
+          <div className="design-summary-list">
+            {versions.map((e, i) => {
+              const status = e.payload.status as string;
+              return (
+                <div key={i} className={`version-card fade-in ${status}`}>
+                  <div className="version-header">
+                    <span className="version-name">{e.payload.version as string}</span>
+                    <span className={`version-status status-${status}`}>{status}</span>
+                  </div>
+                  <div className="version-summary">{e.payload.summary as string}</div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+        <div className="design-events compact">
+          <div className="section-label">Review Pressure</div>
+          <div className="design-summary-list">
+            {errors.map((e, i) => (
+              <div key={i} className="error-card fade-in">
+                <div className="error-header">ERROR CAUGHT</div>
+                <div className="error-claim">
+                  <span className="error-label">Claim:</span> "{e.payload.claim as string}"
+                </div>
+                <div className="error-critic">
+                  <span className="error-label">Critic:</span> {e.payload.critic as string}
+                </div>
+                <div className="error-action">
+                  <span className="error-label">Action:</span> {e.payload.action as string}
+                </div>
               </div>
-              <div className="version-summary">{e.payload.summary as string}</div>
-            </div>
-          );
-        })}
+            ))}
+            {refused && (
+              <div className="refused-card fade-in">
+                <div className="refused-header">BUILD REFUSED</div>
+                <div className="refused-reason">{refused.payload.reason as string}</div>
+                <div className="refused-decision">{refused.payload.decision as string}</div>
+                <div className="refused-insight">"{refused.payload.insight as string}"</div>
+              </div>
+            )}
+            {branch && (
+              <div className="branch-card fade-in">
+                <div className="branch-header">BRANCH POINT</div>
+                <div className="branch-option blocked">
+                  <span className="branch-label">Faithful:</span> {branch.payload.faithful_path as string}
+                </div>
+                <div className="branch-option chosen">
+                  <span className="branch-label">Derivative:</span> {branch.payload.derivative_path as string}
+                </div>
+                <div className="branch-rationale">{branch.payload.rationale as string}</div>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
-      <div className="design-events">
-        {errors.map((e, i) => (
-          <div key={i} className="error-card fade-in">
-            <div className="error-header">ERROR CAUGHT</div>
-            <div className="error-claim">
-              <span className="error-label">Claim:</span> "{e.payload.claim as string}"
-            </div>
-            <div className="error-critic">
-              <span className="error-label">Critic:</span> {e.payload.critic as string}
-            </div>
-            <div className="error-action">
-              <span className="error-label">Action:</span> {e.payload.action as string}
-            </div>
-          </div>
-        ))}
-        {refused && (
-          <div className="refused-card fade-in">
-            <div className="refused-header">BUILD REFUSED</div>
-            <div className="refused-reason">{refused.payload.reason as string}</div>
-            <div className="refused-decision">{refused.payload.decision as string}</div>
-            <div className="refused-insight">"{refused.payload.insight as string}"</div>
-          </div>
-        )}
-        {branch && (
-          <div className="branch-card fade-in">
-            <div className="branch-header">BRANCH POINT</div>
-            <div className="branch-option blocked">
-              <span className="branch-label">Faithful:</span> {branch.payload.faithful_path as string}
-            </div>
-            <div className="branch-option chosen">
-              <span className="branch-label">Derivative:</span> {branch.payload.derivative_path as string}
-            </div>
-            <div className="branch-rationale">{branch.payload.rationale as string}</div>
-          </div>
-        )}
+      <div className="phase-content terminal-container design-terminal-container">
+        <TerminalPanel
+          lines={terminalLines}
+          visibleCount={terminalLines.length}
+          agent="multi-agent-review"
+          title="claude-code · phase: design · mode: multi-agent review"
+          isStreaming={false}
+        />
       </div>
     </div>
   );
@@ -435,7 +578,11 @@ export function PhaseViewer() {
         })}
       </div>
 
-      <div className={`phase-body ${phase === "research" ? "research-phase-body" : ""}`}>
+      <div
+        className={`phase-body ${phase === "research" ? "research-phase-body" : ""} ${
+          phase === "design" ? "design-phase-body" : ""
+        }`}
+      >
         {phase === "research" && (
           <>
             <ResearchView events={visibleEvents} />
