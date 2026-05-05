@@ -1,0 +1,11 @@
+{"t":0,"phase":"build","type":"phase_start","payload":{"target":"generate candle.kicad_pcb from v5_modernized spec"}}
+{"t":500,"phase":"build","type":"gen_step","payload":{"step":"Board outline","detail":"430×30×1.6mm 4-layer stackup defined"}}
+{"t":1500,"phase":"build","type":"gen_step","payload":{"step":"LED field (left)","detail":"8×16 charlieplex matrix, 128 LEDs at 2mm pitch"}}
+{"t":2500,"phase":"build","type":"gen_step","payload":{"step":"LED field (right)","detail":"Mirror population on B.Cu face"}}
+{"t":3500,"phase":"build","type":"gen_step","payload":{"step":"MCU placement","detail":"ATtiny1616 QFN-20 at y=236, I2C + UPDI escape"}}
+{"t":4500,"phase":"build","type":"gen_step","payload":{"step":"Driver ICs","detail":"2× IS31FL3733 QFN-28 (0.4mm pitch) at y=328"}}
+{"t":5500,"phase":"build","type":"gen_step","payload":{"step":"Passive placement","detail":"Decoupling caps, pull-ups, current-set resistors"}}
+{"t":6500,"phase":"build","type":"gen_step","payload":{"step":"Routing","detail":"Charlieplex columns, I2C bus, power rails, microvias"}}
+{"t":7500,"phase":"build","type":"gen_step","payload":{"step":"Copper zones","detail":"GND fill on all 4 layers"}}
+{"t":8500,"phase":"build","type":"gen_complete","payload":{"components":272,"nets":45,"file":"candle.kicad_pcb","sha":"972e36534c06a355"}}
+{"t":9000,"phase":"build","type":"phase_complete","payload":{"duration_sec":8.5,"deterministic":true}}

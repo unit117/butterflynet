@@ -1,0 +1,10 @@
+node_modules/
+__pycache__/
+*.pyc
+.DS_Store
+dist/
+*.egg-info/
+.env
+kicad-agent-ui/workspace/
+gosim-index.js
+math speaker.txt

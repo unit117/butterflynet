@@ -1,0 +1,23 @@
+{"t":0,"phase":"research","type":"phase_start","payload":{"prompt":"Recreate the Ingo Maurer 'My New Flame' lamp, faithful to the product."}}
+{"t":800,"phase":"research","type":"source_fetched","payload":{"source":"Ingo Maurer product page","url":"ingo-maurer.com","icon":"🌐"}}
+{"t":1800,"phase":"research","type":"source_fetched","payload":{"source":"MoMA Design Store listing","url":"store.moma.org","icon":"🏛"}}
+{"t":2500,"phase":"research","type":"fact_added","payload":{"tag":"published","claim":"Product: 'My New Flame' by Ingo Maurer (not 'One New Flame')"}}
+{"t":3200,"phase":"research","type":"source_fetched","payload":{"source":"Official instruction manual (PDF)","url":"ingo-maurer.com/manual","icon":"📄"}}
+{"t":4000,"phase":"research","type":"fact_added","payload":{"tag":"published","claim":"Charges 4× AA NiMH cells from USB"}}
+{"t":4600,"phase":"research","type":"fact_added","payload":{"tag":"published","claim":"Can run while charging, or from USB with no batteries"}}
+{"t":5200,"phase":"research","type":"fact_added","payload":{"tag":"published","claim":"Base LED: yellow while charging, green when full"}}
+{"t":5800,"phase":"research","type":"source_fetched","payload":{"source":"USB-C product revision notes","url":"retailer page","icon":"🔌"}}
+{"t":6400,"phase":"research","type":"fact_added","payload":{"tag":"published","claim":"Current revision: USB-C input (5V max 1000mA)"}}
+{"t":7000,"phase":"research","type":"fact_added","payload":{"tag":"published","claim":"2×128 dimmable LEDs (256 total)"}}
+{"t":7800,"phase":"research","type":"source_fetched","payload":{"source":"Manual cover art (high-res scan)","url":"manual p.1","icon":"📷"}}
+{"t":8600,"phase":"research","type":"fact_added","payload":{"tag":"photo-derived","claim":"LED field is rectangular 8×16 array per face (128 LEDs each side)"}}
+{"t":9400,"phase":"research","type":"fact_added","payload":{"tag":"photo-derived","claim":"Four dark rectangular features on PCB edge → concealed socket/contacts"}}
+{"t":10200,"phase":"research","type":"source_fetched","payload":{"source":"IS31FL3733 datasheet (ISSI)","url":"issi.com","icon":"📋"}}
+{"t":11000,"phase":"research","type":"source_fetched","payload":{"source":"ATtiny1616 datasheet (Microchip)","url":"microchip.com","icon":"📋"}}
+{"t":11800,"phase":"research","type":"fact_added","payload":{"tag":"reconstruction","claim":"Charger likely uses boost/SEPIC topology for 4S NiMH from 5V"}}
+{"t":12600,"phase":"research","type":"fact_added","payload":{"tag":"reconstruction","claim":"Stem/base interface: 4-feature edge pads (PWR, PWR, GND, GND hypothesis)"}}
+{"t":13400,"phase":"research","type":"fact_added","payload":{"tag":"photo-derived","claim":"Not flame-shaped physical population — rectangular layout, flame is rendered"}}
+{"t":14200,"phase":"research","type":"question_added","payload":{"question":"Charger topology: boost or SEPIC? Which IC?"}}
+{"t":14800,"phase":"research","type":"question_added","payload":{"question":"Contact geometry: spring pins, pogo pads, or edge connector?"}}
+{"t":15400,"phase":"research","type":"question_added","payload":{"question":"Exact LED driver IC (IS31FL3733 vs IS31FL3731)?"}}
+{"t":16000,"phase":"research","type":"phase_complete","payload":{"facts":11,"sources":7,"unresolved":3}}
