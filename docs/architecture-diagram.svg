@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
-  <title id="title">ButterflyNet KiCad Agent Pipeline Architecture</title>
-  <desc id="desc">A clean architecture diagram showing the ButterflyNet pipeline from user goal through research, design review, KiCad generation, DRC validation, fabrication export, and replay UI.</desc>
+  <title id="title">KiCad Agent Architecture</title>
+  <desc id="desc">A clean architecture diagram showing the KiCad agent pipeline from user goal through research, design review, KiCad generation, DRC validation, fabrication export, and replay UI.</desc>
   <defs>
     <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0e1324"/>
@@ -60,7 +60,7 @@
   <circle class="halo-blue" cx="1280" cy="50" r="260"/>
   <circle class="halo-green" cx="210" cy="820" r="260"/>
 
-  <text class="title" x="72" y="86">ButterflyNet Architecture</text>
+  <text class="title" x="72" y="86">KiCad Agent Architecture</text>
   <text class="subtitle" x="74" y="126">A multi-agent workflow that operates KiCad from sourced intent to validated manufacturing artifacts.</text>
 
   <text class="section-label" x="76" y="188">PIPELINE</text>
