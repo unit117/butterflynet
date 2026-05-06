@@ -23,6 +23,18 @@ interface ResearchSourcePreview {
   showImage: boolean;
 }
 
+interface DesignSpecPreview {
+  version: string;
+  title: string;
+  docPath: string;
+  statusNote: string;
+  excerpt: string[];
+  diff: string[];
+  takeaway: string;
+}
+
+const REPO_BLOB_BASE = "https://github.com/unit117/butterflynet/blob/main";
+
 // ─── Demo Overview ───
 function OverviewView() {
   const proofPoints = [
@@ -31,6 +43,14 @@ function OverviewView() {
     { label: "Completeness", value: "Prompt to research, board, validation, and factory package" },
     { label: "Practicality", value: "Targets painful hardware iteration work" },
     { label: "Presentation", value: "Each phase hands a concrete artifact to the next" },
+  ];
+  const chainSteps = [
+    { label: "Intent", detail: "plain design goal" },
+    { label: "Research brief", detail: "sources, facts, unknowns" },
+    { label: "Canonical spec", detail: "reviewed build target" },
+    { label: "KiCad board", detail: "schematic and PCB" },
+    { label: "Clean DRC", detail: "fix, check, revert loop" },
+    { label: "Fab bundle", detail: "Gerbers, drills, BOM" },
   ];
 
   return (
@@ -117,12 +137,21 @@ function OverviewView() {
         </p>
 
         <div className="overview-chain">
-          <span>intent</span>
-          <span>research brief</span>
-          <span>canonical spec</span>
-          <span>KiCad board</span>
-          <span>clean DRC</span>
-          <span>fab bundle</span>
+          <div className="overview-chain-title">
+            <span>Artifact chain</span>
+            <strong>Every phase writes the next handoff</strong>
+          </div>
+          <ol className="overview-chain-flow" aria-label="Pipeline artifact chain">
+            {chainSteps.map((step, index) => (
+              <li key={step.label} className="overview-chain-step">
+                <span className="overview-chain-index">{index + 1}</span>
+                <span className="overview-chain-copy">
+                  <strong>{step.label}</strong>
+                  <span>{step.detail}</span>
+                </span>
+              </li>
+            ))}
+          </ol>
         </div>
 
         <div className="overview-proof-grid">
@@ -361,6 +390,98 @@ function ResearchReferencePane({
 }
 
 // ─── Phase 2: Design ───
+const DESIGN_SPEC_PREVIEWS: Record<string, DesignSpecPreview> = {
+  v3: {
+    version: "v3",
+    title: "Initial image-driven concept",
+    docPath: "hardware/candle/archive/legacy_docs/candle_spec_v3.md",
+    statusNote: "Superseded: wrong geometry, wrong dock concept",
+    excerpt: [
+      "Image-driven approximation with a 275 x 22 mm board, small metal base, 2-layer PCB, and visual assumptions from the supplied render.",
+      "Useful as an early concept, but not source-faithful to the published dimensions, power architecture, or product behavior.",
+    ],
+    diff: [
+      "- PCB length: 275 mm",
+      "- PCB width: 22 mm",
+      "- USB-C dock/base assumption",
+      "+ Need source-grounded product dimensions",
+      "+ Need official power and LED facts",
+    ],
+    takeaway: "First draft looked plausible, but it was not grounded enough to drive KiCad.",
+  },
+  "v3.1": {
+    version: "v3.1",
+    title: "Feature expansion pass",
+    docPath: "hardware/candle/archive/legacy_docs/candle_spec_v3.1.md",
+    statusNote: "Superseded: added complexity before product facts were locked",
+    excerpt: [
+      "Delta against v3 adding live flicker, smart-home integration, motion response, and a matrix animation model.",
+      "This improved the animation idea, but introduced ESP32/mmWave-style features outside the faithful product target.",
+    ],
+    diff: [
+      "+ Matrix LED animation model",
+      "+ Smart-home / motion-response branch",
+      "- Still inherits v3 geometry and base assumptions",
+      "+ Review needed before any build target can be trusted",
+    ],
+    takeaway: "The agents learned animation requirements, then had to strip unrelated product features back out.",
+  },
+  v4: {
+    version: "v4",
+    title: "Source-grounded faithful spec",
+    docPath: "hardware/candle/archive/legacy_docs/candle_spec_v4.md",
+    statusNote: "Superseded: better facts, but hidden architecture still unresolved",
+    excerpt: [
+      "Replaces v3 for visual and dimensional fidelity. Confirms My New Flame, the 430 x 30 x 3 mm PCB body, 90 x 90 x 25 mm base, 2 x 128 LEDs, and 4 x NiMH AA power behavior.",
+      "Rejects the small dock concept and resets the work around published sources.",
+    ],
+    diff: [
+      "- 275 x 22 mm concept board",
+      "- single-sided/static LED crown assumption",
+      "+ 430 x 30 x 3 mm published PCB body",
+      "+ two 128-LED displays, 256 LEDs total",
+      "+ 4 x NiMH AA or USB-C power behavior",
+    ],
+    takeaway: "This is the first strong research-to-spec handoff, but it still cannot invent hidden charger details.",
+  },
+  v4_faithful: {
+    version: "v4_faithful",
+    title: "Faithful reconstruction with risk tags",
+    docPath: "hardware/candle/archive/legacy_docs/candle_spec_v4_faithful.md",
+    statusNote: "Blocked: canonical faithful path, but not fabricable without unknown charger/contact details",
+    excerpt: [
+      "Separates published facts, photo-derived observations, and reconstruction assumptions so unsupported internals are not treated as known facts.",
+      "The build gate stops here because charger topology and stem/base contact geometry are still unresolved.",
+    ],
+    diff: [
+      "- Treat hidden implementation guesses as facts",
+      "+ Published / observation / reconstruction tags",
+      "+ Charger topology marked unresolved",
+      "+ Contact geometry marked unresolved",
+      "x Build refused for faithful path",
+    ],
+    takeaway: "This is the important refusal: no KiCad layout from an unresolved faithful architecture.",
+  },
+  v5_modernized: {
+    version: "v5_modernized",
+    title: "Modernized build target",
+    docPath: "hardware/candle/candle_spec_v5_modernized.md",
+    statusNote: "Active: externally faithful, internally modernized and buildable",
+    excerpt: [
+      "Keeps the visible product identity: slender exposed stem, square metal base, dual-sided animated flame display, PCB button, base switch, status LED, and USB-C input.",
+      "Drops teardown dependency by modernizing the hidden electrical architecture, allowing the KiCad generation phase to proceed.",
+    ],
+    diff: [
+      "- Original 4 x AA NiMH charger topology as a build constraint",
+      "- Exact original stem/base contact mechanism as a build constraint",
+      "+ ATtiny1616 controller",
+      "+ 2 x IS31FL3731-QF LED drivers",
+      "+ 4-layer 430 x 30 mm board target",
+    ],
+    takeaway: "The selected branch is explicit: build the modernized board instead of guessing the original hidden charger.",
+  },
+};
+
 function designTerminalLines(events: DemoEvent[]): TerminalLine[] {
   return events.flatMap((event): TerminalLine[] => {
     if (event.type === "phase_start") {
@@ -486,9 +607,88 @@ function designTerminalLines(events: DemoEvent[]): TerminalLine[] {
   });
 }
 
+function DesignSpecPane({
+  spec,
+  onShowTerminal,
+}: {
+  spec: DesignSpecPreview;
+  onShowTerminal: () => void;
+}) {
+  const docHref = `${REPO_BLOB_BASE}/${spec.docPath}`;
+
+  return (
+    <div className="phase-content terminal-container design-terminal-container">
+      <div className="terminal-panel design-spec-panel">
+        <div className="terminal-chrome">
+          <span className="terminal-dot red" />
+          <span className="terminal-dot yellow" />
+          <span className="terminal-dot green" />
+          <span className="terminal-title">spec-preview · {spec.version} · {spec.title}</span>
+          <a className="terminal-action-btn spec-open-link" href={docHref} target="_blank" rel="noreferrer">
+            Open doc
+          </a>
+          <button className="terminal-action-btn" type="button" onClick={onShowTerminal}>
+            Show terminal
+          </button>
+        </div>
+        <div className="design-spec-body">
+          <div className="design-spec-hero">
+            <div>
+              <div className="design-spec-eyebrow">Spec artifact</div>
+              <h2>{spec.version}</h2>
+              <div className="design-spec-title">{spec.title}</div>
+            </div>
+            <div className="design-spec-status">{spec.statusNote}</div>
+          </div>
+
+          <div className="design-spec-grid">
+            <div className="design-spec-section">
+              <div className="section-label">Doc Excerpt</div>
+              <div className="design-spec-excerpt">
+                {spec.excerpt.map((line) => (
+                  <p key={line}>{line}</p>
+                ))}
+              </div>
+            </div>
+
+            <div className="design-spec-section">
+              <div className="section-label">Progression Diff</div>
+              <div className="design-spec-diff">
+                {spec.diff.map((line) => {
+                  const diffKind = line.startsWith("+") ? "add" : line.startsWith("-") ? "remove" : line.startsWith("x") ? "block" : "note";
+                  return (
+                    <div key={line} className={`design-spec-diff-line ${diffKind}`}>
+                      {line}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+
+          <div className="design-spec-takeaway">
+            <span>Decision</span>
+            <strong>{spec.takeaway}</strong>
+          </div>
+
+          <div className="design-spec-path">{spec.docPath}</div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function DesignView({ events }: { events: DemoEvent[] }) {
   const versions = events.filter((e) => e.type === "version_created");
   const terminalLines = designTerminalLines(events);
+  const [selectedVersion, setSelectedVersion] = useState<string | null>(null);
+  const selectedSpec = selectedVersion ? DESIGN_SPEC_PREVIEWS[selectedVersion] : null;
+
+  useEffect(() => {
+    if (selectedVersion && !versions.some((e) => e.payload.version === selectedVersion)) {
+      setSelectedVersion(null);
+    }
+  }, [selectedVersion, versions]);
 
   return (
     <div className="phase-content design-review-view">
@@ -497,27 +697,39 @@ function DesignView({ events }: { events: DemoEvent[] }) {
         <div className="design-summary-list">
           {versions.map((e, i) => {
             const status = e.payload.status as string;
+            const version = e.payload.version as string;
+            const preview = DESIGN_SPEC_PREVIEWS[version];
             return (
-              <div key={i} className={`version-card fade-in ${status}`}>
+              <button
+                key={i}
+                className={`version-card fade-in ${status} ${selectedVersion === version ? "selected" : ""}`}
+                type="button"
+                onClick={() => setSelectedVersion(version)}
+              >
                 <div className="version-header">
-                  <span className="version-name">{e.payload.version as string}</span>
+                  <span className="version-name">{version}</span>
                   <span className={`version-status status-${status}`}>{status}</span>
                 </div>
                 <div className="version-summary">{e.payload.summary as string}</div>
-              </div>
+                <div className="version-doc-hint">{preview?.docPath.split("/").pop() || "Spec preview"}</div>
+              </button>
             );
           })}
         </div>
       </div>
-      <div className="phase-content terminal-container design-terminal-container">
-        <TerminalPanel
-          lines={terminalLines}
-          visibleCount={terminalLines.length}
-          agent="multi-agent-review"
-          title="claude-code · phase: design · mode: multi-agent review"
-          isStreaming={false}
-        />
-      </div>
+      {selectedSpec ? (
+        <DesignSpecPane spec={selectedSpec} onShowTerminal={() => setSelectedVersion(null)} />
+      ) : (
+        <div className="phase-content terminal-container design-terminal-container">
+          <TerminalPanel
+            lines={terminalLines}
+            visibleCount={terminalLines.length}
+            agent="multi-agent-review"
+            title="claude-code · phase: design · mode: multi-agent review"
+            isStreaming={false}
+          />
+        </div>
+      )}
     </div>
   );
 }
