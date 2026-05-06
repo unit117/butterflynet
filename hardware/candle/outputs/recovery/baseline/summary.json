@@ -1,0 +1,183 @@
+{
+  "label": "baseline",
+  "timestamp_utc": "2026-04-24T04:21:38.372124+00:00",
+  "generated": false,
+  "generator_stdout": [],
+  "board_path": "/Users/unit117/Dev/kicad/candle/candle.kicad_pcb",
+  "schematic_path": "/Users/unit117/Dev/kicad/candle/candle.kicad_sch",
+  "board_sha256": "3f115425b7a92d428e3fd2a7720245e020407ee27b0a2ac1adcf54f4c29109e0",
+  "project_info": {
+    "project_name": "candle",
+    "project_dir": "/Users/unit117/Dev/kicad/candle",
+    "project_file": "/Users/unit117/Dev/kicad/candle/candle.kicad_pro",
+    "pcb_file": "/Users/unit117/Dev/kicad/candle/candle.kicad_pcb",
+    "sch_file": "/Users/unit117/Dev/kicad/candle/candle.kicad_sch",
+    "schematic_count": 1,
+    "has_pcb": true,
+    "library_tables": [
+      "fp-lib-table",
+      "sym-lib-table"
+    ],
+    "sub_directories": [
+      "tools",
+      "archive",
+      "specs",
+      "refs",
+      "candle.pretty",
+      "candle-backups",
+      "outputs"
+    ],
+    "total_files": 8,
+    "kicad_meta": {
+      "filename": "candle.kicad_pro",
+      "version": 3
+    }
+  },
+  "pcb_objects": {
+    "file": "/Users/unit117/Dev/kicad/candle/candle.kicad_pcb",
+    "footprints": 270,
+    "tracks": 592,
+    "vias": 276,
+    "zones": 0,
+    "arcs": 0,
+    "graphics": {
+      "lines": 4,
+      "arcs": 2,
+      "circles": 0,
+      "rects": 0,
+      "texts": 4
+    },
+    "total_copper_items": 868
+  },
+  "drc": {
+    "file": "/Users/unit117/Dev/kicad/candle/candle.kicad_pcb",
+    "summary": {
+      "violations": 354,
+      "unconnected_items": 0,
+      "schematic_parity": 0,
+      "errors": 354,
+      "warnings": 0
+    },
+    "violation_types": {
+      "tracks_crossing": 230,
+      "solder_mask_bridge": 91,
+      "clearance": 33
+    },
+    "ignored_checks": [
+      {
+        "description": "Footprint has no courtyard defined",
+        "key": "missing_courtyard"
+      },
+      {
+        "description": "Track endpoint not centered on via",
+        "key": "track_not_centered_on_via"
+      },
+      {
+        "description": "Tuning profile track geometries",
+        "key": "tuning_profile_track_geometries"
+      },
+      {
+        "description": "Footprint doesn't match symbol's footprint filters",
+        "key": "footprint_filters_mismatch"
+      },
+      {
+        "description": "Footprint component type doesn't match footprint pads",
+        "key": "footprint_type_mismatch"
+      }
+    ],
+    "kicad_version": "10.0.0",
+    "coordinate_units": "mm"
+  },
+  "drc_full_path": "/Users/unit117/Dev/kicad/candle/outputs/recovery/baseline/drc-full.json",
+  "track_crossings_path": "/Users/unit117/Dev/kicad/candle/outputs/recovery/baseline/track-crossings.json",
+  "top_crossings": [
+    {
+      "net_pair": "GND x SYS",
+      "count": 27,
+      "layers": [
+        "F.Cu",
+        "B.Cu"
+      ]
+    },
+    {
+      "net_pair": "GND x R_CS10",
+      "count": 7,
+      "layers": [
+        "B.Cu"
+      ]
+    },
+    {
+      "net_pair": "GND x SCL",
+      "count": 5,
+      "layers": [
+        "F.Cu",
+        "B.Cu"
+      ]
+    },
+    {
+      "net_pair": "GND x UPDI",
+      "count": 5,
+      "layers": [
+        "F.Cu"
+      ]
+    },
+    {
+      "net_pair": "R_CS3 x SYS",
+      "count": 5,
+      "layers": [
+        "B.Cu"
+      ]
+    },
+    {
+      "net_pair": "R_CS15 x R_CS16",
+      "count": 4,
+      "layers": [
+        "B.Cu"
+      ]
+    },
+    {
+      "net_pair": "GND x SDA",
+      "count": 3,
+      "layers": [
+        "F.Cu"
+      ]
+    },
+    {
+      "net_pair": "R_CS1 x R_CS15",
+      "count": 3,
+      "layers": [
+        "B.Cu"
+      ]
+    },
+    {
+      "net_pair": "SCL x SDA",
+      "count": 3,
+      "layers": [
+        "F.Cu",
+        "B.Cu"
+      ]
+    },
+    {
+      "net_pair": "R_CS10 x R_CS15",
+      "count": 3,
+      "layers": [
+        "B.Cu"
+      ]
+    },
+    {
+      "net_pair": "R_CS12 x R_CS15",
+      "count": 3,
+      "layers": [
+        "B.Cu"
+      ]
+    },
+    {
+      "net_pair": "R_CS13 x R_CS15",
+      "count": 3,
+      "layers": [
+        "B.Cu"
+      ]
+    }
+  ],
+  "baseline_diff": null
+}

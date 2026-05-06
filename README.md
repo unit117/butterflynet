@@ -47,6 +47,22 @@ Open http://localhost:5173 — click **Play** to watch the 5-phase pipeline repl
 
 The demo replays documented agent provenance deterministically. Every fact, every retraction, every DRC delta is from real sessions on disk.
 
+## Hardware Source Files
+
+This submission includes the candle KiCad project and outputs in [hardware/candle](hardware/candle), plus the original project history as [hardware/candle-git-history.bundle](hardware/candle-git-history.bundle).
+
+Key files:
+
+- `hardware/candle/candle.kicad_pro`
+- `hardware/candle/candle.kicad_sch`
+- `hardware/candle/candle.kicad_pcb`
+- `hardware/candle/candle.pretty/`
+- `hardware/candle/tools/generate_candle.py`
+- `hardware/candle/outputs/fabrication/`
+- `hardware/candle/outputs/candle.glb`
+
+The frontend demo also serves a compact copy of the fabrication bundle and GLB from `kicad-agent-ui/frontend/public/exports/candle/`.
+
 ---
 
 ## What's pre-existing vs. hackathon work
@@ -89,7 +105,7 @@ Full details: [DISCLOSURE.md](DISCLOSURE.md)
 - **EDA**: KiCad 10.0, kicad-cli
 - **Backend**: Python 3.9, FastAPI, uvicorn
 - **Frontend**: React 19, TypeScript, Vite
-- **Target board**: candle.kicad_pcb — 430x30mm 4-layer, 256 LEDs, ATtiny1616, 2x IS31FL3733
+- **Target board**: candle.kicad_pcb — 430x30mm 4-layer, 256 LEDs, ATtiny1616, 2x IS31FL3731-QF
 
 ---
 

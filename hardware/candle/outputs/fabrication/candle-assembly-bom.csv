@@ -1,0 +1,13 @@
+Refs,Value,Footprint,Qty,Notes
+D1-D256,WW_2700K,candle:Candle_LED_0603_Matrix,256,"Dual 8x16 flame fields, one matrix per face"
+U1,ATtiny1616-M,Package_DFN_QFN:VQFN-20-1EP_3x3mm_P0.4mm_EP1.7x1.7mm,1,Stem MCU
+"U2,U3",IS31FL3731-QF,Package_DFN_QFN:QFN-28-1EP_4x4mm_P0.4mm_EP2.3x2.3mm,2,Front and rear charlieplex matrix drivers
+SW1,PCB_BUTTON,Button_Switch_SMD:SW_Push_1P1T_NO_CK_KMR2,1,User control button on stem
+"C1,C3,C5",100n,Capacitor_SMD:C_0603_1608Metric,3,Local decoupling
+"C2,C4",4.7u,Capacitor_SMD:C_0805_2012Metric,2,Bulk bypass on driver power rail
+C6,10u,Capacitor_SMD:C_0805_2012Metric,1,Bulk bypass on stem power rail
+"C7,C8",1u,Capacitor_SMD:C_0603_1608Metric,2,Driver C_FILT filter caps
+"R1,R2",20k,Resistor_SMD:R_0603_1608Metric,2,Driver current-set resistors
+J1,STEM_SOCKET,candle:Candle_StemSocket_4Pad,1,"Concealed blind-socket contact geometry; board-integrated, not a purchased part"
+J2,UPDI_PADS,candle:Candle_ServicePads_1x3,1,Board-integrated exposed service pads
+"UBASE1,JUSB1,BT1,SWBASE1,DBASE1,RCC1,RCC2,RLED1,RTS1,RISET1,RILIM1,RTMR1,CUSB1,CSYS1",Base-side schematic only,Off-board / base assembly,1 set,"Captured in schematic, not laid out on the visible stem PCB"

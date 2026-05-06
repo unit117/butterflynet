@@ -1,0 +1,98 @@
+{
+  "runs_requested": 3,
+  "best_run": 1,
+  "best_score": [
+    0,
+    0,
+    0,
+    54,
+    0,
+    0,
+    0,
+    0
+  ],
+  "best_board_sha": "972e36534c06a355",
+  "best_drc_total": 0,
+  "best_erc_total": 54,
+  "best_drc_counts": {},
+  "runs": [
+    {
+      "run": 1,
+      "score": [
+        0,
+        0,
+        0,
+        54,
+        0,
+        0,
+        0,
+        0
+      ],
+      "board_sha": "972e36534c06a355",
+      "schematic_sha": "6d5033642b97a639",
+      "drc_total": 0,
+      "erc_total": 54,
+      "unconnected_total": 0,
+      "drc_counts": {},
+      "short_descriptions": [],
+      "generator_stdout": [
+        "ERC violations: 6 actionable, 48 structural",
+        "DRC violations: 0",
+        "Unconnected items: 0",
+        "Generated candle.kicad_sch and candle.kicad_pcb"
+      ]
+    },
+    {
+      "run": 2,
+      "score": [
+        0,
+        0,
+        0,
+        54,
+        0,
+        0,
+        0,
+        0
+      ],
+      "board_sha": "972e36534c06a355",
+      "schematic_sha": "f6f6d94ecb7d7f4e",
+      "drc_total": 0,
+      "erc_total": 54,
+      "unconnected_total": 0,
+      "drc_counts": {},
+      "short_descriptions": [],
+      "generator_stdout": [
+        "ERC violations: 6 actionable, 48 structural",
+        "DRC violations: 0",
+        "Unconnected items: 0",
+        "Generated candle.kicad_sch and candle.kicad_pcb"
+      ]
+    },
+    {
+      "run": 3,
+      "score": [
+        0,
+        0,
+        0,
+        54,
+        0,
+        0,
+        0,
+        0
+      ],
+      "board_sha": "972e36534c06a355",
+      "schematic_sha": "2e41c41bcfe403ac",
+      "drc_total": 0,
+      "erc_total": 54,
+      "unconnected_total": 0,
+      "drc_counts": {},
+      "short_descriptions": [],
+      "generator_stdout": [
+        "ERC violations: 6 actionable, 48 structural",
+        "DRC violations: 0",
+        "Unconnected items: 0",
+        "Generated candle.kicad_sch and candle.kicad_pcb"
+      ]
+    }
+  ]
+}

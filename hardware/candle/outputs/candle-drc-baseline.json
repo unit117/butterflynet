@@ -1,0 +1,22 @@
+{
+  "drc": {
+    "total": 10,
+    "shorts": 0,
+    "unconnected": 0,
+    "types": {
+      "tracks_crossing": 8,
+      "clearance": 2
+    },
+    "tracks_crossing": 8,
+    "clearance": 2,
+    "solder_mask_bridge": 0,
+    "track_dangling": 0
+  },
+  "generator_sha": "8253a2c87f8d0e5b",
+  "generator_output": [
+    "ERC violations: 50",
+    "DRC violations: 10",
+    "Unconnected items: 0",
+    "Generated candle.kicad_sch and candle.kicad_pcb"
+  ]
+}

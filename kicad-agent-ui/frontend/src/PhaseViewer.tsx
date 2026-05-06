@@ -953,7 +953,7 @@ export function PhaseViewer() {
     setPhase(p);
     setVisibleEvents([]);
     setTerminalCount(0);
-    if (p === "validate") setDrcBeat(-1);
+    setDrcBeat(-1);
   }, []);
 
   // Event replay engine
@@ -1029,6 +1029,8 @@ export function PhaseViewer() {
 
   const handleReset = () => {
     setPlayState("idle");
+    clearTimeout(timerRef.current);
+    clearTimeout(terminalTimerRef.current);
     resetPhase(phase);
     phaseStartRef.current = 0;
   };
@@ -1036,16 +1038,10 @@ export function PhaseViewer() {
   const handlePhaseClick = (p: Phase) => {
     if (!replays) return;
     setPlayState("idle");
+    clearTimeout(timerRef.current);
+    clearTimeout(terminalTimerRef.current);
     phaseStartRef.current = 0;
-    setPhase(p);
-    if (p !== "validate") {
-      setVisibleEvents(replays[p].filter((e) => e.type !== "drc_beat"));
-      setDrcBeat(-1);
-    } else {
-      setVisibleEvents([]);
-      setDrcBeat(beats.length - 1);
-    }
-    setTerminalCount(p === "research" ? PHASE1_TERMINAL.length : 0);
+    resetPhase(p);
   };
 
   if (!replays) {

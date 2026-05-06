@@ -1,0 +1,4 @@
+.DS_Store
+~*.lck
+tools/__pycache__/
+tmp*.json

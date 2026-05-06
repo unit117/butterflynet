@@ -1,0 +1,4989 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-04-28T16:25:11",
+    "ignored_checks": [
+        {
+            "description": "Footprint has no courtyard defined",
+            "key": "missing_courtyard"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "key": "track_not_centered_on_via"
+        },
+        {
+            "description": "Tuning profile track geometries",
+            "key": "tuning_profile_track_geometries"
+        },
+        {
+            "description": "Footprint doesn't match symbol's footprint filters",
+            "key": "footprint_filters_mismatch"
+        },
+        {
+            "description": "Footprint component type doesn't match footprint pads",
+            "key": "footprint_type_mismatch"
+        }
+    ],
+    "included_severities": [
+        "error",
+        "warning"
+    ],
+    "kicad_version": "10.0.0",
+    "schematic_parity": [],
+    "source": "candle.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SYS] on F.Cu, length 13.8000 mm",
+                    "pos": {
+                        "x": 27.0,
+                        "y": 324.2
+                    },
+                    "uuid": "4b50750e-8037-5636-968d-b69034ceed28"
+                },
+                {
+                    "description": "Track [SCL] on F.Cu, length 3.2500 mm",
+                    "pos": {
+                        "x": 15.2,
+                        "y": 321.8
+                    },
+                    "uuid": "be29b226-c85d-58ee-84ec-a594c7d7faff"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_SW7] on B.Cu, length 4.0000 mm",
+                    "pos": {
+                        "x": 10.5,
+                        "y": 327.0
+                    },
+                    "uuid": "40dc8ba3-1ea7-5131-8750-79d4d5080540"
+                },
+                {
+                    "description": "Track [SYS] on B.Cu, length 12.6000 mm",
+                    "pos": {
+                        "x": 15.6,
+                        "y": 323.8
+                    },
+                    "uuid": "9416f30e-13ae-54c1-b6b7-ff814a76274f"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1038 mm)",
+            "items": [
+                {
+                    "description": "Track [SYS] on F.Cu, length 1.8968 mm",
+                    "pos": {
+                        "x": 14.2575,
+                        "y": 237.3081
+                    },
+                    "uuid": "be2333b1-d5d6-5494-948d-99339bd818d1"
+                },
+                {
+                    "description": "Pad 5 [BTN] of U1 on F.Cu",
+                    "pos": {
+                        "x": 14.540381,
+                        "y": 237.59099
+                    },
+                    "uuid": "c42304f6-0158-5310-8322-158902244a76"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_SW1] on F.Cu, length 39.2000 mm",
+                    "pos": {
+                        "x": 5.4,
+                        "y": 326.2
+                    },
+                    "uuid": "29eff55b-b0bb-5218-9255-f4b42201a746"
+                },
+                {
+                    "description": "Track [F_CS2] on F.Cu, length 12.2000 mm",
+                    "pos": {
+                        "x": 14.4,
+                        "y": 355.6
+                    },
+                    "uuid": "b02f6ffd-3cd9-5bc7-be9e-ac81bb0dd94c"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS10] on B.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 390.6
+                    },
+                    "uuid": "2b89f7e2-bf28-5f5f-9811-ad3a82d297a1"
+                },
+                {
+                    "description": "Track [R_CS4] on B.Cu, length 50.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 358.0
+                    },
+                    "uuid": "8ee1c9a3-0299-5fe1-9b56-77993a79c6e4"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [U3_RSET] on B.Cu, length 7.3750 mm",
+                    "pos": {
+                        "x": 20.2,
+                        "y": 329.8
+                    },
+                    "uuid": "23f2721f-c06f-5287-9c0f-efc1beb44e07"
+                },
+                {
+                    "description": "Track [R_CS10] on B.Cu, length 3.5500 mm",
+                    "pos": {
+                        "x": 17.95,
+                        "y": 326.2
+                    },
+                    "uuid": "728bfd8f-edea-563a-8531-41f090bbdd93"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS16] on B.Cu, length 10.6000 mm",
+                    "pos": {
+                        "x": 17.2,
+                        "y": 353.2
+                    },
+                    "uuid": "674ccd56-f0b2-514f-86e9-f27d9fa7c9b4"
+                },
+                {
+                    "description": "Track [R_CS10] on B.Cu, length 29.4000 mm",
+                    "pos": {
+                        "x": 21.5,
+                        "y": 326.2
+                    },
+                    "uuid": "f51f637e-6893-5eff-9902-837ca4259b57"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SYS] on F.Cu, length 11.4000 mm",
+                    "pos": {
+                        "x": 15.6,
+                        "y": 332.2
+                    },
+                    "uuid": "5e1a7a1d-eae3-5ca1-b3ac-5645ef9301ea"
+                },
+                {
+                    "description": "Track [F_CS12] on F.Cu, length 25.8000 mm",
+                    "pos": {
+                        "x": 19.65,
+                        "y": 329.0
+                    },
+                    "uuid": "6c12abdb-1ba6-5668-8b12-c9e798cee41d"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_SW8] on B.Cu, length 37.6000 mm",
+                    "pos": {
+                        "x": 24.6,
+                        "y": 326.6
+                    },
+                    "uuid": "3e9ab86c-a91c-5329-a443-71b93870c7eb"
+                },
+                {
+                    "description": "Track [R_CS10] on B.Cu, length 6.3000 mm",
+                    "pos": {
+                        "x": 21.5,
+                        "y": 355.6
+                    },
+                    "uuid": "66b8b64e-abea-5418-a085-3b04f52b03c3"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SCL] on B.Cu, length 8.2000 mm",
+                    "pos": {
+                        "x": 7.0,
+                        "y": 332.7
+                    },
+                    "uuid": "483df8db-80c4-531e-8a6d-8dd55b1deb06"
+                },
+                {
+                    "description": "Track [R_SW2] on B.Cu, length 34.8000 mm",
+                    "pos": {
+                        "x": 8.4,
+                        "y": 329.4
+                    },
+                    "uuid": "6b9f1934-b406-598b-9ea0-e07aab7dc08e"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_SW3] on F.Cu, length 38.4000 mm",
+                    "pos": {
+                        "x": 11.2,
+                        "y": 327.0
+                    },
+                    "uuid": "993a42f5-44f6-598b-9515-245c6a81e48f"
+                },
+                {
+                    "description": "Track [F_SW7] on F.Cu, length 2.5500 mm",
+                    "pos": {
+                        "x": 12.05,
+                        "y": 329.0
+                    },
+                    "uuid": "dfc613b8-fd96-5e30-8fd7-49989ebde32c"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS10] on B.Cu, length 35.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 355.6
+                    },
+                    "uuid": "348e4fb7-9e46-5730-b4a8-e7023a8c85a1"
+                },
+                {
+                    "description": "Track [R_CS6] on B.Cu, length 8.5000 mm",
+                    "pos": {
+                        "x": 19.3,
+                        "y": 357.2
+                    },
+                    "uuid": "a7cb7080-cb28-5242-98dd-cd87949778ae"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_SW2] on B.Cu, length 3.6500 mm",
+                    "pos": {
+                        "x": 12.05,
+                        "y": 329.4
+                    },
+                    "uuid": "58de9387-a8d1-5827-b101-8921b0d87583"
+                },
+                {
+                    "description": "Track [R_SW3] on B.Cu, length 35.2000 mm",
+                    "pos": {
+                        "x": 10.1,
+                        "y": 329.0
+                    },
+                    "uuid": "cc25d7c6-9e73-5814-8123-b02a4157a953"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SCL] on B.Cu, length 8.2000 mm",
+                    "pos": {
+                        "x": 7.0,
+                        "y": 332.7
+                    },
+                    "uuid": "483df8db-80c4-531e-8a6d-8dd55b1deb06"
+                },
+                {
+                    "description": "Track [R_SW3] on B.Cu, length 35.2000 mm",
+                    "pos": {
+                        "x": 10.1,
+                        "y": 329.0
+                    },
+                    "uuid": "cc25d7c6-9e73-5814-8123-b02a4157a953"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS5] on F.Cu, length 47.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 357.6
+                    },
+                    "uuid": "3e758300-b13a-5b6e-97a8-6dd1fcd940d7"
+                },
+                {
+                    "description": "Track [F_CS10] on F.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 390.6
+                    },
+                    "uuid": "dafac03b-83c6-59ef-a340-0241d416049f"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS11] on B.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 387.7
+                    },
+                    "uuid": "1e33c001-c898-57c1-b20e-1b0d9725adc5"
+                },
+                {
+                    "description": "Track [R_CS10] on B.Cu, length 35.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 355.6
+                    },
+                    "uuid": "348e4fb7-9e46-5730-b4a8-e7023a8c85a1"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1600 mm)",
+            "items": [
+                {
+                    "description": "Micro via [R_SW5] on In2.Cu - B.Cu",
+                    "pos": {
+                        "x": 10.8,
+                        "y": 327.8
+                    },
+                    "uuid": "11093d52-662b-59a1-a111-ed81ffc6c90e"
+                },
+                {
+                    "description": "Track [SYS] on B.Cu, length 14.9500 mm",
+                    "pos": {
+                        "x": 17.95,
+                        "y": 327.4
+                    },
+                    "uuid": "78d4bf50-7cd6-5e6d-83a0-bd7051f7f598"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [U3_RSET] on B.Cu, length 7.3750 mm",
+                    "pos": {
+                        "x": 20.2,
+                        "y": 329.8
+                    },
+                    "uuid": "23f2721f-c06f-5287-9c0f-efc1beb44e07"
+                },
+                {
+                    "description": "Track [R_CS11] on B.Cu, length 3.9500 mm",
+                    "pos": {
+                        "x": 17.95,
+                        "y": 325.8
+                    },
+                    "uuid": "ff2a6792-b3c9-5c3c-8909-6a9f2f7e298a"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS11] on B.Cu, length 29.4000 mm",
+                    "pos": {
+                        "x": 21.9,
+                        "y": 325.8
+                    },
+                    "uuid": "1532a73e-846c-5e94-95e7-a91e41235f9b"
+                },
+                {
+                    "description": "Track [R_CS16] on B.Cu, length 10.6000 mm",
+                    "pos": {
+                        "x": 17.2,
+                        "y": 353.2
+                    },
+                    "uuid": "674ccd56-f0b2-514f-86e9-f27d9fa7c9b4"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_SW8] on B.Cu, length 37.6000 mm",
+                    "pos": {
+                        "x": 24.6,
+                        "y": 326.6
+                    },
+                    "uuid": "3e9ab86c-a91c-5329-a443-71b93870c7eb"
+                },
+                {
+                    "description": "Track [R_CS11] on B.Cu, length 5.9000 mm",
+                    "pos": {
+                        "x": 21.9,
+                        "y": 355.2
+                    },
+                    "uuid": "ac3ab048-ce17-51da-994e-8cf5e188f6ef"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS11] on B.Cu, length 32.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 355.2
+                    },
+                    "uuid": "885776d6-6233-516c-a018-a40e1e42ed4e"
+                },
+                {
+                    "description": "Track [R_CS6] on B.Cu, length 8.5000 mm",
+                    "pos": {
+                        "x": 19.3,
+                        "y": 357.2
+                    },
+                    "uuid": "a7cb7080-cb28-5242-98dd-cd87949778ae"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SYS] on F.Cu, length 9.0500 mm",
+                    "pos": {
+                        "x": 17.95,
+                        "y": 328.6
+                    },
+                    "uuid": "87181a47-fd81-5e28-a43c-a384df142a65"
+                },
+                {
+                    "description": "Track [F_CS13] on F.Cu, length 26.2000 mm",
+                    "pos": {
+                        "x": 20.05,
+                        "y": 328.2
+                    },
+                    "uuid": "9f42a777-6d72-5867-8202-f1a0c854e044"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 20.2000 mm",
+                    "pos": {
+                        "x": 23.2,
+                        "y": 333.825
+                    },
+                    "uuid": "21dc1e1e-9c88-5c9d-b93f-e89126ac53ba"
+                },
+                {
+                    "description": "Track [F_CS10] on F.Cu, length 25.8000 mm",
+                    "pos": {
+                        "x": 18.849999,
+                        "y": 329.8
+                    },
+                    "uuid": "df39d90b-8ae9-5b42-ba62-efd6c1850f43"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [U2_RSET] on F.Cu, length 2.2500 mm",
+                    "pos": {
+                        "x": 17.95,
+                        "y": 326.2
+                    },
+                    "uuid": "30cfd6fb-fb8e-5795-8612-1af0683290e3"
+                },
+                {
+                    "description": "Track [GND] on F.Cu, length 4.0000 mm",
+                    "pos": {
+                        "x": 18.75,
+                        "y": 326.6
+                    },
+                    "uuid": "b6a3557d-f46d-5846-91ef-2cf4532a1848"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SYS] on F.Cu, length 13.8000 mm",
+                    "pos": {
+                        "x": 27.0,
+                        "y": 324.2
+                    },
+                    "uuid": "4b50750e-8037-5636-968d-b69034ceed28"
+                },
+                {
+                    "description": "Track [U2_RSET] on F.Cu, length 3.7750 mm",
+                    "pos": {
+                        "x": 20.2,
+                        "y": 326.2
+                    },
+                    "uuid": "ea0f4204-d06b-51d2-9407-cfe7dfe6dd88"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS10] on F.Cu, length 8.9500 mm",
+                    "pos": {
+                        "x": 18.849999,
+                        "y": 355.6
+                    },
+                    "uuid": "238ca88c-7e37-5db7-8a66-f674a3560511"
+                },
+                {
+                    "description": "Track [F_CS12] on F.Cu, length 30.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.8
+                    },
+                    "uuid": "5507b135-6e8d-561c-b2e5-5f7c29c75575"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_SW8] on B.Cu, length 12.5500 mm",
+                    "pos": {
+                        "x": 12.05,
+                        "y": 326.6
+                    },
+                    "uuid": "2510d0cd-a4fa-5da2-9932-f8048cf17619"
+                },
+                {
+                    "description": "Track [R_CS10] on B.Cu, length 29.4000 mm",
+                    "pos": {
+                        "x": 21.5,
+                        "y": 326.2
+                    },
+                    "uuid": "f51f637e-6893-5eff-9902-837ca4259b57"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_SW8] on B.Cu, length 37.6000 mm",
+                    "pos": {
+                        "x": 24.6,
+                        "y": 326.6
+                    },
+                    "uuid": "3e9ab86c-a91c-5329-a443-71b93870c7eb"
+                },
+                {
+                    "description": "Track [R_CS16] on B.Cu, length 10.6000 mm",
+                    "pos": {
+                        "x": 17.2,
+                        "y": 353.2
+                    },
+                    "uuid": "674ccd56-f0b2-514f-86e9-f27d9fa7c9b4"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS10] on F.Cu, length 35.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 355.6
+                    },
+                    "uuid": "3e46fad4-6c7f-5938-846d-c28a0747427a"
+                },
+                {
+                    "description": "Track [F_CS5] on F.Cu, length 11.8000 mm",
+                    "pos": {
+                        "x": 16.0,
+                        "y": 357.6
+                    },
+                    "uuid": "b2f1b9a5-299b-5e1b-8acd-53bf10c02d05"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS11] on B.Cu, length 32.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 355.2
+                    },
+                    "uuid": "885776d6-6233-516c-a018-a40e1e42ed4e"
+                },
+                {
+                    "description": "Track [R_CS12] on B.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 384.8
+                    },
+                    "uuid": "e4bb9fdd-636b-5d20-a7c4-b053480da52d"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS12] on B.Cu, length 29.7500 mm",
+                    "pos": {
+                        "x": 15.2,
+                        "y": 325.05
+                    },
+                    "uuid": "1eb8ace6-44d1-5a17-b783-21a236f90ff9"
+                },
+                {
+                    "description": "Track [SCL] on B.Cu, length 8.2000 mm",
+                    "pos": {
+                        "x": 7.0,
+                        "y": 332.7
+                    },
+                    "uuid": "483df8db-80c4-531e-8a6d-8dd55b1deb06"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_SW2] on F.Cu, length 38.8000 mm",
+                    "pos": {
+                        "x": 8.3,
+                        "y": 326.6
+                    },
+                    "uuid": "50bee2cc-7c58-5ca1-a788-dd86be0ea9f7"
+                },
+                {
+                    "description": "Track [F_CS2] on F.Cu, length 12.2000 mm",
+                    "pos": {
+                        "x": 14.4,
+                        "y": 355.6
+                    },
+                    "uuid": "b02f6ffd-3cd9-5bc7-be9e-ac81bb0dd94c"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS12] on B.Cu, length 12.6000 mm",
+                    "pos": {
+                        "x": 15.2,
+                        "y": 354.8
+                    },
+                    "uuid": "9716fadb-7070-519b-b0fd-e5260d449b6e"
+                },
+                {
+                    "description": "Track [R_CS10] on B.Cu, length 29.4000 mm",
+                    "pos": {
+                        "x": 21.5,
+                        "y": 326.2
+                    },
+                    "uuid": "f51f637e-6893-5eff-9902-837ca4259b57"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS12] on B.Cu, length 30.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.8
+                    },
+                    "uuid": "159fe20f-d450-5452-b42a-1855d9b7f212"
+                },
+                {
+                    "description": "Track [R_CS11] on B.Cu, length 5.9000 mm",
+                    "pos": {
+                        "x": 21.9,
+                        "y": 355.2
+                    },
+                    "uuid": "ac3ab048-ce17-51da-994e-8cf5e188f6ef"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1341 mm)",
+            "items": [
+                {
+                    "description": "Track [UPDI] on F.Cu, length 2.2717 mm",
+                    "pos": {
+                        "x": 11.8,
+                        "y": 234.0
+                    },
+                    "uuid": "21fb62aa-7e67-5bb1-b3fd-cdb39139a428"
+                },
+                {
+                    "description": "Pad 20 [<no net>] of U1 on F.Cu",
+                    "pos": {
+                        "x": 13.40901,
+                        "y": 235.540381
+                    },
+                    "uuid": "d388a709-30f2-5dc3-b1f6-cc8fc4fb5fd6"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_SW5] on In1.Cu, length 37.2500 mm",
+                    "pos": {
+                        "x": 17.0,
+                        "y": 328.15
+                    },
+                    "uuid": "9e6824e2-add2-51b0-a5e8-ab5a4f8d2f49"
+                },
+                {
+                    "description": "Track [F_SW6] on In1.Cu, length 9.7000 mm",
+                    "pos": {
+                        "x": 10.2,
+                        "y": 328.5
+                    },
+                    "uuid": "fe9173fc-d65f-57ca-bd3b-6fe6688d920c"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS12] on B.Cu, length 30.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.8
+                    },
+                    "uuid": "159fe20f-d450-5452-b42a-1855d9b7f212"
+                },
+                {
+                    "description": "Track [R_CS13] on B.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 381.9
+                    },
+                    "uuid": "1e6923b6-e49c-5d24-9d16-c26d166fecb0"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS11] on F.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 387.7
+                    },
+                    "uuid": "0613d95b-ac14-540f-92e0-92acec66b6b0"
+                },
+                {
+                    "description": "Track [F_CS5] on F.Cu, length 47.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 357.6
+                    },
+                    "uuid": "3e758300-b13a-5b6e-97a8-6dd1fcd940d7"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1300 mm)",
+            "items": [
+                {
+                    "description": "Micro via [F_SW5] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 10.8,
+                        "y": 328.15
+                    },
+                    "uuid": "d00afb05-2236-586e-ad43-eef71a0c68b8"
+                },
+                {
+                    "description": "Track [F_SW6] on In1.Cu, length 9.7000 mm",
+                    "pos": {
+                        "x": 10.2,
+                        "y": 328.5
+                    },
+                    "uuid": "fe9173fc-d65f-57ca-bd3b-6fe6688d920c"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_SW6] on In1.Cu, length 36.9000 mm",
+                    "pos": {
+                        "x": 19.9,
+                        "y": 328.5
+                    },
+                    "uuid": "113bfa56-77b4-520c-b90e-c6c92bacaf32"
+                },
+                {
+                    "description": "Track [F_SW7] on In1.Cu, length 13.3000 mm",
+                    "pos": {
+                        "x": 9.5,
+                        "y": 328.85
+                    },
+                    "uuid": "1d204985-4896-5a72-b63f-b76ffd091f9b"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1300 mm)",
+            "items": [
+                {
+                    "description": "Track [F_SW7] on In1.Cu, length 13.3000 mm",
+                    "pos": {
+                        "x": 9.5,
+                        "y": 328.85
+                    },
+                    "uuid": "1d204985-4896-5a72-b63f-b76ffd091f9b"
+                },
+                {
+                    "description": "Micro via [F_SW6] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 10.2,
+                        "y": 328.5
+                    },
+                    "uuid": "9fd6a302-bd05-559c-afd8-19b7559106c6"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_SW7] on In1.Cu, length 36.5500 mm",
+                    "pos": {
+                        "x": 22.8,
+                        "y": 328.85
+                    },
+                    "uuid": "e3ebb659-bb84-577d-ad6f-6f2fefe753b7"
+                },
+                {
+                    "description": "Track [F_SW8] on In1.Cu, length 18.5000 mm",
+                    "pos": {
+                        "x": 7.2,
+                        "y": 329.2
+                    },
+                    "uuid": "f229edfc-c62a-5f2e-ac12-26088458fc45"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.0550 mm)",
+            "items": [
+                {
+                    "description": "Track [R_SW4] on B.Cu, length 36.0000 mm",
+                    "pos": {
+                        "x": 12.6,
+                        "y": 328.2
+                    },
+                    "uuid": "3ca72ea0-b063-5c52-a97b-4e1c02760b05"
+                },
+                {
+                    "description": "Pad 1 [<no net>] of U3 on B.Cu",
+                    "pos": {
+                        "x": 12.05,
+                        "y": 330.2
+                    },
+                    "uuid": "5fcaa025-fd48-5eef-b41f-5725babb5d52"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1300 mm)",
+            "items": [
+                {
+                    "description": "Micro via [F_SW7] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 9.5,
+                        "y": 328.85
+                    },
+                    "uuid": "3298ae9b-28f7-578b-bb95-8e3c2634916c"
+                },
+                {
+                    "description": "Track [F_SW8] on In1.Cu, length 18.5000 mm",
+                    "pos": {
+                        "x": 7.2,
+                        "y": 329.2
+                    },
+                    "uuid": "f229edfc-c62a-5f2e-ac12-26088458fc45"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SCL] on In2.Cu, length 90.2000 mm",
+                    "pos": {
+                        "x": 7.0,
+                        "y": 242.5
+                    },
+                    "uuid": "1d2d82ea-5bab-5416-8783-4d01b32c81e6"
+                },
+                {
+                    "description": "Track [R_CS3] on In2.Cu, length 13.4000 mm",
+                    "pos": {
+                        "x": 14.8,
+                        "y": 324.25
+                    },
+                    "uuid": "33d89106-248b-5805-bb4d-88f6f491d0b5"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS13] on B.Cu, length 29.3500 mm",
+                    "pos": {
+                        "x": 16.0,
+                        "y": 325.05
+                    },
+                    "uuid": "73189e0f-7e2c-5c61-9ec5-24c8c36ef0cd"
+                },
+                {
+                    "description": "Track [GND] on B.Cu, length 14.2000 mm",
+                    "pos": {
+                        "x": 27.0,
+                        "y": 333.0
+                    },
+                    "uuid": "f60594e3-c271-5594-8b8b-a671cb865a3d"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS13] on B.Cu, length 11.8000 mm",
+                    "pos": {
+                        "x": 16.0,
+                        "y": 354.4
+                    },
+                    "uuid": "43e8e62c-ba95-5e5a-85a6-d73f4645f8b3"
+                },
+                {
+                    "description": "Track [R_CS10] on B.Cu, length 29.4000 mm",
+                    "pos": {
+                        "x": 21.5,
+                        "y": 326.2
+                    },
+                    "uuid": "f51f637e-6893-5eff-9902-837ca4259b57"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS13] on B.Cu, length 27.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.4
+                    },
+                    "uuid": "7ebb8ab1-4475-5b2e-b913-f3623171f8b2"
+                },
+                {
+                    "description": "Track [R_CS11] on B.Cu, length 5.9000 mm",
+                    "pos": {
+                        "x": 21.9,
+                        "y": 355.2
+                    },
+                    "uuid": "ac3ab048-ce17-51da-994e-8cf5e188f6ef"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_SW8] on F.Cu, length 4.8500 mm",
+                    "pos": {
+                        "x": 12.05,
+                        "y": 329.4
+                    },
+                    "uuid": "5a303a20-4f4a-54dc-bd64-cd47ed777bd0"
+                },
+                {
+                    "description": "Track [F_SW3] on F.Cu, length 38.4000 mm",
+                    "pos": {
+                        "x": 11.2,
+                        "y": 327.0
+                    },
+                    "uuid": "993a42f5-44f6-598b-9515-245c6a81e48f"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.1800 mm)",
+            "items": [
+                {
+                    "description": "Track [F_SW3] on F.Cu, length 38.4000 mm",
+                    "pos": {
+                        "x": 11.2,
+                        "y": 327.0
+                    },
+                    "uuid": "993a42f5-44f6-598b-9515-245c6a81e48f"
+                },
+                {
+                    "description": "Micro via [F_SW5] on F.Cu - In1.Cu",
+                    "pos": {
+                        "x": 10.8,
+                        "y": 328.15
+                    },
+                    "uuid": "d00afb05-2236-586e-ad43-eef71a0c68b8"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 20.2000 mm",
+                    "pos": {
+                        "x": 23.2,
+                        "y": 333.825
+                    },
+                    "uuid": "21dc1e1e-9c88-5c9d-b93f-e89126ac53ba"
+                },
+                {
+                    "description": "Track [F_CS11] on F.Cu, length 25.8000 mm",
+                    "pos": {
+                        "x": 19.25,
+                        "y": 329.4
+                    },
+                    "uuid": "43232180-c86f-5ffd-81c7-87e209401ab1"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS3] on In2.Cu, length 13.4000 mm",
+                    "pos": {
+                        "x": 14.8,
+                        "y": 324.25
+                    },
+                    "uuid": "33d89106-248b-5805-bb4d-88f6f491d0b5"
+                },
+                {
+                    "description": "Track [SDA] on In2.Cu, length 89.8000 mm",
+                    "pos": {
+                        "x": 9.4,
+                        "y": 243.4
+                    },
+                    "uuid": "d46e21bd-502c-5081-8d64-fb97f3027de9"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS12] on F.Cu, length 30.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.8
+                    },
+                    "uuid": "5507b135-6e8d-561c-b2e5-5f7c29c75575"
+                },
+                {
+                    "description": "Track [F_CS11] on F.Cu, length 8.5500 mm",
+                    "pos": {
+                        "x": 19.25,
+                        "y": 355.2
+                    },
+                    "uuid": "6d5a9436-96af-507d-9627-d27df9bdd1b9"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS10] on F.Cu, length 8.9500 mm",
+                    "pos": {
+                        "x": 18.849999,
+                        "y": 355.6
+                    },
+                    "uuid": "238ca88c-7e37-5db7-8a66-f674a3560511"
+                },
+                {
+                    "description": "Track [F_CS11] on F.Cu, length 32.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 355.2
+                    },
+                    "uuid": "56c59556-4947-5b9b-961a-8f5de5e1c7bd"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on B.Cu, length 20.2000 mm",
+                    "pos": {
+                        "x": 6.8,
+                        "y": 333.825
+                    },
+                    "uuid": "71b063e3-e3da-5784-85e9-abbc955a2e20"
+                },
+                {
+                    "description": "Track [R_CS10] on B.Cu, length 29.4000 mm",
+                    "pos": {
+                        "x": 21.5,
+                        "y": 326.2
+                    },
+                    "uuid": "f51f637e-6893-5eff-9902-837ca4259b57"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS11] on F.Cu, length 32.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 355.2
+                    },
+                    "uuid": "56c59556-4947-5b9b-961a-8f5de5e1c7bd"
+                },
+                {
+                    "description": "Track [F_CS12] on F.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 384.8
+                    },
+                    "uuid": "ce0f59cc-6c6c-50ab-94e2-c03ba64759c8"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS12] on B.Cu, length 30.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.8
+                    },
+                    "uuid": "159fe20f-d450-5452-b42a-1855d9b7f212"
+                },
+                {
+                    "description": "Track [R_CS14] on B.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 379.0
+                    },
+                    "uuid": "db51f597-3d52-5500-bfce-f8624d92c66d"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on B.Cu, length 14.9500 mm",
+                    "pos": {
+                        "x": 12.05,
+                        "y": 325.8
+                    },
+                    "uuid": "15015136-cbbf-5373-902e-6724505376f5"
+                },
+                {
+                    "description": "Track [R_CS11] on B.Cu, length 29.4000 mm",
+                    "pos": {
+                        "x": 21.9,
+                        "y": 325.8
+                    },
+                    "uuid": "1532a73e-846c-5e94-95e7-a91e41235f9b"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on B.Cu, length 14.9500 mm",
+                    "pos": {
+                        "x": 12.05,
+                        "y": 328.6
+                    },
+                    "uuid": "b7f6eb97-778c-5fc3-8dc9-8dc719e48d65"
+                },
+                {
+                    "description": "Track [R_CS10] on B.Cu, length 29.4000 mm",
+                    "pos": {
+                        "x": 21.5,
+                        "y": 326.2
+                    },
+                    "uuid": "f51f637e-6893-5eff-9902-837ca4259b57"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS14] on B.Cu, length 28.9500 mm",
+                    "pos": {
+                        "x": 16.399999,
+                        "y": 325.05
+                    },
+                    "uuid": "92625de2-17b6-5b1e-8d80-e884d7066f2a"
+                },
+                {
+                    "description": "Track [SYS] on B.Cu, length 1.2500 mm",
+                    "pos": {
+                        "x": 16.399999,
+                        "y": 330.95
+                    },
+                    "uuid": "f6d05839-a838-5677-bbf9-25f6a5a0c026"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.0400 mm)",
+            "items": [
+                {
+                    "description": "Track [R_SW4] on B.Cu, length 36.0000 mm",
+                    "pos": {
+                        "x": 12.6,
+                        "y": 328.2
+                    },
+                    "uuid": "3ca72ea0-b063-5c52-a97b-4e1c02760b05"
+                },
+                {
+                    "description": "Track [GND] on B.Cu, length 2.0500 mm",
+                    "pos": {
+                        "x": 12.8,
+                        "y": 330.95
+                    },
+                    "uuid": "afb18589-cb34-5e6c-96be-0b293cf74d61"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS10] on B.Cu, length 29.4000 mm",
+                    "pos": {
+                        "x": 21.5,
+                        "y": 326.2
+                    },
+                    "uuid": "f51f637e-6893-5eff-9902-837ca4259b57"
+                },
+                {
+                    "description": "Track [GND] on B.Cu, length 14.2000 mm",
+                    "pos": {
+                        "x": 27.0,
+                        "y": 333.0
+                    },
+                    "uuid": "f60594e3-c271-5594-8b8b-a671cb865a3d"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS14] on B.Cu, length 11.4000 mm",
+                    "pos": {
+                        "x": 16.399999,
+                        "y": 354.0
+                    },
+                    "uuid": "d7f522f4-e10a-5320-bcaf-ba463dfc6ad3"
+                },
+                {
+                    "description": "Track [R_CS10] on B.Cu, length 29.4000 mm",
+                    "pos": {
+                        "x": 21.5,
+                        "y": 326.2
+                    },
+                    "uuid": "f51f637e-6893-5eff-9902-837ca4259b57"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS14] on B.Cu, length 25.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.0
+                    },
+                    "uuid": "052ac0c6-a895-5cd1-9c3c-5129377c706e"
+                },
+                {
+                    "description": "Track [R_CS11] on B.Cu, length 5.9000 mm",
+                    "pos": {
+                        "x": 21.9,
+                        "y": 355.2
+                    },
+                    "uuid": "ac3ab048-ce17-51da-994e-8cf5e188f6ef"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on B.Cu, length 2.0500 mm",
+                    "pos": {
+                        "x": 14.4,
+                        "y": 330.95
+                    },
+                    "uuid": "0af75a18-1501-5a3d-94f3-c2879ffaee1e"
+                },
+                {
+                    "description": "Track [R_CS2] on B.Cu, length 30.9500 mm",
+                    "pos": {
+                        "x": 14.4,
+                        "y": 325.05
+                    },
+                    "uuid": "2c0edba7-0da0-5a87-b30a-988db1aebbaf"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on B.Cu, length 12.0000 mm",
+                    "pos": {
+                        "x": 15.0,
+                        "y": 328.0
+                    },
+                    "uuid": "360511a3-588e-508b-9a5c-7321d0d35dec"
+                },
+                {
+                    "description": "Track [R_CS10] on B.Cu, length 29.4000 mm",
+                    "pos": {
+                        "x": 21.5,
+                        "y": 326.2
+                    },
+                    "uuid": "f51f637e-6893-5eff-9902-837ca4259b57"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SCL] on B.Cu, length 8.2000 mm",
+                    "pos": {
+                        "x": 7.0,
+                        "y": 332.7
+                    },
+                    "uuid": "483df8db-80c4-531e-8a6d-8dd55b1deb06"
+                },
+                {
+                    "description": "Track [R_CS1] on B.Cu, length 30.9500 mm",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 325.05
+                    },
+                    "uuid": "f7cb794d-ec52-593d-be57-7d782b81519f"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on B.Cu, length 2.0500 mm",
+                    "pos": {
+                        "x": 16.0,
+                        "y": 330.95
+                    },
+                    "uuid": "1dcb63e5-c083-585b-9f07-0a865e413e97"
+                },
+                {
+                    "description": "Track [R_CS13] on B.Cu, length 29.3500 mm",
+                    "pos": {
+                        "x": 16.0,
+                        "y": 325.05
+                    },
+                    "uuid": "73189e0f-7e2c-5c61-9ec5-24c8c36ef0cd"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on B.Cu, length 9.0500 mm",
+                    "pos": {
+                        "x": 17.95,
+                        "y": 329.4
+                    },
+                    "uuid": "75a54c02-5401-571c-ad28-92f05cc0c958"
+                },
+                {
+                    "description": "Track [R_CS10] on B.Cu, length 29.4000 mm",
+                    "pos": {
+                        "x": 21.5,
+                        "y": 326.2
+                    },
+                    "uuid": "f51f637e-6893-5eff-9902-837ca4259b57"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS12] on B.Cu, length 29.7500 mm",
+                    "pos": {
+                        "x": 15.2,
+                        "y": 325.05
+                    },
+                    "uuid": "1eb8ace6-44d1-5a17-b783-21a236f90ff9"
+                },
+                {
+                    "description": "Track [SCL] on B.Cu, length 1.7500 mm",
+                    "pos": {
+                        "x": 15.2,
+                        "y": 332.7
+                    },
+                    "uuid": "8a97db8f-5239-5312-a4d4-0264babc0bf5"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 20.2000 mm",
+                    "pos": {
+                        "x": 23.2,
+                        "y": 333.825
+                    },
+                    "uuid": "21dc1e1e-9c88-5c9d-b93f-e89126ac53ba"
+                },
+                {
+                    "description": "Track [F_CS12] on F.Cu, length 25.8000 mm",
+                    "pos": {
+                        "x": 19.65,
+                        "y": 329.0
+                    },
+                    "uuid": "6c12abdb-1ba6-5668-8b12-c9e798cee41d"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SDA] on B.Cu, length 6.2000 mm",
+                    "pos": {
+                        "x": 9.4,
+                        "y": 333.2
+                    },
+                    "uuid": "f58ef46c-822b-51ef-8178-1186a5cef4e8"
+                },
+                {
+                    "description": "Track [R_CS1] on B.Cu, length 30.9500 mm",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 325.05
+                    },
+                    "uuid": "f7cb794d-ec52-593d-be57-7d782b81519f"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS12] on B.Cu, length 30.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.8
+                    },
+                    "uuid": "159fe20f-d450-5452-b42a-1855d9b7f212"
+                },
+                {
+                    "description": "Track [R_CS15] on B.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 376.1
+                    },
+                    "uuid": "50270339-e5cd-5696-9e66-705133d31bc7"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_SW8] on B.Cu, length 37.6000 mm",
+                    "pos": {
+                        "x": 24.6,
+                        "y": 326.6
+                    },
+                    "uuid": "3e9ab86c-a91c-5329-a443-71b93870c7eb"
+                },
+                {
+                    "description": "Track [GND] on B.Cu, length 3.8000 mm",
+                    "pos": {
+                        "x": 23.2,
+                        "y": 333.65
+                    },
+                    "uuid": "8e81b1f8-3d85-57a8-9576-82fa23b15ccd"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS12] on F.Cu, length 8.1500 mm",
+                    "pos": {
+                        "x": 19.65,
+                        "y": 354.8
+                    },
+                    "uuid": "195e8264-a259-5941-8103-5c752c3a9041"
+                },
+                {
+                    "description": "Track [F_CS13] on F.Cu, length 27.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.4
+                    },
+                    "uuid": "ec3c2d91-67ca-5ab5-a834-5f4dbf56eb88"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SDA] on B.Cu, length 2.2500 mm",
+                    "pos": {
+                        "x": 15.6,
+                        "y": 333.2
+                    },
+                    "uuid": "bc330e4b-4525-53a1-b4d1-bdb650c68a11"
+                },
+                {
+                    "description": "Track [GND] on B.Cu, length 14.2000 mm",
+                    "pos": {
+                        "x": 27.0,
+                        "y": 333.0
+                    },
+                    "uuid": "f60594e3-c271-5594-8b8b-a671cb865a3d"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS15] on B.Cu, length 28.5500 mm",
+                    "pos": {
+                        "x": 16.8,
+                        "y": 325.05
+                    },
+                    "uuid": "6a2fd04b-d6a7-5be3-9e66-93d5db7f87a6"
+                },
+                {
+                    "description": "Track [SYS] on B.Cu, length 1.2500 mm",
+                    "pos": {
+                        "x": 16.8,
+                        "y": 330.95
+                    },
+                    "uuid": "96b3e7d6-e8ec-5c13-8f73-a4296adf2dbb"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS1] on B.Cu, length 60.7000 mm",
+                    "pos": {
+                        "x": 2.2,
+                        "y": 356.0
+                    },
+                    "uuid": "9a462e9a-3f9f-576b-b977-bf7c1a6176fb"
+                },
+                {
+                    "description": "Track [R_CS3] on B.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 2.2,
+                        "y": 410.9
+                    },
+                    "uuid": "fb99b6dd-6f78-596c-b2c8-fef868c92ee3"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS15] on B.Cu, length 11.0000 mm",
+                    "pos": {
+                        "x": 16.8,
+                        "y": 353.6
+                    },
+                    "uuid": "a74ef9df-222f-5717-b44d-33796a9c6213"
+                },
+                {
+                    "description": "Track [R_CS10] on B.Cu, length 29.4000 mm",
+                    "pos": {
+                        "x": 21.5,
+                        "y": 326.2
+                    },
+                    "uuid": "f51f637e-6893-5eff-9902-837ca4259b57"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS12] on F.Cu, length 30.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.8
+                    },
+                    "uuid": "5507b135-6e8d-561c-b2e5-5f7c29c75575"
+                },
+                {
+                    "description": "Track [F_CS5] on F.Cu, length 11.8000 mm",
+                    "pos": {
+                        "x": 16.0,
+                        "y": 357.6
+                    },
+                    "uuid": "b2f1b9a5-299b-5e1b-8acd-53bf10c02d05"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS12] on F.Cu, length 30.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.8
+                    },
+                    "uuid": "5507b135-6e8d-561c-b2e5-5f7c29c75575"
+                },
+                {
+                    "description": "Track [F_CS13] on F.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 381.9
+                    },
+                    "uuid": "de61553e-6296-5008-a9d3-6fb5b24ecb9b"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS11] on B.Cu, length 5.9000 mm",
+                    "pos": {
+                        "x": 21.9,
+                        "y": 355.2
+                    },
+                    "uuid": "ac3ab048-ce17-51da-994e-8cf5e188f6ef"
+                },
+                {
+                    "description": "Track [R_CS15] on B.Cu, length 22.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 353.6
+                    },
+                    "uuid": "c2023ef0-a5dc-5c87-889f-27cf04abcd9f"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS1] on B.Cu, length 11.8000 mm",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 356.0
+                    },
+                    "uuid": "408c5881-afb4-5c76-9120-a7cbe8e64bb3"
+                },
+                {
+                    "description": "Track [R_SW1] on B.Cu, length 34.4000 mm",
+                    "pos": {
+                        "x": 4.3,
+                        "y": 329.8
+                    },
+                    "uuid": "d49349bf-3256-5ce0-b54b-fca395db8193"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_SW3] on F.Cu, length 38.4000 mm",
+                    "pos": {
+                        "x": 11.2,
+                        "y": 327.0
+                    },
+                    "uuid": "993a42f5-44f6-598b-9515-245c6a81e48f"
+                },
+                {
+                    "description": "Track [F_CS2] on F.Cu, length 12.2000 mm",
+                    "pos": {
+                        "x": 14.4,
+                        "y": 355.6
+                    },
+                    "uuid": "b02f6ffd-3cd9-5bc7-be9e-ac81bb0dd94c"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on B.Cu, length 14.2000 mm",
+                    "pos": {
+                        "x": 27.0,
+                        "y": 333.0
+                    },
+                    "uuid": "f60594e3-c271-5594-8b8b-a671cb865a3d"
+                },
+                {
+                    "description": "Track [R_CS1] on B.Cu, length 30.9500 mm",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 325.05
+                    },
+                    "uuid": "f7cb794d-ec52-593d-be57-7d782b81519f"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SYS] on B.Cu, length 14.9500 mm",
+                    "pos": {
+                        "x": 17.95,
+                        "y": 327.4
+                    },
+                    "uuid": "78d4bf50-7cd6-5e6d-83a0-bd7051f7f598"
+                },
+                {
+                    "description": "Track [R_CS16] on B.Cu, length 28.1500 mm",
+                    "pos": {
+                        "x": 17.2,
+                        "y": 325.05
+                    },
+                    "uuid": "87cbac5e-7ff9-5665-9c9c-0fa13238ad53"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SYS] on B.Cu, length 14.2000 mm",
+                    "pos": {
+                        "x": 3.0,
+                        "y": 332.2
+                    },
+                    "uuid": "4aba6581-69df-5af9-97fd-780f0057168f"
+                },
+                {
+                    "description": "Track [R_CS16] on B.Cu, length 28.1500 mm",
+                    "pos": {
+                        "x": 17.2,
+                        "y": 325.05
+                    },
+                    "uuid": "87cbac5e-7ff9-5665-9c9c-0fa13238ad53"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 20.2000 mm",
+                    "pos": {
+                        "x": 23.2,
+                        "y": 333.825
+                    },
+                    "uuid": "21dc1e1e-9c88-5c9d-b93f-e89126ac53ba"
+                },
+                {
+                    "description": "Track [F_CS13] on F.Cu, length 26.2000 mm",
+                    "pos": {
+                        "x": 20.05,
+                        "y": 328.2
+                    },
+                    "uuid": "9f42a777-6d72-5867-8202-f1a0c854e044"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS12] on B.Cu, length 30.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.8
+                    },
+                    "uuid": "159fe20f-d450-5452-b42a-1855d9b7f212"
+                },
+                {
+                    "description": "Track [R_CS16] on B.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 373.2
+                    },
+                    "uuid": "bd3a875b-bdf5-559d-96dd-8a2cd915e582"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SYS] on B.Cu, length 3.8000 mm",
+                    "pos": {
+                        "x": 6.8,
+                        "y": 335.375
+                    },
+                    "uuid": "302f01e2-afe8-5fa8-98de-8d62fbca930c"
+                },
+                {
+                    "description": "Track [R_SW1] on B.Cu, length 34.4000 mm",
+                    "pos": {
+                        "x": 4.3,
+                        "y": 329.8
+                    },
+                    "uuid": "d49349bf-3256-5ce0-b54b-fca395db8193"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SYS] on B.Cu, length 20.2000 mm",
+                    "pos": {
+                        "x": 23.2,
+                        "y": 335.55
+                    },
+                    "uuid": "7b3a2cd3-0f19-5c9e-a731-84388c4c2d4e"
+                },
+                {
+                    "description": "Track [R_CS10] on B.Cu, length 29.4000 mm",
+                    "pos": {
+                        "x": 21.5,
+                        "y": 326.2
+                    },
+                    "uuid": "f51f637e-6893-5eff-9902-837ca4259b57"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS14] on F.Cu, length 25.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.0
+                    },
+                    "uuid": "7019ae29-28a7-5887-a80d-abb3ef5b935c"
+                },
+                {
+                    "description": "Track [F_CS13] on F.Cu, length 7.7500 mm",
+                    "pos": {
+                        "x": 20.05,
+                        "y": 354.4
+                    },
+                    "uuid": "ed8446ec-b24f-5981-a365-3696a2031f47"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS10] on F.Cu, length 8.9500 mm",
+                    "pos": {
+                        "x": 18.849999,
+                        "y": 355.6
+                    },
+                    "uuid": "238ca88c-7e37-5db7-8a66-f674a3560511"
+                },
+                {
+                    "description": "Track [F_CS13] on F.Cu, length 27.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.4
+                    },
+                    "uuid": "ec3c2d91-67ca-5ab5-a834-5f4dbf56eb88"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS14] on F.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 379.0
+                    },
+                    "uuid": "04dd477e-9305-57a7-b942-dcdf185546b6"
+                },
+                {
+                    "description": "Track [F_CS12] on F.Cu, length 30.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.8
+                    },
+                    "uuid": "5507b135-6e8d-561c-b2e5-5f7c29c75575"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SYS] on B.Cu, length 1.2500 mm",
+                    "pos": {
+                        "x": 17.2,
+                        "y": 330.95
+                    },
+                    "uuid": "87857fd4-0c04-5d68-a668-def1681f81b4"
+                },
+                {
+                    "description": "Track [R_CS16] on B.Cu, length 28.1500 mm",
+                    "pos": {
+                        "x": 17.2,
+                        "y": 325.05
+                    },
+                    "uuid": "87cbac5e-7ff9-5665-9c9c-0fa13238ad53"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS16] on B.Cu, length 10.6000 mm",
+                    "pos": {
+                        "x": 17.2,
+                        "y": 353.2
+                    },
+                    "uuid": "674ccd56-f0b2-514f-86e9-f27d9fa7c9b4"
+                },
+                {
+                    "description": "Track [R_CS5] on B.Cu, length 29.0000 mm",
+                    "pos": {
+                        "x": 18.9,
+                        "y": 328.6
+                    },
+                    "uuid": "ef7657ea-07e6-544b-a9a0-6e945c6d2191"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS16] on B.Cu, length 20.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 353.2
+                    },
+                    "uuid": "a69429b9-8a49-5efb-b4c5-0dc55f2e7dba"
+                },
+                {
+                    "description": "Track [R_CS11] on B.Cu, length 5.9000 mm",
+                    "pos": {
+                        "x": 21.9,
+                        "y": 355.2
+                    },
+                    "uuid": "ac3ab048-ce17-51da-994e-8cf5e188f6ef"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 20.2000 mm",
+                    "pos": {
+                        "x": 23.2,
+                        "y": 320.0
+                    },
+                    "uuid": "47626954-a878-58ee-a157-f71f5e93f64b"
+                },
+                {
+                    "description": "Track [SCL] on F.Cu, length 79.3000 mm",
+                    "pos": {
+                        "x": 17.0,
+                        "y": 242.5
+                    },
+                    "uuid": "7dec6841-53b3-534b-a168-9fbd4d4f0d5c"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 15.7500 mm",
+                    "pos": {
+                        "x": 3.0,
+                        "y": 322.6
+                    },
+                    "uuid": "2cb2e0f3-8272-5eff-bdc2-0323e05397e0"
+                },
+                {
+                    "description": "Track [SCL] on F.Cu, length 3.2500 mm",
+                    "pos": {
+                        "x": 15.2,
+                        "y": 321.8
+                    },
+                    "uuid": "be29b226-c85d-58ee-84ec-a594c7d7faff"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 9.0500 mm",
+                    "pos": {
+                        "x": 12.05,
+                        "y": 327.4
+                    },
+                    "uuid": "01ccaf6a-c940-526d-a42b-a325638eafb2"
+                },
+                {
+                    "description": "Track [F_SW3] on F.Cu, length 38.4000 mm",
+                    "pos": {
+                        "x": 11.2,
+                        "y": 327.0
+                    },
+                    "uuid": "993a42f5-44f6-598b-9515-245c6a81e48f"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 9.0500 mm",
+                    "pos": {
+                        "x": 12.05,
+                        "y": 330.2
+                    },
+                    "uuid": "79f0688f-7865-5e46-b9fa-dfff3f53dcdc"
+                },
+                {
+                    "description": "Track [F_SW3] on F.Cu, length 38.4000 mm",
+                    "pos": {
+                        "x": 11.2,
+                        "y": 327.0
+                    },
+                    "uuid": "993a42f5-44f6-598b-9515-245c6a81e48f"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_SW1] on F.Cu, length 39.2000 mm",
+                    "pos": {
+                        "x": 5.4,
+                        "y": 326.2
+                    },
+                    "uuid": "29eff55b-b0bb-5218-9255-f4b42201a746"
+                },
+                {
+                    "description": "Track [GND] on F.Cu, length 3.8000 mm",
+                    "pos": {
+                        "x": 6.8,
+                        "y": 333.65
+                    },
+                    "uuid": "e52dce95-b9f3-5fc6-93e8-a88e340684f5"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS2] on B.Cu, length 57.8000 mm",
+                    "pos": {
+                        "x": 2.2,
+                        "y": 356.0
+                    },
+                    "uuid": "3c07583c-9223-54f4-b061-9b4c824e23b4"
+                },
+                {
+                    "description": "Track [R_CS3] on B.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 2.2,
+                        "y": 410.9
+                    },
+                    "uuid": "fb99b6dd-6f78-596c-b2c8-fef868c92ee3"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_SW4] on F.Cu, length 37.6000 mm",
+                    "pos": {
+                        "x": 12.6,
+                        "y": 327.8
+                    },
+                    "uuid": "28d81075-0bb9-5b41-922f-412cf3f6364a"
+                },
+                {
+                    "description": "Track [F_CS2] on F.Cu, length 12.2000 mm",
+                    "pos": {
+                        "x": 14.4,
+                        "y": 355.6
+                    },
+                    "uuid": "b02f6ffd-3cd9-5bc7-be9e-ac81bb0dd94c"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS2] on B.Cu, length 12.2000 mm",
+                    "pos": {
+                        "x": 14.4,
+                        "y": 356.0
+                    },
+                    "uuid": "18bb0c46-a65c-5a1b-afcb-76f2c227a15d"
+                },
+                {
+                    "description": "Track [R_CS1] on B.Cu, length 30.9500 mm",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 325.05
+                    },
+                    "uuid": "f7cb794d-ec52-593d-be57-7d782b81519f"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 20.2000 mm",
+                    "pos": {
+                        "x": 23.2,
+                        "y": 333.825
+                    },
+                    "uuid": "21dc1e1e-9c88-5c9d-b93f-e89126ac53ba"
+                },
+                {
+                    "description": "Track [F_CS14] on F.Cu, length 26.2000 mm",
+                    "pos": {
+                        "x": 20.45,
+                        "y": 327.8
+                    },
+                    "uuid": "7c98badc-9eed-53f9-8f45-e9baafec2f36"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SYS] on F.Cu, length 20.2000 mm",
+                    "pos": {
+                        "x": 6.8,
+                        "y": 335.55
+                    },
+                    "uuid": "0b8074a9-03d2-58a5-b850-b12cb6556e62"
+                },
+                {
+                    "description": "Track [F_CS14] on F.Cu, length 26.2000 mm",
+                    "pos": {
+                        "x": 20.45,
+                        "y": 327.8
+                    },
+                    "uuid": "7c98badc-9eed-53f9-8f45-e9baafec2f36"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS15] on F.Cu, length 22.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 353.6
+                    },
+                    "uuid": "5fdab93a-85b3-5635-a14f-b3ed071c2dd0"
+                },
+                {
+                    "description": "Track [F_CS14] on F.Cu, length 7.3500 mm",
+                    "pos": {
+                        "x": 20.45,
+                        "y": 354.0
+                    },
+                    "uuid": "823c900b-a463-541f-ada7-32bd66b687df"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS2] on B.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 2.2,
+                        "y": 413.8
+                    },
+                    "uuid": "73cabbc4-adbd-5d6f-9081-e29b82413f92"
+                },
+                {
+                    "description": "Track [R_CS1] on B.Cu, length 60.7000 mm",
+                    "pos": {
+                        "x": 2.2,
+                        "y": 356.0
+                    },
+                    "uuid": "9a462e9a-3f9f-576b-b977-bf7c1a6176fb"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS10] on F.Cu, length 8.9500 mm",
+                    "pos": {
+                        "x": 18.849999,
+                        "y": 355.6
+                    },
+                    "uuid": "238ca88c-7e37-5db7-8a66-f674a3560511"
+                },
+                {
+                    "description": "Track [F_CS14] on F.Cu, length 25.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.0
+                    },
+                    "uuid": "7019ae29-28a7-5887-a80d-abb3ef5b935c"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS12] on F.Cu, length 30.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.8
+                    },
+                    "uuid": "5507b135-6e8d-561c-b2e5-5f7c29c75575"
+                },
+                {
+                    "description": "Track [F_CS15] on F.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 376.1
+                    },
+                    "uuid": "f4a38cd5-22f2-556d-a866-c018ebd22ec9"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS2] on B.Cu, length 30.9500 mm",
+                    "pos": {
+                        "x": 14.4,
+                        "y": 325.05
+                    },
+                    "uuid": "2c0edba7-0da0-5a87-b30a-988db1aebbaf"
+                },
+                {
+                    "description": "Track [SCL] on B.Cu, length 8.2000 mm",
+                    "pos": {
+                        "x": 7.0,
+                        "y": 332.7
+                    },
+                    "uuid": "483df8db-80c4-531e-8a6d-8dd55b1deb06"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS1] on B.Cu, length 60.7000 mm",
+                    "pos": {
+                        "x": 2.2,
+                        "y": 356.0
+                    },
+                    "uuid": "9a462e9a-3f9f-576b-b977-bf7c1a6176fb"
+                },
+                {
+                    "description": "Track [R_CS3] on B.Cu, length 0.8000 mm",
+                    "pos": {
+                        "x": 1.4,
+                        "y": 410.9
+                    },
+                    "uuid": "caea90c8-119d-5937-a656-6673f7ec89c8"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SYS] on F.Cu, length 13.8000 mm",
+                    "pos": {
+                        "x": 27.0,
+                        "y": 324.2
+                    },
+                    "uuid": "4b50750e-8037-5636-968d-b69034ceed28"
+                },
+                {
+                    "description": "Track [GND] on F.Cu, length 2.4500 mm",
+                    "pos": {
+                        "x": 14.4,
+                        "y": 325.05
+                    },
+                    "uuid": "5fa49325-c225-5942-a31b-a668e27a43a5"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SYS] on F.Cu, length 13.8000 mm",
+                    "pos": {
+                        "x": 27.0,
+                        "y": 324.2
+                    },
+                    "uuid": "4b50750e-8037-5636-968d-b69034ceed28"
+                },
+                {
+                    "description": "Track [GND] on F.Cu, length 2.4500 mm",
+                    "pos": {
+                        "x": 14.8,
+                        "y": 325.05
+                    },
+                    "uuid": "ed8e8cd5-a7d5-5859-a746-e2f76934578c"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.0626 mm)",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 2.5000 mm",
+                    "pos": {
+                        "x": 15.0,
+                        "y": 236.0
+                    },
+                    "uuid": "15f3069b-8375-5e41-a268-f75dc5260fa9"
+                },
+                {
+                    "description": "Pad 10 [<no net>] of U1 on F.Cu",
+                    "pos": {
+                        "x": 16.59099,
+                        "y": 236.459619
+                    },
+                    "uuid": "d1d73fe8-bb23-580b-9755-4ce93619c73f"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.0400 mm)",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 5.4000 mm",
+                    "pos": {
+                        "x": 15.0,
+                        "y": 328.0
+                    },
+                    "uuid": "0a110d24-c1ca-58c9-bf9e-61306d13715f"
+                },
+                {
+                    "description": "Track [SCL] on F.Cu, length 3.2500 mm",
+                    "pos": {
+                        "x": 15.2,
+                        "y": 321.8
+                    },
+                    "uuid": "be29b226-c85d-58ee-84ec-a594c7d7faff"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SYS] on B.Cu, length 14.9500 mm",
+                    "pos": {
+                        "x": 17.95,
+                        "y": 327.4
+                    },
+                    "uuid": "78d4bf50-7cd6-5e6d-83a0-bd7051f7f598"
+                },
+                {
+                    "description": "Track [R_SW6] on B.Cu, length 1.9000 mm",
+                    "pos": {
+                        "x": 10.0,
+                        "y": 327.4
+                    },
+                    "uuid": "d8aa43a6-1743-56c2-acc9-b5cd6ebf5eef"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SYS] on F.Cu, length 13.8000 mm",
+                    "pos": {
+                        "x": 27.0,
+                        "y": 324.2
+                    },
+                    "uuid": "4b50750e-8037-5636-968d-b69034ceed28"
+                },
+                {
+                    "description": "Track [GND] on F.Cu, length 2.4500 mm",
+                    "pos": {
+                        "x": 16.0,
+                        "y": 325.05
+                    },
+                    "uuid": "fbffea79-d6f3-5db1-abb6-7df5e7fce667"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_SW6] on B.Cu, length 2.0500 mm",
+                    "pos": {
+                        "x": 12.05,
+                        "y": 327.4
+                    },
+                    "uuid": "15264df5-b1aa-5354-8075-042d4bbeaedc"
+                },
+                {
+                    "description": "Track [SYS] on B.Cu, length 14.9500 mm",
+                    "pos": {
+                        "x": 17.95,
+                        "y": 327.4
+                    },
+                    "uuid": "78d4bf50-7cd6-5e6d-83a0-bd7051f7f598"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS15] on F.Cu, length 26.2000 mm",
+                    "pos": {
+                        "x": 20.85,
+                        "y": 327.4
+                    },
+                    "uuid": "1163ec4c-d820-5973-b6a6-77b5d087b0d2"
+                },
+                {
+                    "description": "Track [GND] on F.Cu, length 20.2000 mm",
+                    "pos": {
+                        "x": 23.2,
+                        "y": 333.825
+                    },
+                    "uuid": "21dc1e1e-9c88-5c9d-b93f-e89126ac53ba"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS16] on F.Cu, length 20.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 353.2
+                    },
+                    "uuid": "17e9fd2b-51de-515a-983f-f366e6315ab1"
+                },
+                {
+                    "description": "Track [F_CS15] on F.Cu, length 6.9500 mm",
+                    "pos": {
+                        "x": 20.85,
+                        "y": 353.6
+                    },
+                    "uuid": "9cd8c29f-2272-5d04-a294-aab0eb18f8c6"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS10] on F.Cu, length 8.9500 mm",
+                    "pos": {
+                        "x": 18.849999,
+                        "y": 355.6
+                    },
+                    "uuid": "238ca88c-7e37-5db7-8a66-f674a3560511"
+                },
+                {
+                    "description": "Track [F_CS15] on F.Cu, length 22.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 353.6
+                    },
+                    "uuid": "5fdab93a-85b3-5635-a14f-b3ed071c2dd0"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS12] on F.Cu, length 30.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.8
+                    },
+                    "uuid": "5507b135-6e8d-561c-b2e5-5f7c29c75575"
+                },
+                {
+                    "description": "Track [F_CS16] on F.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 373.2
+                    },
+                    "uuid": "ddc3b784-acf6-582e-8b93-e2626c911090"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SYS] on F.Cu, length 13.8000 mm",
+                    "pos": {
+                        "x": 27.0,
+                        "y": 324.2
+                    },
+                    "uuid": "4b50750e-8037-5636-968d-b69034ceed28"
+                },
+                {
+                    "description": "Track [GND] on F.Cu, length 4.0000 mm",
+                    "pos": {
+                        "x": 18.75,
+                        "y": 326.6
+                    },
+                    "uuid": "b6a3557d-f46d-5846-91ef-2cf4532a1848"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [U3_RSET] on B.Cu, length 2.2500 mm",
+                    "pos": {
+                        "x": 17.95,
+                        "y": 329.8
+                    },
+                    "uuid": "da055211-a2a8-5f61-af19-44e5a3cccbcc"
+                },
+                {
+                    "description": "Track [R_CS5] on B.Cu, length 29.0000 mm",
+                    "pos": {
+                        "x": 18.9,
+                        "y": 328.6
+                    },
+                    "uuid": "ef7657ea-07e6-544b-a9a0-6e945c6d2191"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_SW5] on F.Cu, length 1.2500 mm",
+                    "pos": {
+                        "x": 12.05,
+                        "y": 328.2
+                    },
+                    "uuid": "40ce6f37-582f-5e96-b152-4d34534b494e"
+                },
+                {
+                    "description": "Track [F_SW3] on F.Cu, length 38.4000 mm",
+                    "pos": {
+                        "x": 11.2,
+                        "y": 327.0
+                    },
+                    "uuid": "993a42f5-44f6-598b-9515-245c6a81e48f"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [U3_RSET] on B.Cu, length 7.3750 mm",
+                    "pos": {
+                        "x": 20.2,
+                        "y": 329.8
+                    },
+                    "uuid": "23f2721f-c06f-5287-9c0f-efc1beb44e07"
+                },
+                {
+                    "description": "Track [GND] on B.Cu, length 12.0000 mm",
+                    "pos": {
+                        "x": 15.0,
+                        "y": 328.0
+                    },
+                    "uuid": "360511a3-588e-508b-9a5c-7321d0d35dec"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS16] on F.Cu, length 26.2000 mm",
+                    "pos": {
+                        "x": 21.25,
+                        "y": 327.0
+                    },
+                    "uuid": "19cbb5cd-351f-5b38-95ff-554abbe5fa08"
+                },
+                {
+                    "description": "Track [GND] on F.Cu, length 20.2000 mm",
+                    "pos": {
+                        "x": 23.2,
+                        "y": 333.825
+                    },
+                    "uuid": "21dc1e1e-9c88-5c9d-b93f-e89126ac53ba"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS16] on F.Cu, length 20.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 353.2
+                    },
+                    "uuid": "17e9fd2b-51de-515a-983f-f366e6315ab1"
+                },
+                {
+                    "description": "Track [F_CS10] on F.Cu, length 8.9500 mm",
+                    "pos": {
+                        "x": 18.849999,
+                        "y": 355.6
+                    },
+                    "uuid": "238ca88c-7e37-5db7-8a66-f674a3560511"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.0193 mm)",
+            "items": [
+                {
+                    "description": "Track [SCL] on F.Cu, length 1.7527 mm",
+                    "pos": {
+                        "x": 13.6919,
+                        "y": 236.7425
+                    },
+                    "uuid": "81b63973-afcd-59af-a8ab-9527c137e7f7"
+                },
+                {
+                    "description": "Pad 1 [SDA] of U1 on F.Cu",
+                    "pos": {
+                        "x": 13.40901,
+                        "y": 236.459619
+                    },
+                    "uuid": "ef855e2e-a3d3-524d-94e8-c9e7cd18cad1"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS3] on F.Cu, length 55.7000 mm",
+                    "pos": {
+                        "x": 2.2,
+                        "y": 355.2
+                    },
+                    "uuid": "257fe0de-af59-5868-8a34-27ead76d8d63"
+                },
+                {
+                    "description": "Track [F_CS2] on F.Cu, length 58.2000 mm",
+                    "pos": {
+                        "x": 2.2,
+                        "y": 355.6
+                    },
+                    "uuid": "4f73569d-3c7e-5717-8fc9-945d1e331089"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS3] on F.Cu, length 55.7000 mm",
+                    "pos": {
+                        "x": 2.2,
+                        "y": 355.2
+                    },
+                    "uuid": "257fe0de-af59-5868-8a34-27ead76d8d63"
+                },
+                {
+                    "description": "Track [F_CS2] on F.Cu, length 12.2000 mm",
+                    "pos": {
+                        "x": 14.4,
+                        "y": 355.6
+                    },
+                    "uuid": "b02f6ffd-3cd9-5bc7-be9e-ac81bb0dd94c"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SDA] on F.Cu, length 4.0500 mm",
+                    "pos": {
+                        "x": 15.6,
+                        "y": 321.0
+                    },
+                    "uuid": "7ea396e9-8975-5bc6-b252-5a5ff02c0c9d"
+                },
+                {
+                    "description": "Track [SCL] on F.Cu, length 1.8000 mm",
+                    "pos": {
+                        "x": 17.0,
+                        "y": 321.8
+                    },
+                    "uuid": "a96029e2-7f5d-5fca-a59c-a7d028f39866"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS4] on B.Cu, length 29.0000 mm",
+                    "pos": {
+                        "x": 18.5,
+                        "y": 329.0
+                    },
+                    "uuid": "2295671c-8f5b-5cd6-9e5d-7a8128000feb"
+                },
+                {
+                    "description": "Track [R_CS16] on B.Cu, length 10.6000 mm",
+                    "pos": {
+                        "x": 17.2,
+                        "y": 353.2
+                    },
+                    "uuid": "674ccd56-f0b2-514f-86e9-f27d9fa7c9b4"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_SW8] on B.Cu, length 37.6000 mm",
+                    "pos": {
+                        "x": 24.6,
+                        "y": 326.6
+                    },
+                    "uuid": "3e9ab86c-a91c-5329-a443-71b93870c7eb"
+                },
+                {
+                    "description": "Track [R_CS4] on B.Cu, length 9.3000 mm",
+                    "pos": {
+                        "x": 18.5,
+                        "y": 358.0
+                    },
+                    "uuid": "8742f8fd-df9b-5cee-80e5-c94212dd3de0"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS15] on B.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 376.1
+                    },
+                    "uuid": "50270339-e5cd-5696-9e66-705133d31bc7"
+                },
+                {
+                    "description": "Track [R_CS4] on B.Cu, length 50.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 358.0
+                    },
+                    "uuid": "8ee1c9a3-0299-5fe1-9b56-77993a79c6e4"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS2] on F.Cu, length 24.6500 mm",
+                    "pos": {
+                        "x": 14.4,
+                        "y": 330.95
+                    },
+                    "uuid": "7ced403d-24da-502a-aa1f-c3391c6e4d3e"
+                },
+                {
+                    "description": "Track [F_CS3] on F.Cu, length 12.6000 mm",
+                    "pos": {
+                        "x": 14.8,
+                        "y": 355.2
+                    },
+                    "uuid": "eb08f40b-4875-5d35-8ff6-02aa499fd519"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_SW3] on F.Cu, length 38.4000 mm",
+                    "pos": {
+                        "x": 11.2,
+                        "y": 327.0
+                    },
+                    "uuid": "993a42f5-44f6-598b-9515-245c6a81e48f"
+                },
+                {
+                    "description": "Track [F_CS3] on F.Cu, length 12.6000 mm",
+                    "pos": {
+                        "x": 14.8,
+                        "y": 355.2
+                    },
+                    "uuid": "eb08f40b-4875-5d35-8ff6-02aa499fd519"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SDA] on F.Cu, length 77.6000 mm",
+                    "pos": {
+                        "x": 15.6,
+                        "y": 243.4
+                    },
+                    "uuid": "1050cd3c-438d-5102-99d0-5d6aa35b629c"
+                },
+                {
+                    "description": "Track [GND] on F.Cu, length 20.2000 mm",
+                    "pos": {
+                        "x": 23.2,
+                        "y": 320.0
+                    },
+                    "uuid": "47626954-a878-58ee-a157-f71f5e93f64b"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 15.7500 mm",
+                    "pos": {
+                        "x": 3.0,
+                        "y": 322.6
+                    },
+                    "uuid": "2cb2e0f3-8272-5eff-bdc2-0323e05397e0"
+                },
+                {
+                    "description": "Track [SDA] on F.Cu, length 4.0500 mm",
+                    "pos": {
+                        "x": 15.6,
+                        "y": 321.0
+                    },
+                    "uuid": "7ea396e9-8975-5bc6-b252-5a5ff02c0c9d"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SYS] on F.Cu, length 20.2000 mm",
+                    "pos": {
+                        "x": 6.8,
+                        "y": 335.55
+                    },
+                    "uuid": "0b8074a9-03d2-58a5-b850-b12cb6556e62"
+                },
+                {
+                    "description": "Track [F_CS12] on F.Cu, length 25.8000 mm",
+                    "pos": {
+                        "x": 19.65,
+                        "y": 329.0
+                    },
+                    "uuid": "6c12abdb-1ba6-5668-8b12-c9e798cee41d"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS5] on B.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 405.1
+                    },
+                    "uuid": "6b36fdb3-73ef-529e-97fa-587eee25baaf"
+                },
+                {
+                    "description": "Track [R_CS4] on B.Cu, length 50.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 358.0
+                    },
+                    "uuid": "8ee1c9a3-0299-5fe1-9b56-77993a79c6e4"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_SW6] on F.Cu, length 1.8500 mm",
+                    "pos": {
+                        "x": 12.05,
+                        "y": 328.6
+                    },
+                    "uuid": "09b3c898-02f6-547b-b589-5741c0523534"
+                },
+                {
+                    "description": "Track [F_SW3] on F.Cu, length 38.4000 mm",
+                    "pos": {
+                        "x": 11.2,
+                        "y": 327.0
+                    },
+                    "uuid": "993a42f5-44f6-598b-9515-245c6a81e48f"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS3] on F.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 2.2,
+                        "y": 410.9
+                    },
+                    "uuid": "0278b9db-68f7-5426-b7af-6b6758138bef"
+                },
+                {
+                    "description": "Track [F_CS2] on F.Cu, length 58.2000 mm",
+                    "pos": {
+                        "x": 2.2,
+                        "y": 355.6
+                    },
+                    "uuid": "4f73569d-3c7e-5717-8fc9-945d1e331089"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS5] on B.Cu, length 0.9500 mm",
+                    "pos": {
+                        "x": 17.95,
+                        "y": 328.6
+                    },
+                    "uuid": "b418b759-da36-5c71-9387-759eb378f46b"
+                },
+                {
+                    "description": "Track [GND] on B.Cu, length 14.9500 mm",
+                    "pos": {
+                        "x": 12.05,
+                        "y": 328.6
+                    },
+                    "uuid": "b7f6eb97-778c-5fc3-8dc9-8dc719e48d65"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS12] on B.Cu, length 12.6000 mm",
+                    "pos": {
+                        "x": 15.2,
+                        "y": 354.8
+                    },
+                    "uuid": "9716fadb-7070-519b-b0fd-e5260d449b6e"
+                },
+                {
+                    "description": "Track [R_CS5] on B.Cu, length 29.0000 mm",
+                    "pos": {
+                        "x": 18.9,
+                        "y": 328.6
+                    },
+                    "uuid": "ef7657ea-07e6-544b-a9a0-6e945c6d2191"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 20.2000 mm",
+                    "pos": {
+                        "x": 23.2,
+                        "y": 333.825
+                    },
+                    "uuid": "21dc1e1e-9c88-5c9d-b93f-e89126ac53ba"
+                },
+                {
+                    "description": "Track [F_CS3] on F.Cu, length 24.2500 mm",
+                    "pos": {
+                        "x": 14.8,
+                        "y": 330.95
+                    },
+                    "uuid": "40812cdf-bf45-5e6d-bf97-bd5642d0fa14"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_SW8] on B.Cu, length 37.6000 mm",
+                    "pos": {
+                        "x": 24.6,
+                        "y": 326.6
+                    },
+                    "uuid": "3e9ab86c-a91c-5329-a443-71b93870c7eb"
+                },
+                {
+                    "description": "Track [R_CS5] on B.Cu, length 8.9000 mm",
+                    "pos": {
+                        "x": 18.9,
+                        "y": 357.6
+                    },
+                    "uuid": "65e3aa61-929c-5a29-b69d-986efa465a9a"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS15] on B.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 376.1
+                    },
+                    "uuid": "50270339-e5cd-5696-9e66-705133d31bc7"
+                },
+                {
+                    "description": "Track [R_CS5] on B.Cu, length 47.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 357.6
+                    },
+                    "uuid": "6235da82-6c5b-5564-b57f-3b0c1a3f282b"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS4] on F.Cu, length 27.0500 mm",
+                    "pos": {
+                        "x": 15.2,
+                        "y": 330.95
+                    },
+                    "uuid": "0b6005d3-243d-5eed-882c-0873a7ef740a"
+                },
+                {
+                    "description": "Track [GND] on F.Cu, length 20.2000 mm",
+                    "pos": {
+                        "x": 23.2,
+                        "y": 333.825
+                    },
+                    "uuid": "21dc1e1e-9c88-5c9d-b93f-e89126ac53ba"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS12] on F.Cu, length 30.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.8
+                    },
+                    "uuid": "5507b135-6e8d-561c-b2e5-5f7c29c75575"
+                },
+                {
+                    "description": "Track [F_CS4] on F.Cu, length 12.6000 mm",
+                    "pos": {
+                        "x": 15.2,
+                        "y": 358.0
+                    },
+                    "uuid": "a907f34e-eb87-5cb6-8ef1-7cfbbb5a016b"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS12] on F.Cu, length 30.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.8
+                    },
+                    "uuid": "5507b135-6e8d-561c-b2e5-5f7c29c75575"
+                },
+                {
+                    "description": "Track [F_CS4] on F.Cu, length 50.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 358.0
+                    },
+                    "uuid": "ee11ddba-d4e6-570d-a2c5-fc0ead1c3ffe"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS5] on F.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 405.1
+                    },
+                    "uuid": "27ea21d6-40b1-5e6d-865d-189ab1d587a1"
+                },
+                {
+                    "description": "Track [F_CS4] on F.Cu, length 50.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 358.0
+                    },
+                    "uuid": "ee11ddba-d4e6-570d-a2c5-fc0ead1c3ffe"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 20.2000 mm",
+                    "pos": {
+                        "x": 23.2,
+                        "y": 333.825
+                    },
+                    "uuid": "21dc1e1e-9c88-5c9d-b93f-e89126ac53ba"
+                },
+                {
+                    "description": "Track [F_CS5] on F.Cu, length 26.6500 mm",
+                    "pos": {
+                        "x": 16.0,
+                        "y": 330.95
+                    },
+                    "uuid": "b61eeed8-39ae-5385-9ce5-ec4d3b6383a9"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS5] on F.Cu, length 11.8000 mm",
+                    "pos": {
+                        "x": 16.0,
+                        "y": 357.6
+                    },
+                    "uuid": "b2f1b9a5-299b-5e1b-8acd-53bf10c02d05"
+                },
+                {
+                    "description": "Track [F_CS13] on F.Cu, length 27.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.4
+                    },
+                    "uuid": "ec3c2d91-67ca-5ab5-a834-5f4dbf56eb88"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS6] on B.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 402.2
+                    },
+                    "uuid": "4b3816d5-ffb0-55fa-8da2-83a70b0f73b8"
+                },
+                {
+                    "description": "Track [R_CS4] on B.Cu, length 50.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 358.0
+                    },
+                    "uuid": "8ee1c9a3-0299-5fe1-9b56-77993a79c6e4"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS5] on F.Cu, length 47.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 357.6
+                    },
+                    "uuid": "3e758300-b13a-5b6e-97a8-6dd1fcd940d7"
+                },
+                {
+                    "description": "Track [F_CS12] on F.Cu, length 30.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.8
+                    },
+                    "uuid": "5507b135-6e8d-561c-b2e5-5f7c29c75575"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS5] on F.Cu, length 47.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 357.6
+                    },
+                    "uuid": "3e758300-b13a-5b6e-97a8-6dd1fcd940d7"
+                },
+                {
+                    "description": "Track [F_CS6] on F.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 402.2
+                    },
+                    "uuid": "aef38e32-146d-5b39-98b4-fea6b1903d5b"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.0300 mm)",
+            "items": [
+                {
+                    "description": "Track [R_CS6] on B.Cu, length 1.3500 mm",
+                    "pos": {
+                        "x": 17.95,
+                        "y": 328.2
+                    },
+                    "uuid": "0cb2eb0c-1cc1-5c0b-ba6f-6261d774f942"
+                },
+                {
+                    "description": "Track [GND] on B.Cu, length 12.0000 mm",
+                    "pos": {
+                        "x": 15.0,
+                        "y": 328.0
+                    },
+                    "uuid": "360511a3-588e-508b-9a5c-7321d0d35dec"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS6] on B.Cu, length 29.0000 mm",
+                    "pos": {
+                        "x": 19.3,
+                        "y": 328.2
+                    },
+                    "uuid": "578fecc5-b893-5ebb-b577-c8f30eec0424"
+                },
+                {
+                    "description": "Track [R_CS16] on B.Cu, length 10.6000 mm",
+                    "pos": {
+                        "x": 17.2,
+                        "y": 353.2
+                    },
+                    "uuid": "674ccd56-f0b2-514f-86e9-f27d9fa7c9b4"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_SW8] on B.Cu, length 37.6000 mm",
+                    "pos": {
+                        "x": 24.6,
+                        "y": 326.6
+                    },
+                    "uuid": "3e9ab86c-a91c-5329-a443-71b93870c7eb"
+                },
+                {
+                    "description": "Track [R_CS6] on B.Cu, length 8.5000 mm",
+                    "pos": {
+                        "x": 19.3,
+                        "y": 357.2
+                    },
+                    "uuid": "a7cb7080-cb28-5242-98dd-cd87949778ae"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS15] on B.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 376.1
+                    },
+                    "uuid": "50270339-e5cd-5696-9e66-705133d31bc7"
+                },
+                {
+                    "description": "Track [R_CS6] on B.Cu, length 45.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 357.2
+                    },
+                    "uuid": "70dff423-40e3-51ba-80de-9165ff7ba958"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 20.2000 mm",
+                    "pos": {
+                        "x": 23.2,
+                        "y": 333.825
+                    },
+                    "uuid": "21dc1e1e-9c88-5c9d-b93f-e89126ac53ba"
+                },
+                {
+                    "description": "Track [F_CS6] on F.Cu, length 26.2500 mm",
+                    "pos": {
+                        "x": 16.399999,
+                        "y": 330.95
+                    },
+                    "uuid": "6d3537c4-db6b-5333-bae8-5860a364c6f6"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS6] on F.Cu, length 11.4000 mm",
+                    "pos": {
+                        "x": 16.399999,
+                        "y": 357.2
+                    },
+                    "uuid": "4a87fde2-6bc0-583c-b165-a938df0a700f"
+                },
+                {
+                    "description": "Track [F_CS12] on F.Cu, length 30.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.8
+                    },
+                    "uuid": "5507b135-6e8d-561c-b2e5-5f7c29c75575"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS5] on F.Cu, length 11.8000 mm",
+                    "pos": {
+                        "x": 16.0,
+                        "y": 357.6
+                    },
+                    "uuid": "b2f1b9a5-299b-5e1b-8acd-53bf10c02d05"
+                },
+                {
+                    "description": "Track [F_CS6] on F.Cu, length 45.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 357.2
+                    },
+                    "uuid": "bcebc6ef-81a3-5875-ae69-3481cb35bab6"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS5] on F.Cu, length 47.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 357.6
+                    },
+                    "uuid": "3e758300-b13a-5b6e-97a8-6dd1fcd940d7"
+                },
+                {
+                    "description": "Track [F_CS7] on F.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 399.3
+                    },
+                    "uuid": "48dc5346-cf91-5dbb-9fd8-f37cf0b12d6e"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 20.2000 mm",
+                    "pos": {
+                        "x": 23.2,
+                        "y": 333.825
+                    },
+                    "uuid": "21dc1e1e-9c88-5c9d-b93f-e89126ac53ba"
+                },
+                {
+                    "description": "Track [F_CS7] on F.Cu, length 25.8500 mm",
+                    "pos": {
+                        "x": 16.8,
+                        "y": 330.95
+                    },
+                    "uuid": "e4ed9bb8-5ea6-5dc7-b346-75751673b04a"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS4] on B.Cu, length 50.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 358.0
+                    },
+                    "uuid": "8ee1c9a3-0299-5fe1-9b56-77993a79c6e4"
+                },
+                {
+                    "description": "Track [R_CS7] on B.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 399.3
+                    },
+                    "uuid": "c890d061-f5e4-5a40-a8be-2b3c591759ae"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS12] on F.Cu, length 30.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.8
+                    },
+                    "uuid": "5507b135-6e8d-561c-b2e5-5f7c29c75575"
+                },
+                {
+                    "description": "Track [F_CS7] on F.Cu, length 11.0000 mm",
+                    "pos": {
+                        "x": 16.8,
+                        "y": 356.8
+                    },
+                    "uuid": "69ff2086-d3f5-5c1c-9b1a-a2826fc2067d"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Clearance violation ( clearance 0.2000 mm; actual 0.0300 mm)",
+            "items": [
+                {
+                    "description": "Track [GND] on B.Cu, length 12.0000 mm",
+                    "pos": {
+                        "x": 15.0,
+                        "y": 328.0
+                    },
+                    "uuid": "360511a3-588e-508b-9a5c-7321d0d35dec"
+                },
+                {
+                    "description": "Track [R_CS7] on B.Cu, length 1.7500 mm",
+                    "pos": {
+                        "x": 17.95,
+                        "y": 327.8
+                    },
+                    "uuid": "8e9f5286-692a-5cd4-8708-ef99d4e98dc2"
+                }
+            ],
+            "severity": "error",
+            "type": "clearance"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS16] on B.Cu, length 10.6000 mm",
+                    "pos": {
+                        "x": 17.2,
+                        "y": 353.2
+                    },
+                    "uuid": "674ccd56-f0b2-514f-86e9-f27d9fa7c9b4"
+                },
+                {
+                    "description": "Track [R_CS7] on B.Cu, length 29.0000 mm",
+                    "pos": {
+                        "x": 19.7,
+                        "y": 327.8
+                    },
+                    "uuid": "ea47086d-eaf0-5afd-a5a3-beb125f58f66"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS7] on B.Cu, length 8.1000 mm",
+                    "pos": {
+                        "x": 19.7,
+                        "y": 356.8
+                    },
+                    "uuid": "204c029b-6f97-55f3-902f-bbcfeb9358e2"
+                },
+                {
+                    "description": "Track [R_SW8] on B.Cu, length 37.6000 mm",
+                    "pos": {
+                        "x": 24.6,
+                        "y": 326.6
+                    },
+                    "uuid": "3e9ab86c-a91c-5329-a443-71b93870c7eb"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS6] on B.Cu, length 8.5000 mm",
+                    "pos": {
+                        "x": 19.3,
+                        "y": 357.2
+                    },
+                    "uuid": "a7cb7080-cb28-5242-98dd-cd87949778ae"
+                },
+                {
+                    "description": "Track [R_CS7] on B.Cu, length 42.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 356.8
+                    },
+                    "uuid": "d189fca4-c717-58f0-80b0-3761b72f7869"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS5] on F.Cu, length 11.8000 mm",
+                    "pos": {
+                        "x": 16.0,
+                        "y": 357.6
+                    },
+                    "uuid": "b2f1b9a5-299b-5e1b-8acd-53bf10c02d05"
+                },
+                {
+                    "description": "Track [F_CS7] on F.Cu, length 42.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 356.8
+                    },
+                    "uuid": "b82f3c0a-1420-57a0-9b42-6d95271805e7"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS4] on B.Cu, length 50.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 358.0
+                    },
+                    "uuid": "8ee1c9a3-0299-5fe1-9b56-77993a79c6e4"
+                },
+                {
+                    "description": "Track [R_CS8] on B.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 396.4
+                    },
+                    "uuid": "b349898a-8fe9-5e68-92ad-6fa976bbd79a"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS5] on F.Cu, length 47.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 357.6
+                    },
+                    "uuid": "3e758300-b13a-5b6e-97a8-6dd1fcd940d7"
+                },
+                {
+                    "description": "Track [F_CS8] on F.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 396.4
+                    },
+                    "uuid": "ee12487b-7133-5022-9d0b-ccbfbdd5ba29"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [U3_RSET] on B.Cu, length 7.3750 mm",
+                    "pos": {
+                        "x": 20.2,
+                        "y": 329.8
+                    },
+                    "uuid": "23f2721f-c06f-5287-9c0f-efc1beb44e07"
+                },
+                {
+                    "description": "Track [R_CS8] on B.Cu, length 2.7500 mm",
+                    "pos": {
+                        "x": 17.95,
+                        "y": 327.0
+                    },
+                    "uuid": "d554da1c-6027-5982-95f9-0f016e99fb51"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 20.2000 mm",
+                    "pos": {
+                        "x": 23.2,
+                        "y": 333.825
+                    },
+                    "uuid": "21dc1e1e-9c88-5c9d-b93f-e89126ac53ba"
+                },
+                {
+                    "description": "Track [F_CS8] on F.Cu, length 25.4500 mm",
+                    "pos": {
+                        "x": 17.2,
+                        "y": 330.95
+                    },
+                    "uuid": "866bf772-9fbe-50d9-bd0b-dc7a5e17642a"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS8] on B.Cu, length 29.4000 mm",
+                    "pos": {
+                        "x": 20.7,
+                        "y": 327.0
+                    },
+                    "uuid": "34fe36e4-e8b5-5e0f-8000-9bf20c5ddaf3"
+                },
+                {
+                    "description": "Track [R_CS16] on B.Cu, length 10.6000 mm",
+                    "pos": {
+                        "x": 17.2,
+                        "y": 353.2
+                    },
+                    "uuid": "674ccd56-f0b2-514f-86e9-f27d9fa7c9b4"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS12] on F.Cu, length 30.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.8
+                    },
+                    "uuid": "5507b135-6e8d-561c-b2e5-5f7c29c75575"
+                },
+                {
+                    "description": "Track [F_CS8] on F.Cu, length 10.6000 mm",
+                    "pos": {
+                        "x": 17.2,
+                        "y": 356.4
+                    },
+                    "uuid": "a1315524-b018-5670-a51d-b59381b832d0"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS8] on F.Cu, length 40.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 356.4
+                    },
+                    "uuid": "5f9e13f1-e768-58fb-8491-7096160800b5"
+                },
+                {
+                    "description": "Track [F_CS5] on F.Cu, length 11.8000 mm",
+                    "pos": {
+                        "x": 16.0,
+                        "y": 357.6
+                    },
+                    "uuid": "b2f1b9a5-299b-5e1b-8acd-53bf10c02d05"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_SW8] on B.Cu, length 37.6000 mm",
+                    "pos": {
+                        "x": 24.6,
+                        "y": 326.6
+                    },
+                    "uuid": "3e9ab86c-a91c-5329-a443-71b93870c7eb"
+                },
+                {
+                    "description": "Track [R_CS8] on B.Cu, length 7.1000 mm",
+                    "pos": {
+                        "x": 20.7,
+                        "y": 356.4
+                    },
+                    "uuid": "a4e21232-4aa8-5e1c-831d-e0c0ee7619b1"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS5] on F.Cu, length 47.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 357.6
+                    },
+                    "uuid": "3e758300-b13a-5b6e-97a8-6dd1fcd940d7"
+                },
+                {
+                    "description": "Track [F_CS9] on F.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 393.5
+                    },
+                    "uuid": "6dd9ccd7-e211-5228-9d89-709ad52f3ecd"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS9] on F.Cu, length 25.8000 mm",
+                    "pos": {
+                        "x": 18.45,
+                        "y": 330.2
+                    },
+                    "uuid": "21abdc35-7586-59f1-a17b-50586afc9cd3"
+                },
+                {
+                    "description": "Track [GND] on F.Cu, length 20.2000 mm",
+                    "pos": {
+                        "x": 23.2,
+                        "y": 333.825
+                    },
+                    "uuid": "21dc1e1e-9c88-5c9d-b93f-e89126ac53ba"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS6] on B.Cu, length 8.5000 mm",
+                    "pos": {
+                        "x": 19.3,
+                        "y": 357.2
+                    },
+                    "uuid": "a7cb7080-cb28-5242-98dd-cd87949778ae"
+                },
+                {
+                    "description": "Track [R_CS8] on B.Cu, length 40.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 356.4
+                    },
+                    "uuid": "f5222e25-6b22-51b5-ad7b-2107d1a95af2"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS12] on F.Cu, length 30.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 354.8
+                    },
+                    "uuid": "5507b135-6e8d-561c-b2e5-5f7c29c75575"
+                },
+                {
+                    "description": "Track [F_CS9] on F.Cu, length 9.3500 mm",
+                    "pos": {
+                        "x": 18.45,
+                        "y": 356.0
+                    },
+                    "uuid": "c10b1a4e-23dc-559e-9dd3-db9fdfbb24d9"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [F_CS5] on F.Cu, length 11.8000 mm",
+                    "pos": {
+                        "x": 16.0,
+                        "y": 357.6
+                    },
+                    "uuid": "b2f1b9a5-299b-5e1b-8acd-53bf10c02d05"
+                },
+                {
+                    "description": "Track [F_CS9] on F.Cu, length 37.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 356.0
+                    },
+                    "uuid": "fccad252-0724-510a-9049-d3e7a27c4ad5"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS9] on B.Cu, length 22.9500 mm",
+                    "pos": {
+                        "x": 4.85,
+                        "y": 393.5
+                    },
+                    "uuid": "5608e60a-119b-576f-bde1-611e31184b32"
+                },
+                {
+                    "description": "Track [R_CS4] on B.Cu, length 50.0000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 358.0
+                    },
+                    "uuid": "8ee1c9a3-0299-5fe1-9b56-77993a79c6e4"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [U3_RSET] on B.Cu, length 7.3750 mm",
+                    "pos": {
+                        "x": 20.2,
+                        "y": 329.8
+                    },
+                    "uuid": "23f2721f-c06f-5287-9c0f-efc1beb44e07"
+                },
+                {
+                    "description": "Track [R_CS9] on B.Cu, length 3.1500 mm",
+                    "pos": {
+                        "x": 17.95,
+                        "y": 326.6
+                    },
+                    "uuid": "2ada84f2-ad69-534a-8bf0-f2240ec6fb45"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS16] on B.Cu, length 10.6000 mm",
+                    "pos": {
+                        "x": 17.2,
+                        "y": 353.2
+                    },
+                    "uuid": "674ccd56-f0b2-514f-86e9-f27d9fa7c9b4"
+                },
+                {
+                    "description": "Track [R_CS9] on B.Cu, length 29.4000 mm",
+                    "pos": {
+                        "x": 21.1,
+                        "y": 326.6
+                    },
+                    "uuid": "9ed0c671-2c43-5105-a8a8-5e97981ef5cf"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_SW8] on B.Cu, length 37.6000 mm",
+                    "pos": {
+                        "x": 24.6,
+                        "y": 326.6
+                    },
+                    "uuid": "3e9ab86c-a91c-5329-a443-71b93870c7eb"
+                },
+                {
+                    "description": "Track [R_CS9] on B.Cu, length 6.7000 mm",
+                    "pos": {
+                        "x": 21.1,
+                        "y": 356.0
+                    },
+                    "uuid": "e28620f3-2e14-5a68-9fbb-fc3c6bdb87c9"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_CS9] on B.Cu, length 37.5000 mm",
+                    "pos": {
+                        "x": 27.8,
+                        "y": 356.0
+                    },
+                    "uuid": "7195b2b5-5968-510a-a6a4-07c6cf8472ea"
+                },
+                {
+                    "description": "Track [R_CS6] on B.Cu, length 8.5000 mm",
+                    "pos": {
+                        "x": 19.3,
+                        "y": 357.2
+                    },
+                    "uuid": "a7cb7080-cb28-5242-98dd-cd87949778ae"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [SYS] on B.Cu, length 14.2000 mm",
+                    "pos": {
+                        "x": 3.0,
+                        "y": 332.2
+                    },
+                    "uuid": "4aba6581-69df-5af9-97fd-780f0057168f"
+                },
+                {
+                    "description": "Track [R_SW1] on B.Cu, length 34.4000 mm",
+                    "pos": {
+                        "x": 4.3,
+                        "y": 329.8
+                    },
+                    "uuid": "d49349bf-3256-5ce0-b54b-fca395db8193"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Tracks crossing",
+            "items": [
+                {
+                    "description": "Track [R_SW2] on B.Cu, length 34.8000 mm",
+                    "pos": {
+                        "x": 8.4,
+                        "y": 329.4
+                    },
+                    "uuid": "6b9f1934-b406-598b-9ea0-e07aab7dc08e"
+                },
+                {
+                    "description": "Track [R_SW1] on B.Cu, length 7.7500 mm",
+                    "pos": {
+                        "x": 12.05,
+                        "y": 329.8
+                    },
+                    "uuid": "fbd46540-b55d-569d-ae23-a57e57e8105f"
+                }
+            ],
+            "severity": "error",
+            "type": "tracks_crossing"
+        },
+        {
+            "description": "Rear solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [R_SW8] on B.Cu, length 12.5500 mm",
+                    "pos": {
+                        "x": 12.05,
+                        "y": 326.6
+                    },
+                    "uuid": "2510d0cd-a4fa-5da2-9932-f8048cf17619"
+                },
+                {
+                    "description": "Pad 27 [R_CS9] of U3 on B.Cu",
+                    "pos": {
+                        "x": 17.95,
+                        "y": 326.6
+                    },
+                    "uuid": "e3e249e6-f006-5893-b08c-4b02c9edd427"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Rear solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [R_SW8] on B.Cu, length 12.5500 mm",
+                    "pos": {
+                        "x": 12.05,
+                        "y": 326.6
+                    },
+                    "uuid": "2510d0cd-a4fa-5da2-9932-f8048cf17619"
+                },
+                {
+                    "description": "Pad 49 [GND] of U3 on B.Cu",
+                    "pos": {
+                        "x": 15.0,
+                        "y": 328.0
+                    },
+                    "uuid": "044fed94-acd4-588b-a841-74efeacd1ca2"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Rear solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [R_CS1] on B.Cu, length 30.9500 mm",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 325.05
+                    },
+                    "uuid": "f7cb794d-ec52-593d-be57-7d782b81519f"
+                },
+                {
+                    "description": "Pad 49 [GND] of U3 on B.Cu",
+                    "pos": {
+                        "x": 15.0,
+                        "y": 328.0
+                    },
+                    "uuid": "044fed94-acd4-588b-a841-74efeacd1ca2"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Rear solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [R_CS1] on B.Cu, length 30.9500 mm",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 325.05
+                    },
+                    "uuid": "f7cb794d-ec52-593d-be57-7d782b81519f"
+                },
+                {
+                    "description": "Pad 45 [<no net>] of U3 on B.Cu",
+                    "pos": {
+                        "x": 14.0,
+                        "y": 330.95
+                    },
+                    "uuid": "dda779ef-5d73-505e-98e3-cfc03db7f858"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Rear solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [SYS] on B.Cu, length 14.9500 mm",
+                    "pos": {
+                        "x": 17.95,
+                        "y": 327.4
+                    },
+                    "uuid": "78d4bf50-7cd6-5e6d-83a0-bd7051f7f598"
+                },
+                {
+                    "description": "Pad 8 [R_SW6] of U3 on B.Cu",
+                    "pos": {
+                        "x": 12.05,
+                        "y": 327.4
+                    },
+                    "uuid": "0eb8554c-4ae2-55b7-b508-ad09fa6e74fb"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Rear solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [SYS] on B.Cu, length 14.9500 mm",
+                    "pos": {
+                        "x": 17.95,
+                        "y": 327.4
+                    },
+                    "uuid": "78d4bf50-7cd6-5e6d-83a0-bd7051f7f598"
+                },
+                {
+                    "description": "Pad 49 [GND] of U3 on B.Cu",
+                    "pos": {
+                        "x": 15.0,
+                        "y": 328.0
+                    },
+                    "uuid": "044fed94-acd4-588b-a841-74efeacd1ca2"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Rear solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [GND] on B.Cu, length 14.9500 mm",
+                    "pos": {
+                        "x": 12.05,
+                        "y": 325.8
+                    },
+                    "uuid": "15015136-cbbf-5373-902e-6724505376f5"
+                },
+                {
+                    "description": "Pad 25 [R_CS11] of U3 on B.Cu",
+                    "pos": {
+                        "x": 17.95,
+                        "y": 325.8
+                    },
+                    "uuid": "4c978ab7-18da-59b3-aad0-6cfc564b49c2"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Rear solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [R_CS12] on B.Cu, length 29.7500 mm",
+                    "pos": {
+                        "x": 15.2,
+                        "y": 325.05
+                    },
+                    "uuid": "1eb8ace6-44d1-5a17-b783-21a236f90ff9"
+                },
+                {
+                    "description": "Pad 49 [GND] of U3 on B.Cu",
+                    "pos": {
+                        "x": 15.0,
+                        "y": 328.0
+                    },
+                    "uuid": "044fed94-acd4-588b-a841-74efeacd1ca2"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Rear solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [R_CS12] on B.Cu, length 29.7500 mm",
+                    "pos": {
+                        "x": 15.2,
+                        "y": 325.05
+                    },
+                    "uuid": "1eb8ace6-44d1-5a17-b783-21a236f90ff9"
+                },
+                {
+                    "description": "Pad 42 [SCL] of U3 on B.Cu",
+                    "pos": {
+                        "x": 15.2,
+                        "y": 330.95
+                    },
+                    "uuid": "4c15d915-7bd4-534e-9e76-9447af2759ac"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Rear solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [R_CS13] on B.Cu, length 29.3500 mm",
+                    "pos": {
+                        "x": 16.0,
+                        "y": 325.05
+                    },
+                    "uuid": "73189e0f-7e2c-5c61-9ec5-24c8c36ef0cd"
+                },
+                {
+                    "description": "Pad 49 [GND] of U3 on B.Cu",
+                    "pos": {
+                        "x": 15.0,
+                        "y": 328.0
+                    },
+                    "uuid": "044fed94-acd4-588b-a841-74efeacd1ca2"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Rear solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [GND] on B.Cu, length 14.9500 mm",
+                    "pos": {
+                        "x": 12.05,
+                        "y": 328.6
+                    },
+                    "uuid": "b7f6eb97-778c-5fc3-8dc9-8dc719e48d65"
+                },
+                {
+                    "description": "Pad 32 [R_CS5] of U3 on B.Cu",
+                    "pos": {
+                        "x": 17.95,
+                        "y": 328.6
+                    },
+                    "uuid": "68d3c2b9-3bb8-5381-b7c5-1088ee198c51"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Rear solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [R_CS13] on B.Cu, length 29.3500 mm",
+                    "pos": {
+                        "x": 16.0,
+                        "y": 325.05
+                    },
+                    "uuid": "73189e0f-7e2c-5c61-9ec5-24c8c36ef0cd"
+                },
+                {
+                    "description": "Pad 40 [GND] of U3 on B.Cu",
+                    "pos": {
+                        "x": 16.0,
+                        "y": 330.95
+                    },
+                    "uuid": "6704a4a1-0b49-541b-9914-08782f911136"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Rear solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [R_CS14] on B.Cu, length 28.9500 mm",
+                    "pos": {
+                        "x": 16.399999,
+                        "y": 325.05
+                    },
+                    "uuid": "92625de2-17b6-5b1e-8d80-e884d7066f2a"
+                },
+                {
+                    "description": "Pad 49 [GND] of U3 on B.Cu",
+                    "pos": {
+                        "x": 15.0,
+                        "y": 328.0
+                    },
+                    "uuid": "044fed94-acd4-588b-a841-74efeacd1ca2"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Rear solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [R_CS14] on B.Cu, length 28.9500 mm",
+                    "pos": {
+                        "x": 16.399999,
+                        "y": 325.05
+                    },
+                    "uuid": "92625de2-17b6-5b1e-8d80-e884d7066f2a"
+                },
+                {
+                    "description": "Pad 39 [SYS] of U3 on B.Cu",
+                    "pos": {
+                        "x": 16.4,
+                        "y": 330.95
+                    },
+                    "uuid": "64be87d8-ae73-5120-a0b5-b6f16af2e93e"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Rear solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [R_CS15] on B.Cu, length 28.5500 mm",
+                    "pos": {
+                        "x": 16.8,
+                        "y": 325.05
+                    },
+                    "uuid": "6a2fd04b-d6a7-5be3-9e66-93d5db7f87a6"
+                },
+                {
+                    "description": "Pad 38 [SYS] of U3 on B.Cu",
+                    "pos": {
+                        "x": 16.8,
+                        "y": 330.95
+                    },
+                    "uuid": "5dce23b7-bf13-59a2-902c-e548644f1ef9"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Rear solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [R_CS15] on B.Cu, length 28.5500 mm",
+                    "pos": {
+                        "x": 16.8,
+                        "y": 325.05
+                    },
+                    "uuid": "6a2fd04b-d6a7-5be3-9e66-93d5db7f87a6"
+                },
+                {
+                    "description": "Pad 49 [GND] of U3 on B.Cu",
+                    "pos": {
+                        "x": 15.0,
+                        "y": 328.0
+                    },
+                    "uuid": "044fed94-acd4-588b-a841-74efeacd1ca2"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Rear solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [R_CS16] on B.Cu, length 28.1500 mm",
+                    "pos": {
+                        "x": 17.2,
+                        "y": 325.05
+                    },
+                    "uuid": "87cbac5e-7ff9-5665-9c9c-0fa13238ad53"
+                },
+                {
+                    "description": "Pad 37 [SYS] of U3 on B.Cu",
+                    "pos": {
+                        "x": 17.2,
+                        "y": 330.95
+                    },
+                    "uuid": "05219c0e-fd00-572f-b511-c327372f4812"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Rear solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [R_CS2] on B.Cu, length 30.9500 mm",
+                    "pos": {
+                        "x": 14.4,
+                        "y": 325.05
+                    },
+                    "uuid": "2c0edba7-0da0-5a87-b30a-988db1aebbaf"
+                },
+                {
+                    "description": "Pad 49 [GND] of U3 on B.Cu",
+                    "pos": {
+                        "x": 15.0,
+                        "y": 328.0
+                    },
+                    "uuid": "044fed94-acd4-588b-a841-74efeacd1ca2"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Rear solder mask aperture bridges items with different nets",
+            "items": [
+                {
+                    "description": "Track [R_CS2] on B.Cu, length 30.9500 mm",
+                    "pos": {
+                        "x": 14.4,
+                        "y": 325.05
+                    },
+                    "uuid": "2c0edba7-0da0-5a87-b30a-988db1aebbaf"
+                },
+                {
+                    "description": "Pad 44 [GND] of U3 on B.Cu",
+                    "pos": {
+                        "x": 14.4,
+                        "y": 330.95
+                    },
+                    "uuid": "c4299076-5859-5289-87da-46e3ba277007"
+                }
+            ],
+            "severity": "error",
+            "type": "solder_mask_bridge"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 328.6000 mm",
+                    "pos": {
+                        "x": 3.0,
+                        "y": 6.0
+                    },
+                    "uuid": "9bd5f503-6d2d-5ebf-a568-1a4ce66d8bed"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        },
+        {
+            "description": "Track has unconnected end",
+            "items": [
+                {
+                    "description": "Track [GND] on B.Cu, length 312.6000 mm",
+                    "pos": {
+                        "x": 27.0,
+                        "y": 22.0
+                    },
+                    "uuid": "45043471-cab0-5f17-b122-901fa6a31f64"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_dangling"
+        }
+    ]
+}
