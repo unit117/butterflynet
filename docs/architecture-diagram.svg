@@ -1,167 +1,159 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000" role="img" aria-labelledby="title desc">
-  <title id="title">KiCad Agent Pipeline Architecture</title>
-  <desc id="desc">Architecture diagram for the KiCad agent pipeline, showing agent reasoning, KiCad automation, validation loops, and manufacturing artifacts.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">ButterflyNet KiCad Agent Pipeline Architecture</title>
+  <desc id="desc">A clean architecture diagram showing the ButterflyNet pipeline from user goal through research, design review, KiCad generation, DRC validation, fabrication export, and replay UI.</desc>
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#11172a"/>
-      <stop offset="0.55" stop-color="#0e1321"/>
-      <stop offset="1" stop-color="#101827"/>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0e1324"/>
+      <stop offset="0.58" stop-color="#111827"/>
+      <stop offset="1" stop-color="#0b1220"/>
     </linearGradient>
-    <linearGradient id="lane" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#172238"/>
-      <stop offset="1" stop-color="#111827"/>
+    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1f2b46"/>
+      <stop offset="1" stop-color="#172238"/>
     </linearGradient>
-    <linearGradient id="box" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#23304f"/>
-      <stop offset="1" stop-color="#1a243b"/>
+    <linearGradient id="activeCard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#12334a"/>
+      <stop offset="1" stop-color="#18243a"/>
     </linearGradient>
-    <linearGradient id="accentBox" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#123b55"/>
-      <stop offset="1" stop-color="#17243a"/>
+    <linearGradient id="outputCard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#123121"/>
+      <stop offset="1" stop-color="#16253a"/>
     </linearGradient>
-    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
-      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#020617" flood-opacity="0.35"/>
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="16" stdDeviation="18" flood-color="#020617" flood-opacity="0.32"/>
     </filter>
-    <marker id="arrow" markerWidth="13" markerHeight="13" refX="10" refY="6.5" orient="auto">
-      <path d="M 0 0 L 13 6.5 L 0 13 z" fill="#4fc3f7"/>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#4fc3f7"/>
     </marker>
-    <marker id="greenArrow" markerWidth="13" markerHeight="13" refX="10" refY="6.5" orient="auto">
-      <path d="M 0 0 L 13 6.5 L 0 13 z" fill="#66bb6a"/>
+    <marker id="greenArrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
+      <path d="M 0 0 L 12 6 L 0 12 z" fill="#66bb6a"/>
     </marker>
     <style>
-      .bg { fill: url(#bg); }
-      .title { fill: #f8fafc; font: 800 54px Arial, Helvetica, sans-serif; letter-spacing: 0; }
-      .subtitle { fill: #a8b3c7; font: 500 22px Arial, Helvetica, sans-serif; }
-      .lane { fill: url(#lane); stroke: #2c3d62; stroke-width: 2; rx: 18; filter: url(#shadow); }
-      .lane-title { fill: #4fc3f7; font: 800 17px Arial, Helvetica, sans-serif; letter-spacing: 3px; }
-      .lane-subtitle { fill: #dbe4f0; font: 700 26px Arial, Helvetica, sans-serif; }
-      .box { fill: url(#box); stroke: #405b8b; stroke-width: 2; rx: 14; }
-      .accent-box { fill: url(#accentBox); stroke: #4fc3f7; stroke-width: 2; rx: 14; }
-      .green-box { fill: #182820; stroke: #66bb6a; stroke-width: 2; rx: 14; }
-      .box-title { fill: #f8fafc; font: 800 24px Arial, Helvetica, sans-serif; }
-      .box-text { fill: #c7d2e4; font: 500 17px Arial, Helvetica, sans-serif; }
-      .box-muted { fill: #91a0b7; font: 500 15px Arial, Helvetica, sans-serif; }
-      .code { fill: #9bdcff; font: 700 15px "SFMono-Regular", Consolas, monospace; }
-      .arrow { stroke: #4fc3f7; stroke-width: 4; fill: none; marker-end: url(#arrow); stroke-linecap: round; stroke-linejoin: round; }
-      .green-arrow { stroke: #66bb6a; stroke-width: 4; fill: none; marker-end: url(#greenArrow); stroke-linecap: round; stroke-linejoin: round; }
-      .loop { stroke: #66bb6a; stroke-width: 3; fill: none; stroke-dasharray: 8 9; marker-end: url(#greenArrow); stroke-linecap: round; }
-      .small-label { fill: #4fc3f7; font: 800 13px Arial, Helvetica, sans-serif; letter-spacing: 2px; }
-      .pill { fill: #0f172a; stroke: #405b8b; stroke-width: 2; rx: 23; }
-      .pill-text { fill: #eef2f7; font: 800 17px Arial, Helvetica, sans-serif; }
-      .note { fill: #d5e6ff; font: 700 18px Arial, Helvetica, sans-serif; }
+      .bg { fill: url(#background); }
+      .halo-blue { fill: #1b5f85; opacity: 0.12; }
+      .halo-green { fill: #1f6f43; opacity: 0.10; }
+      .title { fill: #f8fafc; font-family: Arial; font-size: 54px; font-weight: 800; }
+      .subtitle { fill: #aeb9cb; font-family: Arial; font-size: 23px; font-weight: 500; }
+      .section-label { fill: #4fc3f7; font-family: Arial; font-size: 16px; font-weight: 800; letter-spacing: 3px; }
+      .card { fill: #172238; stroke: #405b8b; stroke-width: 2; }
+      .card-active { fill: #12334a; stroke: #4fc3f7; stroke-width: 3; }
+      .card-output { fill: #122b20; stroke: #66bb6a; stroke-width: 3; }
+      .card-title { fill: #f8fafc; font-family: Arial; font-size: 28px; font-weight: 800; }
+      .card-text { fill: #cbd6e6; font-family: Arial; font-size: 18px; font-weight: 600; }
+      .card-muted { fill: #93a4bd; font-family: Arial; font-size: 16px; font-weight: 500; }
+      .code { fill: #9bdcff; font-family: monospace; font-size: 16px; font-weight: 800; }
+      .step { fill: #4fc3f7; font-family: Arial; font-size: 15px; font-weight: 800; letter-spacing: 2px; }
+      .flow { stroke: #4fc3f7; stroke-width: 4; fill: none; marker-end: url(#arrow); stroke-linecap: round; }
+      .green-flow { stroke: #66bb6a; stroke-width: 4; fill: none; marker-end: url(#greenArrow); stroke-linecap: round; }
+      .loop { stroke: #66bb6a; stroke-width: 4; fill: none; marker-end: url(#greenArrow); stroke-linecap: round; stroke-dasharray: 10 10; }
+      .artifact-shelf { fill: #101827; stroke: #33496f; stroke-width: 2; }
+      .artifact { fill: #111827; stroke: #405b8b; stroke-width: 2; }
+      .artifact-green { fill: #12231b; stroke: #66bb6a; stroke-width: 2; }
+      .artifact-title { fill: #f1f5f9; font-family: Arial; font-size: 18px; font-weight: 800; }
+      .artifact-text { fill: #9fb0c7; font-family: Arial; font-size: 14px; font-weight: 600; }
+      .note { fill: #d5e1f2; font-family: Arial; font-size: 19px; font-weight: 700; }
+      .divider { stroke: #263852; stroke-width: 2; }
     </style>
   </defs>
 
-  <rect class="bg" width="1600" height="1000"/>
-  <circle cx="1320" cy="110" r="240" fill="#16324a" opacity="0.17"/>
-  <circle cx="155" cy="875" r="260" fill="#1d3b2b" opacity="0.12"/>
+  <rect class="bg" width="1600" height="900"/>
+  <circle class="halo-blue" cx="1280" cy="50" r="260"/>
+  <circle class="halo-green" cx="210" cy="820" r="260"/>
 
-  <text class="title" x="70" y="78">KiCad Agent Pipeline Architecture</text>
-  <text class="subtitle" x="72" y="119">Agents reason over sources and specs; deterministic KiCad tools mutate, validate, and export the hardware artifact.</text>
+  <text class="title" x="72" y="86">ButterflyNet Architecture</text>
+  <text class="subtitle" x="74" y="126">A multi-agent workflow that operates KiCad from sourced intent to validated manufacturing artifacts.</text>
 
-  <rect class="lane" x="60" y="155" width="455" height="650"/>
-  <rect class="lane" x="572" y="155" width="455" height="650"/>
-  <rect class="lane" x="1085" y="155" width="455" height="650"/>
+  <text class="section-label" x="76" y="188">PIPELINE</text>
 
-  <text class="lane-title" x="92" y="203">LAYER 1</text>
-  <text class="lane-subtitle" x="92" y="238">Agent reasoning</text>
-  <text class="lane-title" x="604" y="203">LAYER 2</text>
-  <text class="lane-subtitle" x="604" y="238">KiCad automation</text>
-  <text class="lane-title" x="1117" y="203">LAYER 3</text>
-  <text class="lane-subtitle" x="1117" y="238">Validation and export</text>
+  <rect class="card-active" x="74" y="220" width="210" height="150"/>
+  <text class="step" x="102" y="258">INPUT</text>
+  <text class="card-title" x="102" y="296">User goal</text>
+  <text class="card-text" x="102" y="329">Natural language</text>
+  <text class="card-muted" x="102" y="354">design request</text>
 
-  <rect class="accent-box" x="92" y="275" width="390" height="90"/>
-  <text class="box-title" x="120" y="314">User design goal</text>
-  <text class="box-text" x="120" y="344">"Recreate My New Flame lamp"</text>
+  <rect class="card" x="352" y="220" width="230" height="150"/>
+  <text class="step" x="380" y="258">PHASE 1</text>
+  <text class="card-title" x="380" y="296">Research</text>
+  <text class="card-text" x="380" y="329">Sources and facts</text>
+  <text class="card-muted" x="380" y="354">unknowns stay visible</text>
 
-  <rect class="box" x="92" y="405" width="390" height="112"/>
-  <text class="box-title" x="120" y="443">Research agents</text>
-  <text class="box-text" x="120" y="473">Web, PDF, and image research</text>
-  <text class="box-muted" x="120" y="498">source-tagged facts and open questions</text>
+  <rect class="card" x="650" y="220" width="250" height="150"/>
+  <text class="step" x="678" y="258">PHASE 2</text>
+  <text class="card-title" x="678" y="296">Design review</text>
+  <text class="card-text" x="678" y="329">Spec normalization</text>
+  <text class="card-muted" x="678" y="354">risky claims rejected</text>
 
-  <rect class="box" x="92" y="557" width="390" height="112"/>
-  <text class="box-title" x="120" y="595">Design review agents</text>
-  <text class="box-text" x="120" y="625">Spec normalizer, EE reviewer, critic</text>
-  <text class="box-muted" x="120" y="650">reject unsafe or unsupported claims</text>
+  <rect class="card-active" x="968" y="220" width="250" height="150"/>
+  <text class="step" x="996" y="258">PHASE 3</text>
+  <text class="card-title" x="996" y="296">KiCad build</text>
+  <text class="card-text" x="996" y="329">Generator creates</text>
+  <text class="code" x="996" y="354">.kicad_sch + .kicad_pcb</text>
 
-  <rect class="green-box" x="92" y="707" width="390" height="64"/>
-  <text class="box-title" x="120" y="747">Branch gate: v5 modernized</text>
+  <rect class="card-active" x="1286" y="220" width="240" height="150"/>
+  <text class="step" x="1314" y="258">PHASE 4</text>
+  <text class="card-title" x="1314" y="296">Validate</text>
+  <text class="card-text" x="1314" y="329">Run DRC, patch,</text>
+  <text class="card-muted" x="1314" y="354">keep/revert until clean</text>
 
-  <path class="arrow" d="M287 365 L287 397"/>
-  <path class="arrow" d="M287 517 L287 549"/>
-  <path class="green-arrow" d="M287 669 L287 699"/>
+  <line x1="292" y1="295" x2="332" y2="295" stroke="#4fc3f7" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="332,284 352,295 332,306" fill="#4fc3f7"/>
+  <line x1="590" y1="295" x2="630" y2="295" stroke="#4fc3f7" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="630,284 650,295 630,306" fill="#4fc3f7"/>
+  <line x1="908" y1="295" x2="948" y2="295" stroke="#4fc3f7" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="948,284 968,295 948,306" fill="#4fc3f7"/>
+  <line x1="1226" y1="295" x2="1266" y2="295" stroke="#4fc3f7" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="1266,284 1286,295 1266,306" fill="#4fc3f7"/>
 
-  <rect class="accent-box" x="604" y="275" width="390" height="92"/>
-  <text class="box-title" x="632" y="314">Canonical spec</text>
-  <text class="code" x="632" y="344">candle_spec_v5_modernized.md</text>
+  <line class="divider" x1="74" y1="425" x2="1526" y2="425"/>
 
-  <rect class="box" x="604" y="407" width="390" height="106"/>
-  <text class="box-title" x="632" y="444">Board generator</text>
-  <text class="code" x="632" y="474">tools/generate_candle.py</text>
-  <text class="box-muted" x="632" y="498">schematic, PCB, footprints, placement</text>
+  <text class="section-label" x="76" y="480">ORCHESTRATION AND TOOLING</text>
 
-  <rect class="box" x="604" y="553" width="390" height="106"/>
-  <text class="box-title" x="632" y="590">KiCad project files</text>
-  <text class="code" x="632" y="620">.kicad_sch + .kicad_pcb</text>
-  <text class="box-muted" x="632" y="644">430 x 30 mm, 4-layer LED stem board</text>
+  <rect class="card" x="74" y="512" width="310" height="142"/>
+  <text class="card-title" x="104" y="553">Agent roles</text>
+  <text class="card-text" x="104" y="586">researcher, reviewer,</text>
+  <text class="card-text" x="104" y="612">schematic architect,</text>
+  <text class="card-muted" x="104" y="638">router, validator, exporter</text>
 
-  <rect class="box" x="604" y="699" width="390" height="74"/>
-  <text class="box-title" x="632" y="737">KiCad CLI and scripts</text>
-  <text class="box-muted" x="632" y="761">ERC, DRC, plots, netlist, 3D assets</text>
+  <rect class="card" x="434" y="512" width="332" height="142"/>
+  <text class="card-title" x="464" y="553">KiCad tool adapter</text>
+  <text class="code" x="464" y="586">generate_candle.py</text>
+  <text class="code" x="464" y="612">kicad-cli</text>
+  <text class="card-muted" x="464" y="638">canonicalize, render, recover</text>
 
-  <path class="arrow" d="M482 739 C535 739 545 321 596 321"/>
-  <path class="arrow" d="M799 367 L799 399"/>
-  <path class="arrow" d="M799 513 L799 545"/>
-  <path class="arrow" d="M799 659 L799 691"/>
+  <rect class="card" x="816" y="512" width="332" height="142"/>
+  <text class="card-title" x="846" y="553">Validation memory</text>
+  <text class="card-text" x="846" y="586">DRC counts, diffs,</text>
+  <text class="card-text" x="846" y="612">hotspots, reverted fixes</text>
+  <text class="card-muted" x="846" y="638">stateful engineering loop</text>
 
-  <rect class="accent-box" x="1117" y="275" width="390" height="120"/>
-  <text class="box-title" x="1145" y="313">DRC recovery loop</text>
-  <text class="box-text" x="1145" y="343">run DRC - inspect - patch board</text>
-  <text class="box-text" x="1145" y="369">measure delta - keep or revert</text>
-  <path class="loop" d="M1458 306 C1505 330 1505 378 1458 389"/>
+  <rect class="card-output" x="1198" y="512" width="328" height="142"/>
+  <text class="step" x="1228" y="549">PHASE 5</text>
+  <text class="card-title" x="1228" y="586">Export package</text>
+  <text class="card-text" x="1228" y="619">Gerbers, drills, BOM,</text>
+  <text class="card-muted" x="1228" y="644">PnP, GLB, STEP, PDFs</text>
 
-  <rect class="box" x="1117" y="435" width="390" height="104"/>
-  <text class="box-title" x="1145" y="472">Export agent</text>
-  <text class="code" x="1145" y="502">tools/export_candle.py</text>
-  <text class="box-muted" x="1145" y="524">snapshots project before KiCad export</text>
+  <line x1="392" y1="583" x2="414" y2="583" stroke="#4fc3f7" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="414,572 434,583 414,594" fill="#4fc3f7"/>
+  <line x1="774" y1="583" x2="796" y2="583" stroke="#4fc3f7" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="796,572 816,583 796,594" fill="#4fc3f7"/>
+  <line x1="1156" y1="583" x2="1178" y2="583" stroke="#66bb6a" stroke-width="4" stroke-linecap="round"/>
+  <polygon points="1178,572 1198,583 1178,594" fill="#66bb6a"/>
 
-  <rect class="green-box" x="1117" y="579" width="390" height="112"/>
-  <text class="box-title" x="1145" y="617">Manufacturing outputs</text>
-  <text class="box-text" x="1145" y="647">Gerbers, drills, BOM, position CSV</text>
-  <text class="box-muted" x="1145" y="672">fabrication ZIP, GLB, STEP, PDFs</text>
+  <rect class="artifact-shelf" x="74" y="704" width="1452" height="124"/>
+  <text class="section-label" x="106" y="744">AUDITABLE ARTIFACTS</text>
 
-  <rect class="box" x="1117" y="731" width="390" height="48"/>
-  <text class="box-title" x="1145" y="763">React/Vite replay UI for judges</text>
+  <rect class="artifact" x="106" y="766" width="190" height="40"/>
+  <text class="artifact-title" x="134" y="792">Replay logs</text>
+  <rect class="artifact" x="320" y="766" width="210" height="40"/>
+  <text class="artifact-title" x="348" y="792">Source ledger</text>
+  <rect class="artifact" x="554" y="766" width="206" height="40"/>
+  <text class="artifact-title" x="582" y="792">Canonical spec</text>
+  <rect class="artifact" x="784" y="766" width="198" height="40"/>
+  <text class="artifact-title" x="812" y="792">KiCad board</text>
+  <rect class="artifact" x="1006" y="766" width="190" height="40"/>
+  <text class="artifact-title" x="1034" y="792">DRC reports</text>
+  <rect class="artifact-green" x="1220" y="766" width="258" height="40"/>
+  <text class="artifact-title" x="1248" y="792">Manufacturing bundle</text>
 
-  <path class="arrow" d="M994 736 C1050 736 1054 335 1109 335"/>
-  <path class="green-arrow" d="M1312 395 L1312 427"/>
-  <path class="green-arrow" d="M1312 539 L1312 571"/>
-  <path class="arrow" d="M1312 691 L1312 723"/>
-
-  <rect x="60" y="845" width="1480" height="104" rx="18" fill="#111827" stroke="#2c3d62" stroke-width="2"/>
-  <text class="small-label" x="92" y="883">AUDITABLE HANDOFF CHAIN</text>
-
-  <rect class="pill" x="92" y="902" width="172" height="46"/>
-  <text class="pill-text" x="129" y="932">Intent</text>
-  <rect class="pill" x="286" y="902" width="206" height="46"/>
-  <text class="pill-text" x="318" y="932">Research brief</text>
-  <rect class="pill" x="514" y="902" width="210" height="46"/>
-  <text class="pill-text" x="546" y="932">Canonical spec</text>
-  <rect class="pill" x="746" y="902" width="186" height="46"/>
-  <text class="pill-text" x="784" y="932">KiCad board</text>
-  <rect class="pill" x="954" y="902" width="170" height="46"/>
-  <text class="pill-text" x="995" y="932">Clean DRC</text>
-  <rect class="pill" x="1146" y="902" width="190" height="46"/>
-  <text class="pill-text" x="1186" y="932">Fab bundle</text>
-  <rect class="pill" x="1358" y="902" width="140" height="46"/>
-  <text class="pill-text" x="1395" y="932">Demo UI</text>
-
-  <path class="arrow" d="M264 925 L278 925"/>
-  <path class="arrow" d="M492 925 L506 925"/>
-  <path class="arrow" d="M724 925 L738 925"/>
-  <path class="arrow" d="M932 925 L946 925"/>
-  <path class="green-arrow" d="M1124 925 L1138 925"/>
-  <path class="arrow" d="M1336 925 L1350 925"/>
-
-  <text class="note" x="70" y="975">Core idea: agents do not stop at text. They operate KiCad artifacts, read tool failures, and keep iterating until exportable hardware files exist.</text>
+  <text class="note" x="92" y="866">Core idea: the agents do not only write text. They operate real KiCad files, read tool failures, and keep iterating across artifact boundaries.</text>
 </svg>
