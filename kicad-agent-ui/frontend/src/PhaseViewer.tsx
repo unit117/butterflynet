@@ -13,6 +13,134 @@ import type { TerminalLine } from "./terminal_phase1";
 import { TerminalPanel } from "./TerminalPanel";
 
 type PlayState = "idle" | "playing" | "paused";
+type ResearchPane = "terminal" | "reference";
+
+interface ResearchSourcePreview {
+  eyebrow: string;
+  title: string;
+  detail: string;
+  bullets: string[];
+  showImage: boolean;
+}
+
+// ─── Demo Overview ───
+function OverviewView() {
+  const proofPoints = [
+    { label: "Innovation", value: "Agents operate a real EDA app workflow" },
+    { label: "Technical Depth", value: "KiCad files, DRC loops, routing, fabrication export" },
+    { label: "Completeness", value: "Prompt to research, board, validation, and factory package" },
+    { label: "Practicality", value: "Targets painful hardware iteration work" },
+    { label: "Presentation", value: "Each phase hands a concrete artifact to the next" },
+  ];
+
+  return (
+    <div className="phase-content overview-view">
+      <div className="overview-kicad-panel">
+        <div className="overview-window">
+          <div className="overview-window-titlebar">
+            <div className="overview-window-dots">
+              <span className="terminal-dot red" />
+              <span className="terminal-dot yellow" />
+              <span className="terminal-dot green" />
+            </div>
+            <div className="overview-window-title">candle - KiCad 10.0</div>
+          </div>
+          <div className="overview-kicad-body">
+            <div className="overview-project-tree">
+              <div className="overview-pane-title">Project Files</div>
+              <div className="overview-tree-line project">candle.kicad_pro [main]</div>
+              <div className="overview-tree-line folder">candle.pretty</div>
+              <div className="overview-tree-line child">Candle_LED_0603_Matrix.kicad_mod</div>
+              <div className="overview-tree-line child">Candle_StemSocket_4Pad.kicad_mod</div>
+              <div className="overview-tree-line folder">outputs</div>
+              <div className="overview-tree-line child">fabrication/gerbers</div>
+              <div className="overview-tree-line selected">candle.kicad_pcb</div>
+              <div className="overview-tree-line">candle.kicad_sch</div>
+              <div className="overview-tree-line">tools/generate_candle.py</div>
+            </div>
+            <div className="overview-kicad-tools">
+              <div className="overview-tool-row active">
+                <div className="overview-tool-icon pcb-icon" />
+                <div>
+                  <div className="overview-tool-name">PCB Editor</div>
+                  <div className="overview-tool-desc">Edit the project PCB design</div>
+                </div>
+              </div>
+              <div className="overview-tool-row">
+                <div className="overview-tool-icon sch-icon" />
+                <div>
+                  <div className="overview-tool-name">Schematic Editor</div>
+                  <div className="overview-tool-desc">Edit the project schematic</div>
+                </div>
+              </div>
+              <div className="overview-tool-row">
+                <div className="overview-tool-icon gerber-icon" />
+                <div>
+                  <div className="overview-tool-name">Gerber Viewer</div>
+                  <div className="overview-tool-desc">Preview manufacturing files</div>
+                </div>
+              </div>
+              <div className="overview-kicad-caption">
+                The demo runs on actual KiCad project files, not a mock board format.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div className="overview-object-strip">
+          <div>
+            <span className="overview-object-value">430x30mm</span>
+            <span className="overview-object-label">4-layer board</span>
+          </div>
+          <div>
+            <span className="overview-object-value">256</span>
+            <span className="overview-object-label">LEDs</span>
+          </div>
+          <div>
+            <span className="overview-object-value">272</span>
+            <span className="overview-object-label">components</span>
+          </div>
+          <div>
+            <span className="overview-object-value">451 -&gt; 0</span>
+            <span className="overview-object-label">DRC violations</span>
+          </div>
+        </div>
+      </div>
+
+      <div className="overview-story-panel">
+        <div className="overview-eyebrow">Overview</div>
+        <h2>Agents meet KiCad, then keep working until the board is fab-ready.</h2>
+        <p>
+          KiCad gives the agents structured files and deterministic tools. The models reason about
+          intent, specs, and failures; the toolchain mutates, checks, and exports the real hardware
+          artifacts.
+        </p>
+
+        <div className="overview-chain">
+          <span>intent</span>
+          <span>research brief</span>
+          <span>canonical spec</span>
+          <span>KiCad board</span>
+          <span>clean DRC</span>
+          <span>fab bundle</span>
+        </div>
+
+        <div className="overview-proof-grid">
+          {proofPoints.map((point) => (
+            <div key={point.label} className="overview-proof-card">
+              <div className="overview-proof-label">{point.label}</div>
+              <div className="overview-proof-value">{point.value}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="overview-start-note">
+          Press Start Phase 1 to begin with an empty agent session.
+        </div>
+      </div>
+    </div>
+  );
+}
 
 // ─── Tag badges ───
 const TAG_COLORS: Record<string, { bg: string; fg: string }> = {
@@ -20,6 +148,70 @@ const TAG_COLORS: Record<string, { bg: string; fg: string }> = {
   "photo-derived": { bg: "#e65100", fg: "#ffa726" },
   reconstruction: { bg: "#01579b", fg: "#4fc3f7" },
 };
+
+const SOURCE_PREVIEWS: Record<string, ResearchSourcePreview> = {
+  "Ingo Maurer product page": {
+    eyebrow: "Official product source",
+    title: "Ingo Maurer My New Flame",
+    detail: "Canonical product identity, proportions, and visible interaction constraints for the lamp recreation.",
+    bullets: ["Confirms product name", "Shows slim PCB stem and metal base", "Establishes visual target"],
+    showImage: true,
+  },
+  "MoMA Design Store listing": {
+    eyebrow: "Retail listing",
+    title: "Commercial listing cross-check",
+    detail: "Independent public listing used to verify product naming and published feature claims.",
+    bullets: ["Name consistency", "Product category", "Public-facing specification sanity check"],
+    showImage: true,
+  },
+  "Official instruction manual (PDF)": {
+    eyebrow: "Official manual",
+    title: "Power and operation constraints",
+    detail: "Manual evidence for USB charging behavior, battery configuration, and charging status LED behavior.",
+    bullets: ["4x AA NiMH cells", "Runs while charging", "Base LED status behavior"],
+    showImage: false,
+  },
+  "USB-C product revision notes": {
+    eyebrow: "Revision evidence",
+    title: "USB-C input revision",
+    detail: "Revision source for current connector and input power assumptions before the design branch.",
+    bullets: ["USB-C input", "5V max 1000mA", "Modernized connector target"],
+    showImage: false,
+  },
+  "Manual cover art (high-res scan)": {
+    eyebrow: "Photo-derived evidence",
+    title: "Visible PCB and LED layout",
+    detail: "High-resolution visual source used to infer the rectangular LED matrix and concealed contact features.",
+    bullets: ["8x16 LED field per face", "Rectangular physical population", "Visible stem/base contact clues"],
+    showImage: true,
+  },
+  "IS31FL3731/3733 datasheets (ISSI)": {
+    eyebrow: "Component datasheet",
+    title: "LED matrix driver candidates",
+    detail: "Datasheets used to compare the likely matrix-driver family and constrain the charlieplexed LED architecture.",
+    bullets: ["ISSI LED driver family", "Matrix-driver capability", "IC ambiguity carried into review"],
+    showImage: false,
+  },
+  "ATtiny1616 datasheet (Microchip)": {
+    eyebrow: "MCU datasheet",
+    title: "Stem controller candidate",
+    detail: "Microcontroller source used for I2C, UPDI, and button-control assumptions in the reconstructed design.",
+    bullets: ["20-pin AVR", "Hardware I2C", "UPDI programming path"],
+    showImage: false,
+  },
+};
+
+function getResearchPreview(sourceName: string): ResearchSourcePreview {
+  return (
+    SOURCE_PREVIEWS[sourceName] || {
+      eyebrow: "Research source",
+      title: sourceName,
+      detail: "Source consulted by the research agent and carried into the tagged fact ledger.",
+      bullets: ["Source-linked fact evidence", "Reviewable provenance", "Available to downstream spec agents"],
+      showImage: false,
+    }
+  );
+}
 
 // ─── Animated counter ───
 function useAnimatedValue(target: number, duration = 500): number {
@@ -47,7 +239,13 @@ function useAnimatedValue(target: number, duration = 500): number {
 }
 
 // ─── Phase 1: Research ───
-function ResearchView({ events }: { events: DemoEvent[] }) {
+function ResearchView({
+  events,
+  onShowReference,
+}: {
+  events: DemoEvent[];
+  onShowReference: (source: DemoEvent) => void;
+}) {
   const sources = events.filter((e) => e.type === "source_fetched");
   const facts = events.filter((e) => e.type === "fact_added");
   const questions = events.filter((e) => e.type === "question_added");
@@ -67,10 +265,11 @@ function ResearchView({ events }: { events: DemoEvent[] }) {
         <div className="section-label">Sources Consulted ({sources.length})</div>
         <div className="research-list" ref={sourceListRef}>
           {sources.map((e) => (
-            <div key={e.t} className="source-row fade-in">
+            <button key={e.t} className="source-row fade-in" type="button" onClick={() => onShowReference(e)}>
               <span className="source-icon">{e.payload.icon as string}</span>
               <span className="source-name">{e.payload.source as string}</span>
-            </div>
+              <span className="source-action">View</span>
+            </button>
           ))}
         </div>
       </div>
@@ -100,6 +299,61 @@ function ResearchView({ events }: { events: DemoEvent[] }) {
               <span className="question-text">{e.payload.question as string}</span>
             </div>
           ))}
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ResearchReferencePane({
+  source,
+  onShowTerminal,
+}: {
+  source: DemoEvent | null;
+  onShowTerminal: () => void;
+}) {
+  const sourceName = (source?.payload.source as string | undefined) || "Ingo Maurer product page";
+  const sourceUrl = source?.payload.url as string | undefined;
+  const preview = getResearchPreview(sourceName);
+
+  return (
+    <div className="phase-content research-reference-pane">
+      <div className="terminal-panel reference-terminal-panel">
+        <div className="terminal-chrome">
+          <span className="terminal-dot red" />
+          <span className="terminal-dot yellow" />
+          <span className="terminal-dot green" />
+          <span className="terminal-title">source-preview · {sourceName}</span>
+          <button className="terminal-action-btn" type="button" onClick={onShowTerminal}>
+            Show terminal
+          </button>
+        </div>
+        <div className={`reference-preview-body ${preview.showImage ? "" : "no-image"}`}>
+          {preview.showImage && (
+            <div className="reference-preview-image-wrap">
+              <img
+                className="reference-preview-image"
+                src="/reference/my-new-flame-reference.png"
+                alt="Ingo Maurer My New Flame reference"
+              />
+            </div>
+          )}
+          <div className="reference-preview-meta">
+            <div>
+              <div className="reference-preview-eyebrow">{preview.eyebrow}</div>
+              <div className="reference-preview-title">{preview.title}</div>
+              {sourceUrl && <div className="reference-preview-url">{sourceUrl}</div>}
+            </div>
+            <div className="reference-preview-detail">{preview.detail}</div>
+            <div className="reference-preview-bullets">
+              {preview.bullets.map((bullet) => (
+                <div key={bullet} className="reference-preview-bullet">
+                  <span />
+                  <strong>{bullet}</strong>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -871,6 +1125,11 @@ function ValidateView({ currentBeat, beats }: { currentBeat: number; beats: Beat
 function ExportView({ events }: { events: DemoEvent[] }) {
   const artifacts = events.filter((e) => e.type === "artifact");
   const bundle = events.find((e) => e.type === "bundle");
+  const bundlePayload = bundle?.payload || {
+    name: "candle-fabrication-bundle.zip",
+    size: "246.8 KB",
+    href: "/exports/candle/fabrication/candle-fabrication-bundle.zip",
+  };
 
   useEffect(() => {
     void import("@google/model-viewer");
@@ -879,7 +1138,18 @@ function ExportView({ events }: { events: DemoEvent[] }) {
   return (
     <div className="phase-content export-view">
       <div className="export-list-panel">
-        <div className="section-label">Fabrication Artifacts</div>
+        <div className="section-label">Fabrication ZIP</div>
+        <a
+          className="export-bundle ready fade-in"
+          href={bundlePayload.href as string | undefined}
+          download
+        >
+          <div className="export-bundle-name">{bundlePayload.name as string}</div>
+          <div className="export-bundle-size">{bundlePayload.size as string}</div>
+          <div className="export-bundle-ready">Download fabrication ZIP</div>
+        </a>
+
+        <div className="section-label export-subsection-label">Individual Files ({artifacts.length})</div>
         <div className="export-list">
           {artifacts.map((e, i) => {
             const href = e.payload.href as string | undefined;
@@ -891,13 +1161,6 @@ function ExportView({ events }: { events: DemoEvent[] }) {
             );
           })}
         </div>
-        {bundle && (
-          <a className="export-bundle fade-in" href={bundle.payload.href as string | undefined} download>
-            <div className="export-bundle-name">{bundle.payload.name as string}</div>
-            <div className="export-bundle-size">{bundle.payload.size as string}</div>
-            <div className="export-bundle-ready">Ready for fabrication</div>
-          </a>
-        )}
       </div>
 
       <div className="export-model-panel">
@@ -932,7 +1195,10 @@ export function PhaseViewer() {
   const [replays, setReplays] = useState<Record<Phase, DemoEvent[]> | null>(null);
   const [beats, setBeats] = useState<Beat[]>([]);
   const [phase, setPhase] = useState<Phase>("research");
+  const [showOverview, setShowOverview] = useState(true);
   const [playState, setPlayState] = useState<PlayState>("idle");
+  const [researchPane, setResearchPane] = useState<ResearchPane>("terminal");
+  const [selectedResearchSource, setSelectedResearchSource] = useState<DemoEvent | null>(null);
   const [speed, setSpeed] = useState(1);
   const [visibleEvents, setVisibleEvents] = useState<DemoEvent[]>([]);
   const [drcBeat, setDrcBeat] = useState(-1);
@@ -954,11 +1220,20 @@ export function PhaseViewer() {
     setVisibleEvents([]);
     setTerminalCount(0);
     setDrcBeat(-1);
+    if (p === "research") {
+      setResearchPane("terminal");
+      setSelectedResearchSource(null);
+    }
+  }, []);
+
+  const handleResearchPreview = useCallback((source: DemoEvent) => {
+    setSelectedResearchSource(source);
+    setResearchPane("reference");
   }, []);
 
   // Event replay engine
   useEffect(() => {
-    if (playState !== "playing" || !replays) return;
+    if (showOverview || playState !== "playing" || !replays) return;
     if (phase === "validate") {
       const nextBeat = beats[drcBeat + 1];
       if (!nextBeat) {
@@ -996,11 +1271,11 @@ export function PhaseViewer() {
     }, Math.max(0, delay));
 
     return () => clearTimeout(timerRef.current);
-  }, [playState, phase, visibleEvents, drcBeat, speed, resetPhase, replays, beats]);
+  }, [showOverview, playState, phase, visibleEvents, drcBeat, speed, resetPhase, replays, beats]);
 
   // Parallel terminal-line stream for the research phase.
   useEffect(() => {
-    if (phase !== "research" || playState !== "playing") return;
+    if (showOverview || phase !== "research" || playState !== "playing") return;
     const next = PHASE1_TERMINAL[terminalCount];
     if (!next) return;
     const elapsed = (performance.now() - phaseStartRef.current) * speed;
@@ -1009,9 +1284,16 @@ export function PhaseViewer() {
       setTerminalCount((c) => c + 1);
     }, delay);
     return () => clearTimeout(terminalTimerRef.current);
-  }, [playState, phase, terminalCount, speed]);
+  }, [showOverview, playState, phase, terminalCount, speed]);
 
   const handlePlay = () => {
+    if (showOverview) {
+      setShowOverview(false);
+      resetPhase("research");
+      phaseStartRef.current = performance.now();
+      setPlayState("playing");
+      return;
+    }
     if (playState === "idle") {
       resetPhase(phase);
       phaseStartRef.current = performance.now();
@@ -1031,7 +1313,16 @@ export function PhaseViewer() {
     setPlayState("idle");
     clearTimeout(timerRef.current);
     clearTimeout(terminalTimerRef.current);
-    resetPhase(phase);
+    if (!showOverview) resetPhase(phase);
+    phaseStartRef.current = 0;
+  };
+
+  const handleOverviewClick = () => {
+    setPlayState("idle");
+    clearTimeout(timerRef.current);
+    clearTimeout(terminalTimerRef.current);
+    setShowOverview(true);
+    resetPhase("research");
     phaseStartRef.current = 0;
   };
 
@@ -1040,6 +1331,7 @@ export function PhaseViewer() {
     setPlayState("idle");
     clearTimeout(timerRef.current);
     clearTimeout(terminalTimerRef.current);
+    setShowOverview(false);
     phaseStartRef.current = 0;
     resetPhase(p);
   };
@@ -1061,7 +1353,9 @@ export function PhaseViewer() {
           {playState === "playing" ? (
             <button className="pv-btn" onClick={handlePause}>⏸ Pause</button>
           ) : (
-            <button className="pv-btn primary" onClick={handlePlay}>▶ Play</button>
+            <button className="pv-btn primary" onClick={handlePlay}>
+              {showOverview ? "▶ Start Phase 1" : "▶ Play"}
+            </button>
           )}
           <button className="pv-btn" onClick={handleReset}>↺ Reset</button>
           <select className="pv-speed" value={speed} onChange={(e) => setSpeed(Number(e.target.value))}>
@@ -1074,9 +1368,16 @@ export function PhaseViewer() {
       </div>
 
       <div className="phase-tabs">
+        <button
+          className={`phase-tab overview-tab ${showOverview ? "active" : ""}`}
+          onClick={handleOverviewClick}
+        >
+          <span className="phase-tab-num">0</span>
+          <span className="phase-tab-label">Overview</span>
+        </button>
         {ALL_PHASES.map((p, i) => {
-          const isActive = p === phase;
-          const isPast = ALL_PHASES.indexOf(phase) > i;
+          const isActive = !showOverview && p === phase;
+          const isPast = !showOverview && ALL_PHASES.indexOf(phase) > i;
           return (
             <button
               key={p}
@@ -1091,33 +1392,40 @@ export function PhaseViewer() {
       </div>
 
       <div
-        className={`phase-body ${phase === "research" ? "research-phase-body" : ""} ${
-          phase === "design" ? "design-phase-body" : ""
+        className={`phase-body ${showOverview ? "overview-phase-body" : ""} ${
+          !showOverview && phase === "research" ? "research-phase-body" : ""
         } ${
-          phase === "build" ? "build-phase-body" : ""
+          !showOverview && phase === "design" ? "design-phase-body" : ""
         } ${
-          phase === "validate" ? "validate-phase-body" : ""
+          !showOverview && phase === "build" ? "build-phase-body" : ""
         } ${
-          phase === "export" ? "export-phase-body" : ""
+          !showOverview && phase === "validate" ? "validate-phase-body" : ""
+        } ${
+          !showOverview && phase === "export" ? "export-phase-body" : ""
         }`}
       >
-        {phase === "research" && (
+        {showOverview && <OverviewView />}
+        {!showOverview && phase === "research" && (
           <>
-            <ResearchView events={visibleEvents} />
-            <div className="phase-content terminal-container">
-              <TerminalPanel
-                lines={PHASE1_TERMINAL}
-                visibleCount={terminalCount}
-                agent={PHASE1_AGENT}
-                isStreaming={playState === "playing"}
-              />
-            </div>
+            <ResearchView events={visibleEvents} onShowReference={handleResearchPreview} />
+            {researchPane === "terminal" ? (
+              <div className="phase-content terminal-container">
+                <TerminalPanel
+                  lines={PHASE1_TERMINAL}
+                  visibleCount={terminalCount}
+                  agent={PHASE1_AGENT}
+                  isStreaming={playState === "playing"}
+                />
+              </div>
+            ) : (
+              <ResearchReferencePane source={selectedResearchSource} onShowTerminal={() => setResearchPane("terminal")} />
+            )}
           </>
         )}
-        {phase === "design" && <DesignView events={visibleEvents} />}
-        {phase === "build" && <BuildView events={visibleEvents} />}
-        {phase === "validate" && <ValidateView currentBeat={drcBeat} beats={beats} />}
-        {phase === "export" && <ExportView events={visibleEvents} />}
+        {!showOverview && phase === "design" && <DesignView events={visibleEvents} />}
+        {!showOverview && phase === "build" && <BuildView events={visibleEvents} />}
+        {!showOverview && phase === "validate" && <ValidateView currentBeat={drcBeat} beats={beats} />}
+        {!showOverview && phase === "export" && <ExportView events={visibleEvents} />}
       </div>
     </div>
   );
