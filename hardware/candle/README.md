@@ -1,7 +1,40 @@
 # Candle
 
-This folder now contains an active KiCad build for the `v5 modernized` candle
-direction in [`candle_spec_v5_modernized.md`](./candle_spec_v5_modernized.md).
+This folder contains the KiCad candle hardware artifact for the agent pipeline
+demo. The design target is the `v5 modernized` direction described in
+[`candle_spec_v5_modernized.md`](./candle_spec_v5_modernized.md): a tall,
+exposed LED stem inspired by the My New Flame lamp, with the battery and charge
+electronics kept in a concealed base.
+
+This is an auditable generated hardware snapshot, not a hand-polished consumer
+product release. It includes the KiCad source project, local footprints,
+generated docs, fabrication-format outputs, 3D assets, validation reports, and
+the automation scripts used to regenerate or inspect the board.
+
+## Reviewer quick start
+
+- Open `candle.kicad_pro` in KiCad to inspect the schematic and PCB.
+- Read `outputs/docs/candle-schematic.pdf` for the electrical architecture.
+- Read `outputs/docs/candle-board-front.pdf` and
+  `outputs/docs/candle-board-back.pdf` for board plots.
+- Inspect `outputs/candle.glb` or `outputs/candle.step` for the 3D board model.
+- Inspect `outputs/fabrication/candle-fabrication-bundle.zip` for the exported
+  Gerbers, drill files, BOM, placement CSV, and netlist.
+- Check `outputs/candle-drc.json`, `outputs/candle-erc.json`, and
+  `outputs/recovery/latest-report.md` for validation state and recovery history.
+
+## Status and caveats
+
+The demo UI shows the full agent pipeline, including a validation replay where
+agents iterate DRC fixes down to a clean board. This directory preserves the
+checked-in KiCad project snapshot and its generated export artifacts for review.
+That snapshot is useful for inspecting the real board structure and automation
+outputs, but it still has known validation issues listed below.
+
+Do not send this board directly to fabrication as a production design without
+resolving the current ERC/DRC items and doing an electrical engineering review.
+The fabrication files are included to demonstrate the exporter and the expected
+manufacturing artifact shape.
 
 ## Active design assets
 
@@ -21,6 +54,21 @@ direction in [`candle_spec_v5_modernized.md`](./candle_spec_v5_modernized.md).
   DRC snapshots, diffs, and crossing hotspots per iteration
 - `tools/drc_hotspots.py`: read-only DRC hotspot analyzer grouped by type, net
   pair, and coarse board region
+
+## Exported artifacts
+
+- `outputs/docs/`: schematic and board PDFs for quick review without opening
+  KiCad
+- `outputs/fabrication/gerbers/`: copper, mask, silkscreen, outline, and job
+  files
+- `outputs/fabrication/drill/`: plated, non-plated, and internal-layer drill
+  files plus drill maps
+- `outputs/fabrication/candle-assembly-bom.csv`: generated assembly BOM
+- `outputs/fabrication/candle-pos.csv`: generated pick-and-place positions
+- `outputs/fabrication/candle-assembly-notes.md`: assembly notes and exclusions
+- `outputs/fabrication/candle-fabrication-bundle.zip`: bundled manufacturing
+  export
+- `outputs/candle.glb` and `outputs/candle.step`: 3D board assets
 
 ## Architecture captured here
 
@@ -96,10 +144,11 @@ grouping.
 
 The current board is a generated first-pass implementation of the modernized
 stem with real matrix placement, routing structure, and exported KiCad assets.
-The remaining issues are concentrated in dense driver-fanout geometry and
-schematic cleanliness rather than missing project scaffolding. The latest
-`stabilize_candle.py --runs 3` sample reproduced the same `266` board in all
-three runs.
+The remaining issues are concentrated in dense driver-fanout geometry,
+clearance/track-crossing cleanup, and schematic cleanliness rather than missing
+project scaffolding. The latest `stabilize_candle.py --runs 3` sample
+reproduced the same `266` board in all three runs, which makes the snapshot
+stable enough for audit and replay work even though it is not production-clean.
 
 ## Reference material
 

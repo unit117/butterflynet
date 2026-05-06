@@ -8,6 +8,9 @@ Current working snapshot of the original KiCad candle project from:
 
 `/Users/unit117/Dev/kicad/candle`
 
+Start with [`candle/README.md`](./candle/README.md) for the board-specific
+quick start, validation caveats, and exported artifact map.
+
 It includes:
 
 - KiCad project files: `candle.kicad_pro`, `candle.kicad_sch`, `candle.kicad_pcb`, `fp-lib-table`, `sym-lib-table`
