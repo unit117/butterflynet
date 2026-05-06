@@ -169,6 +169,8 @@ Fabrication outputs include:
 
 [Open the architecture diagram](docs/architecture-diagram.svg).
 
+[PNG version](docs/architecture-diagram.png).
+
 ```text
 User goal
    |
