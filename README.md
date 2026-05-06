@@ -165,6 +165,10 @@ Fabrication outputs include:
 
 ## Architecture
 
+![KiCad Agent Pipeline Architecture](docs/architecture-diagram.svg)
+
+[Open the architecture diagram](docs/architecture-diagram.svg).
+
 ```text
 User goal
    |
